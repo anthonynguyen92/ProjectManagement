@@ -1,0 +1,12 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+#Node.js Tools for Visual Studio
+node_modules/
+
+# IDEs and editors
+.vs/
+obj/
+bin/
+aspnet-core/src/ProjectManagement.Web.Host/App_Data/Logs/
+aspnet-core/src/ProjectManagement.Web.Mvc/App_Data/Logs/
+aspnet-core/src/ProjectManagement.Migrator/Logs/Logs.txt
