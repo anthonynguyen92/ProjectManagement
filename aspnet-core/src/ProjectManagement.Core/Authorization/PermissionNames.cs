@@ -21,4 +21,28 @@
 
     }
     #endregion
+
+    #region Student
+    public class StudentPermission
+    {
+        public const string GroupName = "StudentManagement";
+
+        public const string Default = GroupName + ".Student";
+        public const string Create = Default + ".Create";
+        public const string Update = Default + ".Update";
+        public const string Delete = Default + ".Delete";
+    }
+    #endregion
+
+    #region 
+    public class TeacherPermission
+    {
+        public const string GroupName = "TeacherManagement";
+
+        public const string Default = GroupName + ".Teacher";
+        public const string Create = Default + ".Create";
+        public const string Update = Default + ".Update";
+        public const string Delete = Default + ".Delete";
+    }
+    #endregion
 }

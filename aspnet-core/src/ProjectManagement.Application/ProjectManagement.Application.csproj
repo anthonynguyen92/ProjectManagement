@@ -13,8 +13,4 @@
   <ItemGroup>
     <ProjectReference Include="..\ProjectManagement.Core\ProjectManagement.Core.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Students\Dto\" />
-    <Folder Include="Teachers\Dto\" />
-  </ItemGroup>
 </Project>

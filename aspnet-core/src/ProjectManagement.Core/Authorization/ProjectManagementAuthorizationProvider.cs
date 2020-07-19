@@ -19,6 +19,19 @@ namespace ProjectManagement.Authorization
             project.CreateChildPermission(ProjectPermission.Update, L("Permission:Update"));
             #endregion
 
+            #region student
+            var student = context.CreatePermission(StudentPermission.Default, L("Permission:StudentManagement"));
+            student.CreateChildPermission(StudentPermission.Create, L("Permission:Create"));
+            student.CreateChildPermission(StudentPermission.Delete, L("Permission:Delete"));
+            student.CreateChildPermission(StudentPermission.Update, L("Permission:Update"));
+            #endregion
+
+            #region teacher
+            var teacher = context.CreatePermission(TeacherPermission.Default, L("Permission:TeacherManagement"));
+            teacher.CreateChildPermission(TeacherPermission.Create, L("Permission:Create"));
+            teacher.CreateChildPermission(TeacherPermission.Delete, L("Permission:Delete"));
+            teacher.CreateChildPermission(TeacherPermission.Update, L("Permission:Update"));
+            #endregion
         }
 
         private static ILocalizableString L(string name)

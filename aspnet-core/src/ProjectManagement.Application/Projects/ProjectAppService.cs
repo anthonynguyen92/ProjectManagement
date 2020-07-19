@@ -1,11 +1,9 @@
 ﻿using Abp.Application.Services;
-using Abp.Application.Services.Dto;
 using Abp.Domain.Repositories;
 using ProjectManagement.Authorization;
 using ProjectManagement.Entites;
 using ProjectManagement.Projects.Dto;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ProjectManagement.Projects
@@ -24,11 +22,18 @@ namespace ProjectManagement.Projects
         protected override string GetAllPermissionName { get; set; } = ProjectPermission.Default;
         protected override string GetPermissionName { get; set; } = ProjectPermission.Default;
 
-        
 
-        protected override IQueryable<Project> CreateFilteredQuery(PagedProjectResultRequestDto input)
+        public async Task<Project> GetById(Guid id)
         {
-            return base.CreateFilteredQuery(input);
+            CheckCreatePermission();
+            var entity = await Repository.GetAsync(id);
+            if (entity != null)
+            {
+                return entity;
+            }
+            return null;
         }
+
+        //public async Task<>
     }
 }
