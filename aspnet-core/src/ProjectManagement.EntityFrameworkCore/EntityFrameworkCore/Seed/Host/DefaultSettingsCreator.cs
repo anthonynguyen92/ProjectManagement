@@ -26,7 +26,7 @@ namespace ProjectManagement.EntityFrameworkCore.Seed.Host
             }
 
             // Emailing
-            AddSettingIfNotExists(EmailSettingNames.DefaultFromAddress, "admin@mydomain.com", tenantId);
+            AddSettingIfNotExists(EmailSettingNames.DefaultFromAddress, "mitchanhly@gmail.com", tenantId);
             AddSettingIfNotExists(EmailSettingNames.DefaultFromDisplayName, "mydomain.com mailer", tenantId);
 
             // Languages
