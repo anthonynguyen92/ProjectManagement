@@ -1,6 +1,8 @@
 ﻿using Abp.Application.Services;
+using ProjectManagement.Entites;
 using ProjectManagement.Projects.Dto;
 using System;
+using System.Threading.Tasks;
 
 namespace ProjectManagement.Projects
 {
@@ -8,5 +10,6 @@ namespace ProjectManagement.Projects
         Guid, PagedProjectResultRequestDto, 
         CreateUpdateProjectDto, CreateUpdateProjectDto,GetProjectForEditDto>
     {
+        Task<Project> GetById(Guid id);
     }
 }

@@ -1,21 +1,18 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
-using ProjectManagement.Consts;
 using ProjectManagement.Entites;
 using ProjectManagement.Enum;
-using ProjectManagement.MultiTenancy.Dto;
+using ProjectManagement.Students.Dto;
+using ProjectManagement.Teachers.Dto;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace ProjectManagement.Projects.Dto
 {
     [AutoMapTo(typeof(Project))]
     public class ProjectDto : EntityDto<Guid>
     {
-        [MaxLength(ProjectConsts.NameMaxLength)]
         public string ProjectName { get; set; }
-        [MaxLength(ProjectConsts.ContentMaxLength)]
         public string Descriptions { get; set; }
         public DateTime? DateStart { get; set; }
         public DateTime? DateExpried { get; set; }
@@ -26,8 +23,6 @@ namespace ProjectManagement.Projects.Dto
         public ProjectType ProjectType { get; set; }
         public Status Status { get; set; }
         public Level Level { get; set; }
-        public List<StudentProjectDto> Students { get; set; }
-        public List<TeacherProjectDto> Teachers { get; set; }
         public int Setmester { get; set; }
     }
 }
