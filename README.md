@@ -17,10 +17,11 @@ After to angular and open with terminal
 ```bash
 npm start
 ```
-
+### See your result
+Open your browser and go to [http://localhost:4200](http://localhost:4200)
 
 ### Contributing
-Please before push resquest, make sure to update new source from dev branch
+Please before push resquest, make sure update new source from dev branch
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
