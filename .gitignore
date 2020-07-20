@@ -2,6 +2,7 @@
 
 #Node.js Tools for Visual Studio
 node_modules/
+angular/package-lock.json
 
 # IDEs and editors
 .vs/
