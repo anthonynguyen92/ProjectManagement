@@ -20,22 +20,12 @@
         <div class="card-header">
           <div class="input-group">
             <div class="input-group-prepend">
-              <button
-                type="button"
-                class="btn bg-blue"
-                (click)="getDataPage(1)"
-              >
+              <button type="button" class="btn bg-blue" (click)="getDataPage(1)">
                 <i class="fas fa-search"></i>
               </button>
             </div>
-            <input
-              type="text"
-              class="form-control"
-              name="keyword"
-              [placeholder]="'SearchWithThreeDot' | localize"
-              [(ngModel)]="keyword"
-              (keyup.enter)="getDataPage(1)"
-            />
+            <input type="text" class="form-control" name="keyword" [placeholder]="'SearchWithThreeDot' | localize"
+              [(ngModel)]="keyword" (keyup.enter)="getDataPage(1)" />
           </div>
         </div>
         <div class="card-body table-responsive p-0">
@@ -48,9 +38,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr
-                *ngFor="
-                  let role of roles
+              <tr *ngFor="let role of roles
                     | paginate
                       : {
                           id: 'server',
@@ -58,24 +46,15 @@
                           currentPage: pageNumber,
                           totalItems: totalItems
                         }
-                "
-              >
+                ">
                 <td>{{ role.name }}</td>
                 <td>{{ role.displayName }}</td>
                 <td>
-                  <button
-                    type="button"
-                    class="btn btn-sm bg-secondary"
-                    (click)="editRole(role)"
-                  >
+                  <button type="button" class="btn btn-sm bg-secondary" (click)="editRole(role)">
                     <i class="fas fa-pencil-alt"></i>
                     {{ "Edit" | localize }}
                   </button>
-                  <button
-                    type="button"
-                    class="btn btn-sm bg-danger mx-2"
-                    (click)="delete(role)"
-                  >
+                  <button type="button" class="btn btn-sm bg-danger mx-2" (click)="delete(role)">
                     <i class="fas fa-trash"></i>
                     {{ "Delete" | localize }}
                   </button>
@@ -98,10 +77,7 @@
             </div>
             <div class="col-sm-4 col-12">
               <div class="float-sm-right m-auto">
-                <abp-pagination-controls
-                  id="server"
-                  (pageChange)="getDataPage($event)"
-                >
+                <abp-pagination-controls id="server" (pageChange)="getDataPage($event)">
                 </abp-pagination-controls>
               </div>
             </div>
