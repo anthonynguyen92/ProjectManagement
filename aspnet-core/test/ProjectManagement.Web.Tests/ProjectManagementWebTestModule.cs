@@ -1,38 +1,113 @@
-﻿using Abp.AspNetCore;
-using Abp.AspNetCore.TestBase;
-using Abp.Modules;
-using Abp.Reflection.Extensions;
-using ProjectManagement.EntityFrameworkCore;
-using ProjectManagement.Web.Startup;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using Localization.Resources.AbpUi;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using ProjectManagement.Localization;
+using ProjectManagement.Web;
+using ProjectManagement.Web.Menus;
+using Volo.Abp;
+using Volo.Abp.AspNetCore.TestBase;
+using Volo.Abp.Localization;
+using Volo.Abp.Modularity;
+using Volo.Abp.UI.Navigation;
+using Volo.Abp.Validation.Localization;
 
-namespace ProjectManagement.Web.Tests
+namespace ProjectManagement
 {
     [DependsOn(
-        typeof(ProjectManagementWebMvcModule),
-        typeof(AbpAspNetCoreTestBaseModule)
+        typeof(AbpAspNetCoreTestBaseModule),
+        typeof(ProjectManagementWebModule),
+        typeof(ProjectManagementApplicationTestModule)
     )]
     public class ProjectManagementWebTestModule : AbpModule
     {
-        public ProjectManagementWebTestModule(ProjectManagementEntityFrameworkModule abpProjectNameEntityFrameworkModule)
+        public override void PreConfigureServices(ServiceConfigurationContext context)
         {
-            abpProjectNameEntityFrameworkModule.SkipDbContextRegistration = true;
-        } 
-        
-        public override void PreInitialize()
-        {
-            Configuration.UnitOfWork.IsTransactional = false; //EF Core InMemory DB does not support transactions.
+            context.Services.PreConfigure<IMvcBuilder>(builder =>
+            {
+                builder.PartManager.ApplicationParts.Add(new AssemblyPart(typeof(ProjectManagementWebModule).Assembly));
+            });
         }
 
-        public override void Initialize()
+        public override void ConfigureServices(ServiceConfigurationContext context)
         {
-            IocManager.RegisterAssemblyByConvention(typeof(ProjectManagementWebTestModule).GetAssembly());
+            ConfigureLocalizationServices(context.Services);
+            ConfigureNavigationServices(context.Services);
         }
-        
-        public override void PostInitialize()
+
+        private static void ConfigureLocalizationServices(IServiceCollection services)
         {
-            IocManager.Resolve<ApplicationPartManager>()
-                .AddApplicationPartsIfNotAddedBefore(typeof(ProjectManagementWebMvcModule).Assembly);
+            var cultures = new List<CultureInfo> { new CultureInfo("en"), new CultureInfo("tr") };
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                options.DefaultRequestCulture = new RequestCulture("en");
+                options.SupportedCultures = cultures;
+                options.SupportedUICultures = cultures;
+            });
+
+            services.Configure<AbpLocalizationOptions>(options =>
+            {
+                options.Resources
+                    .Get<ProjectManagementResource>()
+                    .AddBaseTypes(
+                        typeof(AbpValidationResource),
+                        typeof(AbpUiResource)
+                    );
+            });
+        }
+
+        private static void ConfigureNavigationServices(IServiceCollection services)
+        {
+            services.Configure<AbpNavigationOptions>(options =>
+            {
+                options.MenuContributors.Add(new ProjectManagementMenuContributor());
+            });
+        }
+
+        public override void OnApplicationInitialization(ApplicationInitializationContext context)
+        {
+            var app = context.GetApplicationBuilder();
+            var env = context.GetEnvironment();
+
+            app.Use(async (ctx, next) =>
+            {
+                try
+                {
+                    await next();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+            });
+
+            app.UseVirtualFiles();
+            app.UseRouting();          
+            app.UseAuthentication();
+            app.UseAbpRequestLocalization();
+            app.UseAuthorization();
+
+
+            app.Use(async (ctx, next) =>
+            {
+                try
+                {
+                    await next();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+            });
+
+            app.UseConfiguredEndpoints();
         }
     }
 }

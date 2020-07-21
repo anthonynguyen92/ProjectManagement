@@ -250,3 +250,11 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+# ProjectManagement
+src/ProjectManagement.Web/Logs/*
+src/ProjectManagement.Web.Host/Logs/*
+src/ProjectManagement.IdentityServer/Logs/*
+src/ProjectManagement.HttpApi.Host/Logs/*
+src/ProjectManagement.HttpApi.HostWithIds/Logs/*
+src/ProjectManagement.DbMigrator/Logs/*
