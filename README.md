@@ -5,12 +5,12 @@
 Use the package manager npm to see and read more.
 
 ```bash
-	npm install
+npm install
 ```
 ### Update namespace and library
 Go to aspnet-core\src
 ```sh
-	dotnet restore
+dotnet restore
 ```
 
 ### Create Database 
@@ -18,13 +18,13 @@ Go to aspnet-core\src
 Open your visual studio and get start wiht EntityFrameWorkCore.Migration
 Use NuGet Package Console
 ```sh
-	update-database
+update-database
 ```
 #### With .Net Cli
 Open folder EntityFrameWorkCore.Migration
 Open Powershell and run. Make sure you installed enviroment for this source. 
 ```sh
-	dotnet ef database update
+dotnet ef database update
 ```
 
 #2.  Run Project
@@ -35,7 +35,7 @@ dotnet run
 ```
 After to angular and open with terminal
 ```sh
-	npm start
+npm start
 ```
 ### See your result
 Open your browser and go to [http://localhost:4200](http://localhost:4200)
