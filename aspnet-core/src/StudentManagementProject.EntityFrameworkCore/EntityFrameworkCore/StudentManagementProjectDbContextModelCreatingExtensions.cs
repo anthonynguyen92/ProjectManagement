@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using StudentManagementProject.Entities;
 using Volo.Abp;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace StudentManagementProject.EntityFrameworkCore
 {
@@ -9,14 +11,31 @@ namespace StudentManagementProject.EntityFrameworkCore
         {
             Check.NotNull(builder, nameof(builder));
 
-            /* Configure your own tables/entities inside here */
-
-            //builder.Entity<YourEntity>(b =>
-            //{
-            //    b.ToTable(StudentManagementProjectConsts.DbTablePrefix + "YourEntities", StudentManagementProjectConsts.DbSchema);
-            //    b.ConfigureByConvention(); //auto configure for the base class props
-            //    //...
-            //});
+            builder.Entity<Project>(b =>
+            {
+                b.ToTable(StudentManagementProjectConsts.DbTableProject);
+                b.ConfigureByConvention();
+            });
+            builder.Entity<Student>(b =>
+            {
+                b.ToTable(StudentManagementProjectConsts.DbTableStudent);
+                b.ConfigureByConvention();
+            });
+            builder.Entity<Teacher>(b =>
+            {
+                b.ToTable(StudentManagementProjectConsts.DbTableTeacher);
+                b.ConfigureByConvention();
+            });
+            builder.Entity<StudentProject>(b =>
+            {
+                b.ToTable(StudentManagementProjectConsts.DbTableStudent + "Project");
+                b.ConfigureByConvention();
+            });
+            builder.Entity<TeacherProject>(b =>
+            {
+                b.ToTable(StudentManagementProjectConsts.DbTableTeacher + "Project");
+                b.ConfigureByConvention();
+            });
         }
     }
 }

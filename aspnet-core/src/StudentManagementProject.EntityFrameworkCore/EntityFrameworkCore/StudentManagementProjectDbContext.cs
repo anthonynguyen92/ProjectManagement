@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using StudentManagementProject.Entities;
 using StudentManagementProject.Users;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
@@ -21,10 +22,11 @@ namespace StudentManagementProject.EntityFrameworkCore
     public class StudentManagementProjectDbContext : AbpDbContext<StudentManagementProjectDbContext>
     {
         public DbSet<AppUser> Users { get; set; }
-
-        /* Add DbSet properties for your Aggregate Roots / Entities here.
-         * Also map them inside StudentManagementProjectDbContextModelCreatingExtensions.ConfigureStudentManagementProject
-         */
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<StudentProject> StudentProjects { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<TeacherProject> TeacherProjects { get; set; }
 
         public StudentManagementProjectDbContext(DbContextOptions<StudentManagementProjectDbContext> options)
             : base(options)
@@ -41,7 +43,7 @@ namespace StudentManagementProject.EntityFrameworkCore
             builder.Entity<AppUser>(b =>
             {
                 b.ToTable(AbpIdentityDbProperties.DbTablePrefix + "Users"); //Sharing the same table "AbpUsers" with the IdentityUser
-                
+
                 b.ConfigureByConvention();
                 b.ConfigureAbpUser();
 
@@ -49,8 +51,6 @@ namespace StudentManagementProject.EntityFrameworkCore
                  * Also see the StudentManagementProjectEfCoreEntityExtensionMappings class
                  */
             });
-
-            /* Configure your own tables/entities inside the ConfigureStudentManagementProject method */
 
             builder.ConfigureStudentManagementProject();
         }

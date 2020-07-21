@@ -1,6 +1,4 @@
-﻿using Volo.Abp.Identity;
-using Volo.Abp.ObjectExtending;
-using Volo.Abp.Threading;
+﻿using Volo.Abp.Threading;
 
 namespace StudentManagementProject.EntityFrameworkCore
 {
@@ -11,7 +9,7 @@ namespace StudentManagementProject.EntityFrameworkCore
         public static void Configure()
         {
             StudentManagementProjectModulePropertyConfigurator.Configure();
-            
+
             OneTimeRunner.Run(() =>
             {
                 /* You can configure entity extension properties for the

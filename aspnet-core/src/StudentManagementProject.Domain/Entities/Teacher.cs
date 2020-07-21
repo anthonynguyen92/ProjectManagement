@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Volo.Abp.Domain.Entities.Auditing;
 
 namespace StudentManagementProject.Entities
 {
-    public class Teacher:FullAuditedAggregateRoot<Guid>
+    public class Teacher : FullAuditedAggregateRoot<Guid>
     {
         public string Name { get; set; }
         public DateTime? Birthday { get; set; }
