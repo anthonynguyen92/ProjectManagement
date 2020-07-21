@@ -251,10 +251,10 @@ paket-files/
 .idea/
 *.sln.iml
 
-# ProjectManagement
-src/ProjectManagement.Web/Logs/*
-src/ProjectManagement.Web.Host/Logs/*
-src/ProjectManagement.IdentityServer/Logs/*
-src/ProjectManagement.HttpApi.Host/Logs/*
-src/ProjectManagement.HttpApi.HostWithIds/Logs/*
-src/ProjectManagement.DbMigrator/Logs/*
+# StudentManagementProject
+src/StudentManagementProject.Web/Logs/*
+src/StudentManagementProject.Web.Host/Logs/*
+src/StudentManagementProject.IdentityServer/Logs/*
+src/StudentManagementProject.HttpApi.Host/Logs/*
+src/StudentManagementProject.HttpApi.Host/Logs/*
+src/StudentManagementProject.DbMigrator/Logs/*

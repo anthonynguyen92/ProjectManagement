@@ -5,10 +5,7 @@ node_modules/
 angular/package-lock.json
 
 # IDEs and editors
-.vs/
+.vscode/
 obj/
 bin/
-aspnet-core/src/ProjectManagement.Web.Host/App_Data/Logs/
-aspnet-core/src/ProjectManagement.Web.Mvc/App_Data/Logs/
-aspnet-core/src/ProjectManagement.Migrator/Logs/Logs.txt
-
+Logs/

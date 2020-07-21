@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "BookStore": {
+    "StudentManagementProject": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,13 +17,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/BookStore",
+            "outputPath": "dist/StudentManagementProject",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "extractCss": true,
+            "allowedCommonJsDependencies": ["chart.js", "js-sha256"],
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               {
@@ -51,7 +52,6 @@
                 "inject": true,
                 "bundleName": "ngx-datatable-material"
               },
-
               {
                 "input": "node_modules/@abp/ng.theme.shared/styles/bootstrap-rtl.min.css",
                 "inject": false,
@@ -100,18 +100,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "BookStore:build"
+            "browserTarget": "StudentManagementProject:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "BookStore:build:production"
+              "browserTarget": "StudentManagementProject:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "BookStore:build"
+            "browserTarget": "StudentManagementProject:build"
           }
         },
         "test": {
@@ -154,18 +154,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "BookStore:serve"
+            "devServerTarget": "StudentManagementProject:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "BookStore:serve:production"
+              "devServerTarget": "StudentManagementProject:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "BookStore",
+  "defaultProject": "StudentManagementProject",
   "cli": {
     "analytics": false
   }

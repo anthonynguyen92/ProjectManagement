@@ -1,24 +1,24 @@
 export const environment = {
   production: false,
   application: {
-    name: 'BookStore',
+    name: 'StudentManagementProject',
     logoUrl: '',
   },
   oAuthConfig: {
-    issuer: 'https://localhost:44308',
-    clientId: 'BookStore_App',
+    issuer: 'https://localhost:44341',
+    clientId: 'StudentManagementProject_App',
     dummyClientSecret: '1q2w3e*',
-    scope: 'BookStore',
+    scope: 'StudentManagementProject',
     showDebugInformation: true,
     oidc: false,
     requireHttps: true,
   },
   apis: {
     default: {
-      url: 'https://localhost:44308',
+      url: 'https://localhost:44341',
     },
   },
   localization: {
-    defaultResourceName: 'BookStore',
+    defaultResourceName: 'StudentManagementProject',
   },
 };
