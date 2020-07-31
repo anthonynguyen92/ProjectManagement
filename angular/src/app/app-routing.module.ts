@@ -1,36 +1,35 @@
-import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from '@abp/ng.core';
-import { FtApplicationLayoutComponent } from './shared/layout/application-layout/application-layout.component';
 
 const routes: Routes = [
   {
-    component: FtApplicationLayoutComponent,
     path: '',
-    canActivate: [AuthGuard],
-    children: [,
-      {
-        path: 'home',
-        loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
-      },
-      
-      {
-        path: '',
-        redirectTo: '/',
-        pathMatch: 'full'
-      }
-    ]
+    pathMatch: 'full',
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'account',
-    loadChildren: () => import('@abp/ng.account')
-      .then(m => m.AccountModule.forLazy({ redirectUrl: '/' })),
-  }
+    loadChildren: () =>
+      import('@abp/ng.account').then((m) => m.AccountModule.forLazy({ redirectUrl: '/' })),
+  },
+  {
+    path: 'identity',
+    loadChildren: () => import('@abp/ng.identity').then((m) => m.IdentityModule.forLazy()),
+  },
+  {
+    path: 'tenant-management',
+    loadChildren: () =>
+      import('@abp/ng.tenant-management').then((m) => m.TenantManagementModule.forLazy()),
+  },
+  {
+    path: 'setting-management',
+    loadChildren: () =>
+      import('@abp/ng.setting-management').then((m) => m.SettingManagementModule.forLazy()),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

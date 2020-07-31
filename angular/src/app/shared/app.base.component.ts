@@ -1,10 +1,11 @@
-import { ToasterService, ConfirmationService, Confirmation } from '@abp/ng.theme.shared';
-import { LocalizationService, ConfigStateService, ConfigState } from '@abp/ng.core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ConfirmationService, Confirmation, ToasterService } from '@abp/ng.theme.shared';
 import { Injector } from '@angular/core';
+import { LocalizationService, ConfigState, ConfigStateService } from '@abp/ng.core';
 import { Store } from '@ngxs/store';
+import { Router, ActivatedRoute } from '@angular/router';
 
-declare var app;
+declare var ftapp;
+
 export class AppBaseComponent {
 
     public title: string;
@@ -14,14 +15,15 @@ export class AppBaseComponent {
     protected readonly router: Router;
     protected readonly store: Store;
     protected readonly config: ConfigStateService;
-    protected readonly activeRoute: ActivatedRoute;
+    protected readonly activedRoute: ActivatedRoute;
     constructor(protected readonly injector: Injector) {
         this.router = injector.get(Router);
         this.toaster = injector.get(ToasterService);
-        this.confirmationService = injector.get(ConfirmationService)
+        this.confirmationService = injector.get(ConfirmationService);
         this.localizationService = injector.get(LocalizationService);
-        this.config = injector.get(ConfigStateService);
         this.store = injector.get(Store);
+        this.config = injector.get(ConfigStateService);
+        this.activedRoute = injector.get(ActivatedRoute);
     }
 
     l(key: string): string {
@@ -32,74 +34,70 @@ export class AppBaseComponent {
         this.router.navigate([url]);
     }
 
-    protected getQueryStringParam(param: string): string {
-        return this.activeRoute.snapshot.paramMap.get(param);
-    }
+    protected getParamId(param: string): string {
+        const id = this.getQuerystringParam(param);
 
-    protected getParamId(params: string): string {
-        const id = this.getQueryStringParam(params);
         if (this.validGuid(id)) return id;
+
         return null;
     }
 
-    protected validGuid(value: string): boolean {
-        if (!value) return false;
-        const pattern = /^(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}$/gi;
-        return pattern.test(value);
+    protected getQuerystringParam(param: string): string {
+        return this.activedRoute.snapshot.paramMap.get(param);
     }
 
     protected notifySuccess(message: string) {
         this.toaster.success(message);
     }
-
-    protected notifyWarming(message: string) {
+    protected notifyWarn(message: string) {
         this.toaster.warn(message);
     }
-
-    protected notifyError(messag: string) {
-        this.toaster.error(messag);
+    protected notifyError(message: string) {
+        this.toaster.error(message);
     }
 
-    protected confirmationPopup(message: string, title: string, excute: () => void) {
+    protected confirmationPopup(message: string, title: string, execute: () => void) {
         this.confirmationService.warn(message, title).subscribe((status: Confirmation.Status) => {
             if (status === Confirmation.Status.confirm) {
-                excute();
+                execute();
             }
-        })
+        });
     }
 
+    protected validGuid(value: string): boolean {
+        if (!value) { return false; }
+        const pattern = /^(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}$/gi;
+        return pattern.test(value);
+    }
     protected setBusy() {
-        app.setBussy();
+        ftapp.setBusy();
     }
-
     protected clearBusy() {
-        app.clearBusy();
+        ftapp.clearBusy();
+    }
+    protected getGrantedPolicy(permissname: string): boolean {
+        return this.config.getGrantedPolicy(permissname);
     }
 
-    protected getGrantedPolicy(permission: string): boolean {
-        return this.config.getGrantedPolicy(permission);
+    protected renderButtonEdit(isGrandUpdate: boolean): string {
+        if (isGrandUpdate) {
+            return '<button class="btn btn-sm btn-default waves-effect btn-edit" title="'
+                + this.l('Edit') + '"><i class="material-icons">edit</i></button>';
+        }
+        return '';
     }
-
-    protected renderButtonEdit(isGrantedUpdate: boolean) {
-        if (isGrantedUpdate) {
-            return '<button class="btn btn-sm btn-danger waves-effect btn-delete" title="' + this.l('Delete') + '"><i class="material-icons">delete</i></button>';
+    protected renderButtonDelete(isGrandDelete: boolean): string {
+        if (isGrandDelete) {
+            return '<button class="btn btn-sm btn-danger waves-effect btn-delete" title="'
+                + this.l('Delete') + '"><i class="material-icons">delete</i></button>';
         }
         return '';
     }
 
-    protected renderButtonDelete(isGrantedDelete: boolean): string {
-        if (isGrantedDelete)
-            return '<button class="btn btn-sm btn-danger waves-effect btn-delete" title="' + this.l('Delete') + '"><i class="material-icons">delete</i></button>';
-        return '';
-    }
-
-    protected renderButtonEditAndDelete(isGrantedUpdate: boolean, isGrantedDelete: boolean): string {
-        let html = this.renderButtonEdit(isGrantedUpdate);
-        html += this.renderButtonDelete(isGrantedDelete);
+    protected renderButtonEditAndDelete(isGrandUpdate: boolean, isGrandDelete: boolean): string {
+        let html = this.renderButtonEdit(isGrandUpdate);
+        html += this.renderButtonDelete(isGrandDelete);
         return html;
     }
 
-    // protected renderStatusToggle(isChecked: any, isDisable: boolean, cssClass?: string): string {
-    //     const switchId = CommonHelper
-    // }
 }

@@ -1,22 +1,8 @@
-<ul class="nav">
-  <li routerLinkActive="active">
-    <a class="nav-link">
-      <i class="material-icons">add icon</i>
-      <p>Project</p>
-    </a>
-  </li>
-
-  <li routerLinkActive="active">
-    <a class="nav-link">
-      <i class="material-icons">add icon</i>
-      <p>Teacher</p>
-    </a>
-  </li>
-
-  <li routerLinkActive="active">
-    <a class="nav-link">
-      <i class="material-icons">add icon</i>
-      <p>Student</p>
-    </a>
-  </li>
-</ul>
+<div class="legal">
+    <div class="copyright">
+        &copy; {{currentYear}} <a href="javascript:void(0);">E-Learning</a>.
+    </div>
+    <div class="version">
+        <b>{{ "Version" | abpLocalization }} </b> {{versionText}}
+    </div>
+</div>
