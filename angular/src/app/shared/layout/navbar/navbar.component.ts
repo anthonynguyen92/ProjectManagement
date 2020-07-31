@@ -5,7 +5,6 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
 
@@ -21,7 +20,6 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.listTitles = ROUTES.filter(listTitle => listTitle);
     const navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
     this.router.events.subscribe((event) => {

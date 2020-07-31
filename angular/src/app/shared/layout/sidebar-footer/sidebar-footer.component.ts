@@ -4,7 +4,6 @@ import { Component, OnInit, Injector, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'app-sidebar-footer',
   templateUrl: './sidebar-footer.component.html',
-  styleUrls: ['./sidebar-footer.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
 export class SidebarFooterComponent extends AppBaseComponent {
