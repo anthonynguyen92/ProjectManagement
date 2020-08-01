@@ -9,6 +9,7 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <PackageReference Include="Abp" Version="5.10.1" />
     <PackageReference Include="Volo.Abp.Identity.Domain.Shared" Version="3.0.5" />
     <PackageReference Include="Volo.Abp.IdentityServer.Domain.Shared" Version="3.0.5" />
     <PackageReference Include="Volo.Abp.BackgroundJobs.Domain.Shared" Version="3.0.5" />
@@ -26,12 +27,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="3.1.5" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Project\" />
-    <Folder Include="Teacher\" />
-    <Folder Include="Student\" />
   </ItemGroup>
 
 </Project>
