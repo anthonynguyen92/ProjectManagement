@@ -100,4 +100,7 @@ export class AppBaseComponent {
         return html;
     }
 
+    protected renderStatusToggle(isChecked: any, isDisabled: boolean, cssClass?: string): string {
+        return "/";
+    }
 }

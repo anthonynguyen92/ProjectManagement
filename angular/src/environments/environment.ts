@@ -11,7 +11,7 @@ export const environment = {
     scope: 'ProjectManagement',
     showDebugInformation: true,
     oidc: false,
-    requireHttps: true,
+    requireHttps: false,
   },
   apis: {
     default: {

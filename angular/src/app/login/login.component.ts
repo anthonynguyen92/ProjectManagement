@@ -1,6 +1,6 @@
-import { AppBaseComponent } from '../shared/app.base.component';
 import { Component, Injector } from '@angular/core';
 import { AuthService } from '@abp/ng.core';
+import { AppBaseComponent } from 'src/app/shared/app.base.component';
 
 @Component({
   templateUrl: './login.component.html'
