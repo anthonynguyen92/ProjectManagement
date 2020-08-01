@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using doan.ProjectManagement.Entities;
 using doan.ProjectManagement.Users;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.Modeling;
@@ -21,10 +22,8 @@ namespace doan.ProjectManagement.EntityFrameworkCore
     public class ProjectManagementDbContext : AbpDbContext<ProjectManagementDbContext>
     {
         public DbSet<AppUser> Users { get; set; }
-
-        /* Add DbSet properties for your Aggregate Roots / Entities here.
-         * Also map them inside ProjectManagementDbContextModelCreatingExtensions.ConfigureProjectManagement
-         */
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
 
         public ProjectManagementDbContext(DbContextOptions<ProjectManagementDbContext> options)
             : base(options)
@@ -40,17 +39,22 @@ namespace doan.ProjectManagement.EntityFrameworkCore
 
             builder.Entity<AppUser>(b =>
             {
-                b.ToTable(AbpIdentityDbProperties.DbTablePrefix + "Users"); //Sharing the same table "AbpUsers" with the IdentityUser
-                
+                b.ToTable(AbpIdentityDbProperties.DbTablePrefix + "Users");
                 b.ConfigureByConvention();
                 b.ConfigureAbpUser();
-
-                /* Configure mappings for your additional properties
-                 * Also see the ProjectManagementEfCoreEntityExtensionMappings class
-                 */
             });
 
-            /* Configure your own tables/entities inside the ConfigureProjectManagement method */
+            builder.Entity<Student>(b =>
+            {
+                b.ToTable(StudentManagementConsts.DbTablePrefix + "Student");
+                b.ConfigureByConvention();
+            });
+
+            builder.Entity<Teacher>(b =>
+            {
+                b.ToTable(TeacherManagementConsts.DbTablePrefix + "Teacher");
+                b.ConfigureByConvention();
+            });
 
             builder.ConfigureProjectManagement();
         }

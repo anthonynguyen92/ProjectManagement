@@ -1,9 +1,9 @@
 ﻿using System;
-using Volo.Abp.Domain.Entities.Auditing;
+using Volo.Abp.Application.Dtos;
 
-namespace doan.ProjectManagement.Entities
+namespace doan.ProjectManagement.Students.Dto
 {
-    public class Student : FullAuditedAggregateRoot<Guid>
+    public class StudentDto : FullAuditedEntityDto<Guid>
     {
         public string Name { get; set; }
         public DateTime? Birthday { get; set; }
