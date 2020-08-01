@@ -18,6 +18,10 @@ const routes: Routes = [
         loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
       },
       {
+        path: 'student-management',
+        loadChildren: () => import('./student/student.module').then(m => m.StudentModule),
+      },
+      {
         path: '',
         redirectTo: '/home',
         pathMatch: 'full'
