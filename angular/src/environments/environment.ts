@@ -1,24 +1,24 @@
 export const environment = {
   production: false,
   application: {
-    name: 'StudentManagementProject',
+    name: 'ProjectManagement',
     logoUrl: '',
   },
   oAuthConfig: {
-    issuer: 'https://localhost:44341',
-    clientId: 'StudentManagementProject_App',
+    issuer: 'https://localhost:44338',
+    clientId: 'ProjectManagement_App',
     dummyClientSecret: '1q2w3e*',
-    scope: 'StudentManagementProject',
+    scope: 'ProjectManagement',
     showDebugInformation: true,
     oidc: false,
-    requireHttps: true,
+    requireHttps: false,
   },
   apis: {
     default: {
-      url: 'https://localhost:44341',
+      url: 'https://localhost:44338',
     },
   },
   localization: {
-    defaultResourceName: 'StudentManagementProject',
+    defaultResourceName: 'ProjectManagement',
   },
 };

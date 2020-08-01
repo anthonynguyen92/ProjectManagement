@@ -1,26 +1,26 @@
 const ENV = {
   dev: {
-    apiUrl: 'http://localhost:44341',
+    apiUrl: 'http://localhost:44338',
     oAuthConfig: {
-      issuer: 'http://localhost:44341',
-      clientId: 'StudentManagementProject_App',
+      issuer: 'http://localhost:44338',
+      clientId: 'ProjectManagement_App',
       clientSecret: '1q2w3e*',
-      scope: 'StudentManagementProject',
+      scope: 'ProjectManagement',
     },
     localization: {
-      defaultResourceName: 'StudentManagementProject',
+      defaultResourceName: 'ProjectManagement',
     },
   },
   prod: {
-    apiUrl: 'http://localhost:44341',
+    apiUrl: 'http://localhost:44338',
     oAuthConfig: {
-      issuer: 'http://localhost:44341',
-      clientId: 'StudentManagementProject_App',
+      issuer: 'http://localhost:44338',
+      clientId: 'ProjectManagement_App',
       clientSecret: '1q2w3e*',
-      scope: 'StudentManagementProject',
+      scope: 'ProjectManagement',
     },
     localization: {
-      defaultResourceName: 'StudentManagementProject',
+      defaultResourceName: 'ProjectManagement',
     },
   },
 };

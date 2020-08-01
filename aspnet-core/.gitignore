@@ -251,10 +251,10 @@ paket-files/
 .idea/
 *.sln.iml
 
-# StudentManagementProject
-src/StudentManagementProject.Web/Logs/*
-src/StudentManagementProject.Web.Host/Logs/*
-src/StudentManagementProject.IdentityServer/Logs/*
-src/StudentManagementProject.HttpApi.Host/Logs/*
-src/StudentManagementProject.HttpApi.Host/Logs/*
-src/StudentManagementProject.DbMigrator/Logs/*
+# ProjectManagement
+src/doan.ProjectManagement.Web/Logs/*
+src/doan.ProjectManagement.Web.Host/Logs/*
+src/doan.ProjectManagement.IdentityServer/Logs/*
+src/doan.ProjectManagement.HttpApi.Host/Logs/*
+src/doan.ProjectManagement.HttpApi.Host/Logs/*
+src/doan.ProjectManagement.DbMigrator/Logs/*

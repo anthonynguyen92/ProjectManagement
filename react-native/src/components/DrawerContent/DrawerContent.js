@@ -71,7 +71,7 @@ function DrawerContent({ navigation, state: { routeNames, index: currentScreenIn
       </SafeAreaView>
       <View style={styles.footer}>
         <Text note style={styles.copyRight}>
-          © StudentManagementProject
+          © ProjectManagement
         </Text>
         <Text note style={styles.version}>
           v{Constants.manifest.version}

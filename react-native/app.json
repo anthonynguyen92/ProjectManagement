@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "StudentManagementProject",
-    "slug": "StudentManagementProject",
+    "name": "ProjectManagement",
+    "slug": "ProjectManagement",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": ["ios", "android", "web"],
@@ -19,11 +19,11 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.StudentManagementProject",
+      "bundleIdentifier": "com.doan.ProjectManagement",
       "buildNumber": "1.0.0"
     },
     "android": {
-      "package": "com.StudentManagementProject",
+      "package": "com.doan.ProjectManagement",
       "versionCode": 1
     }
   }

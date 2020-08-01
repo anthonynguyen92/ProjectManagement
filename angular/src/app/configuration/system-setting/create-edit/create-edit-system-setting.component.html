@@ -1,0 +1,105 @@
+<div class="row clearfix sticky-toolbar" [@routerTransition]>
+    <div class="col-12">
+        <div class="card main-content">
+            <div class="header">
+                <h2>
+                    {{ 'SystemConfiguration::SystemSetting' | abpLocalization }}
+                </h2>
+                <div class="buttonHeaderContainer">
+                    <button mat-button (click)="goBack()">
+                        <mat-icon>arrow_back_ios</mat-icon>
+                        {{ '::Back' | abpLocalization }}
+                    </button>
+                    <button mat-flat-button color="primary" (click)="save()" class="ml-3"
+                        [disabled]="!editForm.form.valid">
+                        <mat-icon>save</mat-icon>
+                        {{ '::Save' | abpLocalization }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form autocomplete="off" #editForm="ngForm">
+    <div class="row clearfix" [@routerTransition]>
+        <div class="col-12">
+            <div class="card">
+                <mat-accordion>
+                    <mat-expansion-panel [expanded]="true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                {{'::' + title | abpLocalization}}
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div class="main-content">
+                            <div class="body table-responsive">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <mat-form-field class="w-100">
+                                                    <mat-label>
+                                                        {{ 'SystemConfiguration::Key' | abpLocalization }}
+                                                    </mat-label>
+                                                    <input matInput [(ngModel)]="vm.key" name="key" required autofocus>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <mat-form-field class="w-100">
+                                                    <mat-label>
+                                                        {{ 'SystemConfiguration::Value' | abpLocalization }}
+                                                    </mat-label>
+                                                    <input matInput [(ngModel)]="vm.value" name="value" required>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <mat-form-field class="w-100">
+                                                    <mat-label>
+                                                        {{ 'SystemConfiguration::Description' | abpLocalization }}
+                                                    </mat-label>
+                                                    <input matInput [(ngModel)]="vm.description" name="description"
+                                                        required>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <mat-form-field class="w-100">
+                                                    <mat-label>{{ 'SystemConfiguration::EffectDate' | abpLocalization }}
+                                                    </mat-label>
+                                                    <input matInput [matDatepicker]="picker" [max]="vm.expireDate"
+                                                        [(ngModel)]="vm.effectDate" name="effectDate">
+                                                    <mat-datepicker-toggle matSuffix [for]="picker">
+                                                    </mat-datepicker-toggle>
+                                                    <mat-datepicker #picker></mat-datepicker>
+                                                </mat-form-field>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <mat-form-field class="w-100">
+                                                    <mat-label>{{ 'SystemConfiguration::ExpireDate' | abpLocalization }}
+                                                    </mat-label>
+                                                    <input matInput [matDatepicker]="picker1" [min]="vm.effectDate"
+                                                        [(ngModel)]="vm.expireDate" name="expireDate">
+                                                    <mat-datepicker-toggle matSuffix [for]="picker1">
+                                                    </mat-datepicker-toggle>
+                                                    <mat-datepicker #picker1></mat-datepicker>
+                                                </mat-form-field>
+                                            </div>
+                                            <mat-checkbox class="ml-3" matInput name="encript"
+                                                [(ngModel)]="vm.isEncript">
+                                                {{'SystemConfiguration::IsEncrypt' | abpLocalization}}
+                                            </mat-checkbox>
+                                            <mat-checkbox class="ml-3" matInput name="active" [(ngModel)]="vm.status">
+                                                {{'SystemConfiguration::IsActive' | abpLocalization}}
+                                            </mat-checkbox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </div>
+    </div>
+</form>

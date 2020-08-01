@@ -1,0 +1,113 @@
+<div class="row clearfix sticky-toolbar" [@routerTransition]>
+    <div class="col-12">
+        <div class="card main-content">
+            <div class="header">
+                <h2>
+                    {{ 'AbpIdentity::Roles' | abpLocalization }}
+                </h2>
+                <div class="buttonHeaderContainer">
+                    <button mat-button (click)="goBack()">
+                        <mat-icon>arrow_back_ios</mat-icon>
+                        {{ '::Back' | abpLocalization }}
+                    </button>
+                    <button mat-flat-button color="primary" (click)="save()" class="ml-3"
+                        [disabled]="!editForm.form.valid">
+                        <mat-icon>save</mat-icon>
+                        {{ '::Save' | abpLocalization }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row clearfix" [@routerTransition]>
+    <div class="col-12">
+        <div class="card">
+            <mat-accordion>
+                <mat-expansion-panel [expanded]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{'::' + title | abpLocalization}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="main-content">
+                        <form autocomplete="off" #editForm="ngForm">
+                            <div class="body table-responsive">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <mat-form-field class="w-100">
+                                                    <mat-label>
+                                                        {{ '::Name' | abpLocalization }}
+                                                    </mat-label>
+                                                    <input matInput [(ngModel)]="vm.name" name="Name" required>
+                                                </mat-form-field>
+                                            </div>
+                                            <mat-checkbox class="ml-3" matInput name="isDefault"
+                                                [(ngModel)]="vm.isDefault">
+                                                {{'::Default' | abpLocalization}}
+                                            </mat-checkbox>
+                                            <mat-checkbox class="ml-3" matInput name="isPublic"
+                                                [(ngModel)]="vm.isPublic">
+                                                {{'::Public' | abpLocalization}}
+                                            </mat-checkbox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="id" class="row clearfix" [@routerTransition]>
+    <div class="col-12">
+        <div class="card">
+            <mat-accordion>
+                <mat-expansion-panel [expanded]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{'AbpIdentity::Permissions' | abpLocalization}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <!-- <div class="main-content">
+                        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                            <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+                              <li class="mat-tree-node">
+                                <button mat-icon-button disabled></button>
+                                <mat-checkbox [(ngModel)]="node.isGranted" [name]="node.name">{{node.displayName}}</mat-checkbox>
+                              </li>
+                            </mat-tree-node>
+                            <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+                              <li>
+                                <div class="mat-tree-node">
+                                  <button mat-icon-button matTreeNodeToggle
+                                          [attr.aria-label]="'toggle ' + node.name">
+                                    <mat-icon class="mat-icon-rtl-mirror">
+                                      {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                                    </mat-icon>
+                                  </button>
+                                  <mat-checkbox 
+                                    [checked]="getChecked(node)" 
+                                    [indeterminate]="getIndeterinate(node)"
+                                    (change)="toggle(node)"
+                                    [name]="node.name">{{node.displayName}}</mat-checkbox>
+                                </div>
+                                <ul [class.mat-tree-invisible]="!treeControl.isExpanded(node)">
+                                  <ng-container matTreeNodeOutlet></ng-container>
+                                </ul>
+                              </li>
+                            </mat-nested-tree-node>
+                          </mat-tree>
+                    </div> -->
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</div>
