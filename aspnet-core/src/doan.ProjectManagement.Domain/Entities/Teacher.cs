@@ -3,7 +3,7 @@ using Volo.Abp.Domain.Entities.Auditing;
 
 namespace doan.ProjectManagement.Entities
 {
-    public class Teacher: FullAuditedAggregateRoot<Guid>
+    public class Teacher : FullAuditedAggregateRoot<Guid>
     {
         public string Name { get; set; }
         public DateTime? Birthday { get; set; }
@@ -13,6 +13,5 @@ namespace doan.ProjectManagement.Entities
         public string Degree { get; set; }
         public string Faculty { get; set; }
         public string Position { get; set; }
-        public TeacherProject TeacherProject { get; set; }
     }
 }

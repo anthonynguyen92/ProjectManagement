@@ -8,10 +8,24 @@ namespace doan.ProjectManagement.Permissions
     {
         public override void Define(IPermissionDefinitionContext context)
         {
-            var myGroup = context.AddGroup(ProjectManagementPermissions.GroupName);
+            #region student
+            var studentGroup = context.AddGroup(ProjectManagementPermissions.GroupName,L("Permission:StudentManagement"));
 
-            //Define your own permissions here. Example:
-            //myGroup.AddPermission(ProjectManagementPermissions.MyPermission1, L("Permission:MyPermission1"));
+            var student = studentGroup.AddPermission(ProjectManagementPermissions.Student.Default, L("Permission:Student"));
+            student.AddChild(ProjectManagementPermissions.Student.Create, L("Permission:Create"));
+            student.AddChild(ProjectManagementPermissions.Student.Update, L("Permission:Update"));
+            student.AddChild(ProjectManagementPermissions.Student.Delete, L("Permission:Delete"));
+            #endregion
+
+            #region teacher
+            var teacherGroup = context.AddGroup(ProjectManagementPermissions.GroupName, L("Permission:TeacherManagement"));
+
+            var teacher = teacherGroup.AddPermission(ProjectManagementPermissions.Teacher.Default, L("Permission:Teacher"));
+            teacher.AddChild(ProjectManagementPermissions.Teacher.Create, L("Permission:Create"));
+            teacher.AddChild(ProjectManagementPermissions.Teacher.Update, L("Permission:Update"));
+            teacher.AddChild(ProjectManagementPermissions.Teacher.Delete, L("Permission:Delete"));
+            #endregion
+
         }
 
         private static LocalizableString L(string name)
