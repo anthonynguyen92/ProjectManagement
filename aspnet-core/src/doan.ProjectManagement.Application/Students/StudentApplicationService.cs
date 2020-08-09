@@ -20,7 +20,8 @@ namespace doan.ProjectManagement.Students
         protected override string CreatePolicyName { get; set; } = ProjectManagementPermissions.Student.Create;
         protected override string DeletePolicyName { get; set; } = ProjectManagementPermissions.Student.Delete;
         protected override string UpdatePolicyName { get; set; } = ProjectManagementPermissions.Student.Update;
-        protected override string GetListPolicyName { get; set; } = ProjectManagementPermissions.Student.Delete;
+        protected override string GetListPolicyName { get; set; } = ProjectManagementPermissions.Student.Default;
+        protected override string GetPolicyName { get; set; } = ProjectManagementPermissions.Student.Default;
 
         private readonly IStringLocalizer<ProjectManagementResource> _localizers;
         public StudentApplicationService(IRepository<Student, Guid> repository, IStringLocalizer<ProjectManagementResource> localizers) : base(repository)
@@ -54,29 +55,15 @@ namespace doan.ProjectManagement.Students
                 throw new UserFriendlyException(_localizers["EmailAreadlyExists"]);
             }
 
-            var entity = MapToEntity(input);
-
-            await Repository.InsertAsync(entity);
-
-            await CurrentUnitOfWork.SaveChangesAsync();
-
-            return entity;
+            return await base.Create(input);
         }
 
         protected override async Task<Student> Update(CreateUpdateStudentDto input)
         {
 
             await CheckUpdatePolicyAsync();
-
-            if (Repository.Any(x => x.PhoneNumber == input.PhoneNumber))
-            {
-                throw new UserFriendlyException(_localizers["PhoneNumberShouldBeNumber"]);
-            }
-
-            if (Repository.Any(x => x.Email == input.Email))
-            {
-                throw new UserFriendlyException(_localizers["EmailAreadlyExists"]);
-            }
+            // phone number cant change rightnow
+            // email cant change right now
 
             var entity = await Repository.GetAsync(input.Id.Value);
 

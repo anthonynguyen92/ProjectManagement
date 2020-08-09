@@ -1,4 +1,6 @@
-﻿namespace doan.ProjectManagement.Permissions
+﻿using Volo.Abp.Reflection;
+
+namespace doan.ProjectManagement.Permissions
 {
     public static class ProjectManagementPermissions
     {
@@ -6,6 +8,10 @@
 
         //Add your own permission names. Example:
         //public const string MyPermission1 = GroupName + ".MyPermission1";
+        public static string[] GetAll()
+        {
+            return ReflectionHelper.GetPublicConstantsRecursively(typeof(ProjectManagementPermissions));
+        }
 
         #region teacher
         public class Teacher

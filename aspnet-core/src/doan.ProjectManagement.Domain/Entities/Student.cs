@@ -13,6 +13,6 @@ namespace doan.ProjectManagement.Entities
         public string Faculty { get; set; }
         public string Branch { get; set; }
         public string CourseYear { get; set; }
-        public string StundentCode { get; set; }
+        public string StudentCode { get; set; }
     }
 }

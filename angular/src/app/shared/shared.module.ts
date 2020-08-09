@@ -5,7 +5,7 @@ import { CoreModule } from '@abp/ng.core';
 import { FtApplicationLayoutComponent } from './layout/ft-application-layout/ft-application-layout.component';
 import { FtAccountLayoutComponent } from './layout/ft-account-layout/ft-account-layout.component';
 import { FtEmptyLayoutComponent } from './layout/ft-empty-layout/ft-empty-layout.component';
-import { FtHeaderComponent } from './layout/ft-header/ft-header.component';
+// import { FtHeaderComponent } from './layout/ft-header/ft-header.component';
 import { FtNavComponent } from './layout/ft-nav/ft-nav.component';
 import { FtDatatablesComponent } from './components/ft-table/ft-datatable.component';
 import { MatCardModule } from '@angular/material/card';
@@ -78,7 +78,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     FtApplicationLayoutComponent,
     FtAccountLayoutComponent,
     FtEmptyLayoutComponent,
-    FtHeaderComponent,
+    // FtHeaderComponent,
     FtNavComponent,
     FtDatatablesComponent,
     RightSideBarComponent,
@@ -122,7 +122,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     FtApplicationLayoutComponent,
     FtAccountLayoutComponent,
     FtEmptyLayoutComponent,
-    FtHeaderComponent,
+    // FtHeaderComponent,
     FtNavComponent,
     FtDatatablesComponent,
     DatepickerComponent,
