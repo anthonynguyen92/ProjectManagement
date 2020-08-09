@@ -1,7 +1,7 @@
 import { Component, Injector, ViewEncapsulation } from '@angular/core';
 import { AppBaseComponent } from '../app.base.component';
 import { UserPermission, SystemSettingPermission } from 'src/app/shared/services/system-configuration/system-permission-name';
-import { StudentPermission } from '../services/student/student-permission-name';
+import { StudentPermission, TeacherPermission } from '../services/student/student-permission-name';
 
 @Component({
   templateUrl: './sidebar-nav.component.html',
@@ -18,6 +18,7 @@ export class SideBarNavComponent extends AppBaseComponent {
       new MenuItem('AbpIdentity::Roles', '', 'group', '/configuration/role')
     ]),
     new MenuItem('::Student', StudentPermission.Default, 'person', '/student/management'),
+    new MenuItem('::Teacher', TeacherPermission.Default, 'perm_contact_calendar', '/teacher/management'),
 
   ];
 

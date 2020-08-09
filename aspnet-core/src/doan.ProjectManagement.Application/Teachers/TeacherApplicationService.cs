@@ -12,13 +12,13 @@ using Volo.Abp.Domain.Repositories;
 
 namespace doan.ProjectManagement.Teachers
 {
-    public class TeacherAppService : BaseAppService<
+    public class TeacherApplicationService : BaseAppService<
         Teacher, Guid, CreateUpdateTeacherDto, GetTeacherDto,
         GetTeacherForEditDto, GetTeacherInput>, ITeacherAppService
     {
         private readonly IStringLocalizer<ProjectManagementResource> _localizable;
 
-        public TeacherAppService(IRepository<Teacher, Guid> repository,
+        public TeacherApplicationService(IRepository<Teacher, Guid> repository,
             IStringLocalizer<ProjectManagementResource> localizable) : base(repository)
         {
             _localizable = localizable;
