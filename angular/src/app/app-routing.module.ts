@@ -10,7 +10,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
-        path: 'setting-management',
+        path: 'configuration',
         loadChildren: () => import('@abp/ng.setting-management').then(m => m.SettingManagementModule)
       },
       {
@@ -24,6 +24,10 @@ const routes: Routes = [
       {
         path: 'teacher',
         loadChildren: () => import('./teacher/teacher.module').then(m => m.TeacherModule),
+      },
+      {
+        path: 'setting',
+        loadChildren: () => import('./configuration/configuration.module').then(m => m.ConfigurationModule),
       },
       {
         path: '',
