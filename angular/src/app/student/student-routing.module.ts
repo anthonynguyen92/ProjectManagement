@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 
 const routes = [
     {
-        path: 'student',
+        path: 'management',
         children: [
             {
                 path: '',

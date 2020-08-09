@@ -1,10 +1,4 @@
-const GroupName = 'SystemConfiguration';
-export class EmailTemplatePermission{
-    public static Default = GroupName + '.EmailTemplate';
-    public static Create  = EmailTemplatePermission.Default + '.Create';
-    public static Update  = EmailTemplatePermission.Default + '.Update';
-    public static Delete  = EmailTemplatePermission.Default + '.Delete';
-}
+const GroupName = 'ProjectManagement';
 export class UserPermission{
     public static Default = 'AbpIdentity.Users';
     public static Create  = UserPermission.Default + '.Create';

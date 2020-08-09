@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using doan.ProjectManagement.Entities;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace doan.ProjectManagement.EntityFrameworkCore
 {
@@ -17,6 +19,18 @@ namespace doan.ProjectManagement.EntityFrameworkCore
             //    b.ConfigureByConvention(); //auto configure for the base class props
             //    //...
             //});
+
+            builder.Entity<Student>(b =>
+            {
+                b.ToTable(StudentManagementConsts.DbTablePrefix + ".Student");
+                b.ConfigureByConvention();
+            });
+
+            builder.Entity<Teacher>(b =>
+            {
+                b.ToTable(TeacherManagementConsts.DbTablePrefix + ".Teacher");
+                b.ConfigureByConvention();
+            });
         }
     }
 }
