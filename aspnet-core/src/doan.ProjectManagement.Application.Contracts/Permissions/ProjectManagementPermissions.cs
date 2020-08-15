@@ -32,6 +32,16 @@ namespace doan.ProjectManagement.Permissions
             public const string Delete = Default + ".Delete";
         }
         #endregion
+
+        #region system-setting
+        public class SystemSetting
+        {
+            public const string Default = GroupName + ".SystemSetting";
+            public const string Create = Default + ".Create";
+            public const string Update = Default + ".Update";
+            public const string Delete = Default + ".Delete";
+        }
+        #endregion
     }
 
 

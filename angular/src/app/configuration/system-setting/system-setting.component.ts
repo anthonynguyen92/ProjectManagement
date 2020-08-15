@@ -70,18 +70,6 @@ export class SystemSettingComponent extends AppBaseComponent implements OnInit {
                     data: 'description'
                 },
                 {
-                    title: this.l('SystemConfiguration::EffectDate'),
-                    data: 'effectDate',
-                    render: (data) => {
-                        if (data) {
-                            return moment(data).format('DD-MM-YYYY');
-                        }
-                        else {
-                            return '';
-                        }
-                    }
-                },
-                {
                     title: this.l('SystemConfiguration::ExpireDate'),
                     data: 'expireDate',
                     render: (data) => {
@@ -100,14 +88,6 @@ export class SystemSettingComponent extends AppBaseComponent implements OnInit {
                         return this.renderStatusToggle(status, !this.getGrantedPolicy(SystemSettingPermission.Update));
                     }
                 },
-                {
-                    title: this.l('SystemConfiguration::IsEncrypt'),
-                    data: 'isEncript',
-                    render: (isencrypt) => {
-                        return this.renderStatusToggle(isencrypt, true, '-enscrypt');
-                    }
-                }
-
             ],
             rowCallback: (row: Node, data: SystemSettingDto, index: number) => {
                 if (data) {
