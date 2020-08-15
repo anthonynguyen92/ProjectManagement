@@ -24,7 +24,6 @@ namespace doan.ProjectManagement.EntityFrameworkCore
         public DbSet<AppUser> Users { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
-        public DbSet<SystemSetting> SystemSettings { get; set; }
 
         public ProjectManagementDbContext(DbContextOptions<ProjectManagementDbContext> options)
             : base(options)

@@ -18,11 +18,5 @@
 
         public const string DbSchema = null;
     }
-    public static class SystemSettingManagementConsts
-    {
-        public const string DbTablePrefix = "SystemSetting";
-
-        public const string DbSchema = null;
-    }
 
 }
