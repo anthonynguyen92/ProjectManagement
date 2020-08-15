@@ -66,7 +66,7 @@ export class EditManageUserComponent extends AppBaseComponent implements OnInit,
 
   }
   goBack() {
-    this.redirect('configuration/manage-user');
+    this.redirect('setting/manage-user');
   }
   save() {
     if (this.vm) {

@@ -13,6 +13,12 @@ namespace doan.ProjectManagement.SystemSettings
         SystemSetting, Guid, CreateUpdateSystemSettingDto, GetSystemSettingDto, GetSystemSettingForEditDto, GetSystemSettingForInputDto>,
         ISystemSettingApplicationService
     {
+
+        protected override string CreatePolicyName { get; set; } = ProjectManagementPermissions.SystemSetting.Create;
+        protected override string DeletePolicyName { get; set; } = ProjectManagementPermissions.SystemSetting.Delete;
+        protected override string UpdatePolicyName { get; set; } = ProjectManagementPermissions.SystemSetting.Update;
+        protected override string GetListPolicyName { get; set; } = ProjectManagementPermissions.SystemSetting.Default;
+        protected override string GetPolicyName { get; set; } = ProjectManagementPermissions.SystemSetting.Default;
         public SystemSettingApplicationService(IRepository<SystemSetting, Guid> repository) : base(repository)
         {
         }

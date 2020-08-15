@@ -31,14 +31,13 @@ export class CreateOrEditSystemSettingComponent extends AppBaseComponent impleme
       this._systemSettingService.getById(this.id).subscribe((data) => {
         if (data) {
           this.vm = data;
-          this.vm.isEncript = false;
         }
       })
     }
   }
 
   goBack() {
-    this.redirect('configuration/system-setting');
+    this.redirect('setting/system-setting');
   }
 
   save() {

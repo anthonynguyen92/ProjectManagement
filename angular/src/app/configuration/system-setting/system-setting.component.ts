@@ -132,11 +132,11 @@ export class SystemSettingComponent extends AppBaseComponent implements OnInit {
     }
 
     create() {
-        this.redirect('configuration/system-setting/create');
+        this.redirect('setting/system-setting/create');
     }
 
     edit(id: string) {
-        this.redirect('configuration/system-setting/edit/' + id);
+        this.redirect('setting/system-setting/edit/' + id);
     }
 
     delete(input: GetSystemSettingDto) {
