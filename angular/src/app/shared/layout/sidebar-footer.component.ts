@@ -17,6 +17,6 @@ export class SideBarFooterComponent {
         //super(injector);
 
         this.currentYear = new Date().getFullYear();
-        this.versionText = '123'; //this.appSession.application.version + ' [' + this.appSession.application.releaseDate.format('YYYYDDMM') + ']';
+        this.versionText = '1.0.0'; //this.appSession.application.version + ' [' + this.appSession.application.releaseDate.format('YYYYDDMM') + ']';
     }
 }

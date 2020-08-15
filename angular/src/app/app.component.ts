@@ -30,16 +30,5 @@ export class AppComponent implements OnInit {
         key: eAccountComponents.Login
       })
     );
-
-    /*
-    forkJoin(
-      this.lazyLoadService.load(
-        LOADING_STRATEGY.PrependAnonymousStyleToHead('fontawesome-v4-shims.min.css')
-      ),
-      this.lazyLoadService.load(
-        LOADING_STRATEGY.PrependAnonymousStyleToHead('fontawesome-all.min.css')
-      )
-    ).subscribe();
-    */
   }
 }
