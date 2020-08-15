@@ -73,7 +73,7 @@
                             {{ 'TeacherManagement::Email' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.email" name="email" [disabled]="vm.id"
-                            pattern="^[a-z][a-z_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$" required>
+                            pattern="^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$" required>
                         </mat-form-field>
                       </div>
 

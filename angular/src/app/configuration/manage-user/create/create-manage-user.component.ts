@@ -38,7 +38,7 @@ export class CreateManageUserComponent extends AppBaseComponent implements OnIni
     );
   }
   goBack() {
-    this.redirect('setting/manage-user');
+    this.redirect('configuration/manage-user');
   }
   save() {
     if (this.vm) {

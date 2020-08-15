@@ -101,11 +101,11 @@ export class ManageUserComponent extends AppBaseComponent implements OnInit {
   }
 
   create() {
-    this.redirect('setting/manage-user/create');
+    this.redirect('configuration/manage-user/create');
   }
 
   edit(id: string) {
-    this.redirect('setting/manage-user/edit/' + id);
+    this.redirect('configuration/manage-user/edit/' + id);
   }
 
   delete(input: Identity.UserItem) {

@@ -7,8 +7,10 @@ import { CreateManageUserComponent } from './manage-user/create/create-manage-us
 import { EditManageUserComponent } from './manage-user/edit/edit-manage-user.component';
 import { RoleComponent } from './role/role.component';
 import { CreateOrEditRoleComponent } from './role/create-edit/create-edit-role.component';
+import { EmailTemplateComponent } from './email-template/email-template.component';
+import { CreateOrEditEmailTemplateComponent } from './email-template/create-edit/create-edit-email-template.component';
 import { ABP } from '@abp/ng.core';
-import { SystemSettingPermission, UserPermission, RolesPermission } from '../shared/services/system-configuration/system-permission-name';
+import { SystemSettingPermission, UserPermission, RolesPermission, EmailTemplatePermission } from '../shared/services/system-configuration/system-permission-name';
 
 const routes = [
   {
@@ -116,6 +118,41 @@ const routes = [
       }
     ]
   },
+  {
+    path: 'email-template',
+    children: [
+      {
+        path: '',
+        component: EmailTemplateComponent,
+        data: {
+          routes: {
+            name: 'SystemConfiguration::EmailTemplate',
+            requiredPolicy: EmailTemplatePermission.Default,
+          } as ABP.Route
+        }
+      },
+      {
+        path: 'create',
+        component: CreateOrEditEmailTemplateComponent,
+        data: {
+          routes: {
+            name: 'SystemConfiguration::EmailTemplateInformation',
+            requiredPolicy: EmailTemplatePermission.Create,
+          } as ABP.Route
+        }
+      },
+      {
+        path: 'edit/:id',
+        component: CreateOrEditEmailTemplateComponent,
+        data: {
+          routes: {
+            name: 'SystemConfiguration::EmailTemplateInformation',
+            requiredPolicy: EmailTemplatePermission.Update,
+          } as ABP.Route
+        }
+      }
+    ]
+  }
 ];
 
 @NgModule({
