@@ -3,15 +3,14 @@ import { EntityDto } from '@abp/ng.core';
 
 
 export class CreateUpdateSystemSettingDto extends EntityDto<string>{
-    key: string;
-    value?: String;
-    description?: string;
-    status?: Status;
-    effectDate?: Date;
-    expireDate?: Date;
-    isEncript: boolean;
+  key: string;
+  value?: String;
+  description?: string;
+  status?: Status;
+  effectDate?: Date;
+  expireDate?: Date;
 
-    constructor(initialValues: Partial<CreateUpdateSystemSettingDto> = {}) {
-        super(initialValues);
-    }
+  constructor(initialValues: Partial<CreateUpdateSystemSettingDto> = {}) {
+    super(initialValues);
+  }
 }

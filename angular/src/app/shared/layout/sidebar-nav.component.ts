@@ -1,6 +1,6 @@
 import { Component, Injector, ViewEncapsulation } from '@angular/core';
 import { AppBaseComponent } from '../app.base.component';
-import { UserPermission, SystemSettingPermission } from 'src/app/shared/services/system-configuration/system-permission-name';
+import { UserPermission } from 'src/app/shared/services/system-configuration/system-permission-name';
 import { StudentPermission, TeacherPermission } from '../services/student/student-permission-name';
 
 @Component({
@@ -13,7 +13,6 @@ export class SideBarNavComponent extends AppBaseComponent {
   menuItems: MenuItem[] = [
     new MenuItem('::Home', '', 'home', '/home'),
     new MenuItem('SystemConfiguration::SystemConfiguration', '', 'settings', '', [
-      new MenuItem('SystemConfiguration::SystemSetting', SystemSettingPermission.Default, 'list_alt', '/setting/system-setting'),
       new MenuItem('AbpIdentity::Users', UserPermission.Default, 'account_box', '/setting/manage-user'),
       new MenuItem('AbpIdentity::Roles', '', 'group', '/setting/role')
     ]),
