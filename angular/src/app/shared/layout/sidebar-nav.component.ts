@@ -1,6 +1,6 @@
 import { Component, Injector, ViewEncapsulation } from '@angular/core';
 import { AppBaseComponent } from '../app.base.component';
-import { UserPermission } from 'src/app/shared/services/system-configuration/system-permission-name';
+import { UserPermission, SystemSettingPermission } from 'src/app/shared/services/system-configuration/system-permission-name';
 import { StudentPermission, TeacherPermission } from '../services/student/student-permission-name';
 
 @Component({
