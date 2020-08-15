@@ -23,6 +23,13 @@ namespace doan.ProjectManagement.Permissions
             teacher.AddChild(ProjectManagementPermissions.Teacher.Delete, L("Permission:Delete"));
             #endregion
 
+            #region system-setting
+            var systemsetting = myGroup.AddPermission(ProjectManagementPermissions.SystemSetting.Default, L("Permission:SystemSetting"));
+            systemsetting.AddChild(ProjectManagementPermissions.SystemSetting.Create, L("Permission:Create"));
+            systemsetting.AddChild(ProjectManagementPermissions.SystemSetting.Update, L("Permission:Update"));
+            systemsetting.AddChild(ProjectManagementPermissions.SystemSetting.Delete, L("Permission:Delete"));
+            #endregion
+
         }
 
         private static LocalizableString L(string name)
