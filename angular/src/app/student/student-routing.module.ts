@@ -1,9 +1,10 @@
-import { StudentComponent } from './student.component';
+
 import { StudentPermission } from '../shared/services/student/student-permission-name';
 import { ABP } from '@abp/ng.core';
-import { CreatOrEditStudentComponent } from './create-edit/create-edit-student.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CreatOrEditStudentComponent } from './student/create-edit/create-edit-student.component';
+import { StudentComponent } from './student/student.component';
 
 const routes = [
     {

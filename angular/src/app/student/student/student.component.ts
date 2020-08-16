@@ -1,11 +1,11 @@
-import { AppBaseComponent } from './../shared/app.base.component';
-import { appModuleAnimation } from '../shared/animations/routerTransition';
+
 import { Component, OnInit, ViewChild, Injector } from '@angular/core';
-import { DataTablesOptions, FtDatatablesComponent } from '../shared/components/ft-table/ft-datatable.component';
-import { StudentPermission } from '../shared/services/student/student-permission-name';
-import { GetStudentInputDto, GetStudentDto } from '../shared/services/student/models';
-import { isPlainObject } from 'jquery';
-import { StudentService } from '../shared/services/student/services';
+import { AppBaseComponent } from 'src/app/shared/app.base.component';
+import { DataTablesOptions, FtDatatablesComponent } from 'src/app/shared/components/ft-table/ft-datatable.component';
+import { appModuleAnimation } from 'src/app/shared/animations/routerTransition';
+import { StudentPermission } from 'src/app/shared/services/student/student-permission-name';
+import { StudentService } from 'src/app/shared/services/student/services';
+import { GetStudentInputDto, GetStudentDto } from 'src/app/shared/services/student/models';
 
 @Component({
   animations: [appModuleAnimation()],
