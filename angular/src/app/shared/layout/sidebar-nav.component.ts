@@ -19,7 +19,7 @@ export class SideBarNavComponent extends AppBaseComponent {
     ]),
     new MenuItem('::Student', '', 'person', '', [
       new MenuItem('::Student', StudentPermission.Default, 'person', '/student/management'),
-      new MenuItem('::StudentGroup', '', 'groups', ''),
+      new MenuItem('::StudentGroup', '', 'groups', '/student/group-student'),
     ]),
     new MenuItem('::Teacher', TeacherPermission.Default, 'perm_contact_calendar', '/teacher/management'),
 
