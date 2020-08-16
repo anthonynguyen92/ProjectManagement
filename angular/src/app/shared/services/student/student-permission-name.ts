@@ -12,3 +12,10 @@ export class TeacherPermission {
   public static Update = TeacherPermission.Default + '.Update';
   public static Delete = TeacherPermission.Default + '.Delete';
 }
+
+export class StudentGroupPermission {
+  public static Default = GroupName + '.StudentGroup';
+  public static Create = StudentGroupPermission.Default + '.Create';
+  public static Update = StudentGroupPermission.Default + '.Update';
+  public static Delete = StudentGroupPermission.Default + '.Delete';
+}

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using Volo.Abp.Domain.Entities.Auditing;
 
 namespace doan.ProjectManagement.Entities
@@ -13,5 +14,8 @@ namespace doan.ProjectManagement.Entities
         public string Degree { get; set; }
         public string Faculty { get; set; }
         public string Position { get; set; }
+        public TeacherGroup TeacherGroup { get; set; }
+        [ForeignKey("TeacherGroupId")]
+        public Guid? TeacherGroupId { get; set; }
     }
 }
