@@ -30,6 +30,12 @@ namespace doan.ProjectManagement.Permissions
             systemsetting.AddChild(ProjectManagementPermissions.SystemSetting.Delete, L("Permission:Delete"));
             #endregion
 
+            #region student group
+            var studentGroup = myGroup.AddPermission(ProjectManagementPermissions.StudentGroup.Default, L("Permission:StudentGroup"));
+            studentGroup.AddChild(ProjectManagementPermissions.StudentGroup.Create, L("Permission:Create"));
+            studentGroup.AddChild(ProjectManagementPermissions.StudentGroup.Update, L("Permission:Update"));
+            studentGroup.AddChild(ProjectManagementPermissions.StudentGroup.Delete, L("Permission:Delete"));
+            #endregion
         }
 
         private static LocalizableString L(string name)

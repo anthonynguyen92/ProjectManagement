@@ -14,5 +14,6 @@ namespace doan.ProjectManagement.Entities
         public string Branch { get; set; }
         public string CourseYear { get; set; }
         public string StudentCode { get; set; }
+        public StudentGroupInformation StudentGroupInformation { get; set; }
     }
 }

@@ -1,8 +1,8 @@
-import { AppBaseComponent } from './../../shared/app.base.component';
 import { Component, OnInit, Injector } from "@angular/core";
-import { appModuleAnimation } from "../../shared/animations/routerTransition";
 import { StudentService } from 'src/app/shared/services/student/services';
 import { CreateUpdateStudentDto } from 'src/app/shared/services/student/models';
+import { AppBaseComponent } from 'src/app/shared/app.base.component';
+import { appModuleAnimation } from 'src/app/shared/animations/routerTransition';
 
 @Component({
   templateUrl: './create-edit-student.component.html',

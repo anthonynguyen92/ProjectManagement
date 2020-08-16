@@ -17,7 +17,10 @@ export class SideBarNavComponent extends AppBaseComponent {
       new MenuItem('AbpIdentity::Users', UserPermission.Default, 'account_box', '/setting/manage-user'),
       new MenuItem('AbpIdentity::Roles', '', 'group', '/setting/role')
     ]),
-    new MenuItem('::Student', StudentPermission.Default, 'person', '/student/management'),
+    new MenuItem('::Student', '', 'person', '', [
+      new MenuItem('::Student', StudentPermission.Default, 'person', '/student/management'),
+      new MenuItem('::StudentGroup', '', 'groups', ''),
+    ]),
     new MenuItem('::Teacher', TeacherPermission.Default, 'perm_contact_calendar', '/teacher/management'),
 
   ];

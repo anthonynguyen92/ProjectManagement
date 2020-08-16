@@ -36,6 +36,17 @@ namespace doan.ProjectManagement.EntityFrameworkCore
                 b.ToTable(SystemSettingManagementConsts.DbTablePrefix + ".SystemSetting");
                 b.ConfigureByConvention();
             });
+            builder.Entity<StudentGroup>(b =>
+            {
+                b.ToTable("StudentGroup");
+                b.ConfigureByConvention();
+            });
+            builder.Entity<StudentGroupInformation>(b =>
+            {
+                b.ToTable("StudentGroupInformation");
+                b.ConfigureByConvention();
+            });
+
         }
     }
 }
