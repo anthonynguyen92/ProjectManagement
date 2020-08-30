@@ -31,10 +31,22 @@ namespace doan.ProjectManagement.Permissions
             #endregion
 
             #region student group
-            var studentGroup = myGroup.AddPermission(ProjectManagementPermissions.StudentGroup.Default, L("Permission:StudentGroup"));
+            var studentGroup = myGroup.AddPermission(ProjectManagementPermissions.StudentGroup.Default,
+                L("Permission:StudentGroup"));
             studentGroup.AddChild(ProjectManagementPermissions.StudentGroup.Create, L("Permission:Create"));
             studentGroup.AddChild(ProjectManagementPermissions.StudentGroup.Update, L("Permission:Update"));
             studentGroup.AddChild(ProjectManagementPermissions.StudentGroup.Delete, L("Permission:Delete"));
+            #endregion
+
+            #region student group information
+            var studentGroupInformation = myGroup.AddPermission(ProjectManagementPermissions.StudentGroupInformation.Default,
+                L("Permission:StudentGroupInformation"));
+            studentGroupInformation.AddChild(ProjectManagementPermissions.StudentGroupInformation.Create,
+                L("Permission:Create"));
+            studentGroupInformation.AddChild(ProjectManagementPermissions.StudentGroupInformation.Update,
+                L("Permission:Update"));
+            studentGroupInformation.AddChild(ProjectManagementPermissions.StudentGroupInformation.Delete,
+                L("Permission:Delete"));
             #endregion
         }
 

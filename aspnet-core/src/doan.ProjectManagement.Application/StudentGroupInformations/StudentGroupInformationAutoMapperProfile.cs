@@ -12,7 +12,7 @@ namespace doan.ProjectManagement.StudentGroupInformations
             CreateMap<StudentGroupInformationDto, StudentGroupInformation>(MemberList.None);
             CreateMap<StudentGroupInformation, GetStudentGroupInformationDto>(MemberList.None);
             CreateMap<StudentGroupInformation, GetStudentGroupInformationForEditDto>(MemberList.None);
-            CreateMap<CreateUpdateStudentGroupInformationDto, StudentGroup>(MemberList.None);
+            CreateMap<CreateUpdateStudentGroupInformationDto, StudentGroupInformation>(MemberList.None);
         }
     }
 }

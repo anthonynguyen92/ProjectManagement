@@ -14,8 +14,5 @@ namespace doan.ProjectManagement.Entities
         public string Degree { get; set; }
         public string Faculty { get; set; }
         public string Position { get; set; }
-        public TeacherGroup TeacherGroup { get; set; }
-        [ForeignKey("TeacherGroupId")]
-        public Guid? TeacherGroupId { get; set; }
     }
 }
