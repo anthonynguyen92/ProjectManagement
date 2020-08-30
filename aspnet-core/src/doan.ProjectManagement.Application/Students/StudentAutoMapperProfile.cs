@@ -13,6 +13,7 @@ namespace doan.ProjectManagement.Students
             CreateMap<Student, GetStudentDto>(MemberList.None);
             CreateMap<Student, GetStudentForEditDto>(MemberList.None);
             CreateMap<CreateUpdateStudentDto, Student>(MemberList.None);
+            CreateMap<GetStudentForEditDto, Student>(MemberList.None);
         }
 
     }

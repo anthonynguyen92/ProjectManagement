@@ -52,7 +52,12 @@ namespace doan.ProjectManagement.Students
 
             if (Repository.Any(x => x.Email == input.Email))
             {
-                throw new UserFriendlyException(_localizers["EmailAreadlyExists"]);
+                throw new UserFriendlyException(_localizers["EmailAlreadlyExists"]);
+            }
+
+            if (Repository.Any(x => x.StudentCode == input.StudentCode))
+            {
+                throw new UserFriendlyException(_localizers["StudentCodeAlreadyExists"]);
             }
 
             return await base.Create(input);
@@ -60,7 +65,6 @@ namespace doan.ProjectManagement.Students
 
         protected override async Task<Student> Update(CreateUpdateStudentDto input)
         {
-
             await CheckUpdatePolicyAsync();
             // phone number cant change rightnow
             // email cant change right now
@@ -74,5 +78,12 @@ namespace doan.ProjectManagement.Students
             return entity;
         }
 
+        public async Task<GetStudentForEditDto> GetStudentByCode(string code)
+        {
+            await CheckGetListPolicyAsync();
+            var result = Repository.Where(x => x.StudentCode == code).FirstOrDefault();
+            var entity = ObjectMapper.Map<Student, GetStudentForEditDto>(result);
+            return entity;
+        }
     }
 }

@@ -118,7 +118,7 @@
                           <mat-label>
                             {{ 'TeacherManagement::StudentCode' | abpLocalization }}
                           </mat-label>
-                          <input matInput [(ngModel)]="vm.studentCode" name="courseYear" type="number" required>
+                          <input matInput [(ngModel)]="vm.studentCode" name="StudentCode" type="number" required [disabled]="vm.id">
                         </mat-form-field>
                       </div>
                       <br />

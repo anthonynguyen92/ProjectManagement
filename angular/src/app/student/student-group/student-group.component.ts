@@ -14,9 +14,10 @@ import { StudentGroupPermission } from 'src/app/shared/services/student/student-
 export class StudentGroupComponent extends AppBaseComponent implements OnInit {
 
   public dtOptions: DataTablesOptions;
-  @ViewChild('studentGroup', { static: false }) public studentGroup: FtDatatablesComponent;
   public readonly creatingPermission: string = StudentGroupPermission.Create;
   public filter: string;
+
+  @ViewChild('studentGroup', { static: false }) public studentGroup: FtDatatablesComponent;
 
   constructor(injector: Injector,
     private readonly _studentGroupService: StudentGroupService) {

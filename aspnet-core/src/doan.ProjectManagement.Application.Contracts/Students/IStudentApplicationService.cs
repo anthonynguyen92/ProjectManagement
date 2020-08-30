@@ -1,6 +1,7 @@
 ﻿using doan.ProjectManagement;
 using doan.ProjectManagement.Students.Dto;
 using System;
+using System.Threading.Tasks;
 
 namespace doan.ProjectManagements.Student
 {
@@ -8,5 +9,6 @@ namespace doan.ProjectManagements.Student
         Guid, CreateUpdateStudentDto, GetStudentDto, GetStudentForEditDto, GetStudentInput>
     {
 
+        Task<GetStudentForEditDto> GetStudentByCode(string code);
     }
 }
