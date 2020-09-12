@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 using doan.ProjectManagement.EntityFrameworkCore;
@@ -10,9 +11,10 @@ using doan.ProjectManagement.EntityFrameworkCore;
 namespace doan.ProjectManagement.Migrations
 {
     [DbContext(typeof(ProjectManagementMigrationsDbContext))]
-    partial class ProjectManagementMigrationsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200912165750_Update-Project-table")]
+    partial class UpdateProjecttable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1699,48 +1701,29 @@ namespace doan.ProjectManagement.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnName("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(40)")
-                        .HasMaxLength(40);
-
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnName("CreationTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("CreatorId")
-                        .HasColumnName("CreatorId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<long?>("CreatorUserId")
+                        .HasColumnType("bigint");
 
-                    b.Property<Guid?>("DeleterId")
-                        .HasColumnName("DeleterId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<long?>("DeleterUserId")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("DeletionTime")
-                        .HasColumnName("DeletionTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ExtraProperties")
-                        .HasColumnName("ExtraProperties")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("IsDeleted")
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnName("LastModificationTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("LastModifierId")
-                        .HasColumnName("LastModifierId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<long?>("LastModifierUserId")
+                        .HasColumnType("bigint");
 
                     b.Property<int>("Level")
                         .HasColumnType("int");
@@ -2488,7 +2471,7 @@ namespace doan.ProjectManagement.Migrations
             modelBuilder.Entity("doan.ProjectManagement.Entities.ProjectInformation", b =>
                 {
                     b.HasOne("doan.ProjectManagement.Entities.Project", "Project")
-                        .WithMany()
+                        .WithMany("ProjectInformations")
                         .HasForeignKey("ProjectId");
 
                     b.HasOne("doan.ProjectManagement.Entities.StudentGroup", "StudentGroup")

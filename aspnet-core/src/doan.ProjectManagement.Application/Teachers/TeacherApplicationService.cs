@@ -60,22 +60,6 @@ namespace doan.ProjectManagement.Teachers
 
             var entity = await Repository.GetAsync(input.Id.Value);
 
-            if (entity.PhoneNumber != input.PhoneNumber)
-            {
-                if (Repository.Any(x => x.PhoneNumber == input.PhoneNumber))
-                {
-                    throw new UserFriendlyException(L["PhoneNumberShouldBeUnique"]);
-                }
-            }
-
-            if (entity.Email != input.Email)
-            {
-                if (Repository.Any(x => x.Email == input.Email))
-                {
-                    throw new UserFriendlyException(L["EmailHasAlreadyExists"]);
-                }
-            }
-
             MapToEntity(input, entity);
 
             await CurrentUnitOfWork.SaveChangesAsync();

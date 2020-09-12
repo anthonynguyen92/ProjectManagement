@@ -11,15 +11,6 @@ namespace doan.ProjectManagement.EntityFrameworkCore
         {
             Check.NotNull(builder, nameof(builder));
 
-            /* Configure your own tables/entities inside here */
-
-            //builder.Entity<YourEntity>(b =>
-            //{
-            //    b.ToTable(ProjectManagementConsts.DbTablePrefix + "YourEntities", ProjectManagementConsts.DbSchema);
-            //    b.ConfigureByConvention(); //auto configure for the base class props
-            //    //...
-            //});
-
             builder.Entity<Student>(b =>
             {
                 b.ToTable(StudentManagementConsts.DbTablePrefix + ".Student");
@@ -46,7 +37,19 @@ namespace doan.ProjectManagement.EntityFrameworkCore
                 b.ToTable("StudentGroupInformation");
                 b.ConfigureByConvention();
             });
-
+            builder.Entity<ProjectInformation>(b =>
+            {
+                b.ToTable("ProjectInformation");
+                b.ConfigureByConvention();
+            }); builder.Entity<Project>(b =>
+            {
+                b.ToTable("Project");
+                b.ConfigureByConvention();
+            }); builder.Entity<ProjectRequest>(b =>
+            {
+                b.ToTable("ProjectRequest");
+                b.ConfigureByConvention();
+            });
         }
     }
 }

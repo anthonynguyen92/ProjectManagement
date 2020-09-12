@@ -30,6 +30,10 @@ const routes: Routes = [
         loadChildren: () => import('./configuration/configuration.module').then(m => m.ConfigurationModule),
       },
       {
+        path: 'project',
+        loadChildren: () => import('./project/project.module').then(m => m.ProjectModule),
+      },
+      {
         path: '',
         redirectTo: '/home',
         pathMatch: 'full'
