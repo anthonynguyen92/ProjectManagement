@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace doan.ProjectManagements.Student
 {
-    public interface IStudentApplicationService : IBaseAppService<
+    public interface IStudentAppService : IBaseAppService<
         Guid, CreateUpdateStudentDto, GetStudentDto, GetStudentForEditDto, GetStudentInput>
     {
 

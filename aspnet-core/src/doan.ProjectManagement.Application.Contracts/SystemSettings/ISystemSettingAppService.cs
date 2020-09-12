@@ -5,7 +5,7 @@ using System.Text;
 
 namespace doan.ProjectManagement.SystemSettings
 {
-    public interface ISystemSettingApplicationService : IBaseAppService<
+    public interface ISystemSettingAppService : IBaseAppService<
         Guid, CreateUpdateSystemDto, GetSystemSettingDto, GetSystemSettingForEditDto, GetSystemSettingInputDto>
     {
     }

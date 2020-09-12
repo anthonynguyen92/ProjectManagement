@@ -59,7 +59,17 @@ namespace doan.ProjectManagement.Permissions
                 L("Permission:Update"));
             project.AddChild(ProjectManagementPermissions.Project.Delete,
                 L("Permission:Delete"));
+            #endregion
 
+            #region project information
+            var projectInformation = myGroup.AddPermission(ProjectManagementPermissions.ProjectInformation.Default,
+                L("Permission:Project"));
+            projectInformation.AddChild(ProjectManagementPermissions.ProjectInformation.Create,
+                L("Permission:Create"));
+            projectInformation.AddChild(ProjectManagementPermissions.ProjectInformation.Update,
+                L("Permission:Update"));
+            projectInformation.AddChild(ProjectManagementPermissions.ProjectInformation.Delete,
+                L("Permission:Delete"));
             #endregion
         }
 

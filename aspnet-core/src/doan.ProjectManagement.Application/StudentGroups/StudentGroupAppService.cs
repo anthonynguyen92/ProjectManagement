@@ -8,9 +8,9 @@ using Volo.Abp.Domain.Repositories;
 
 namespace doan.ProjectManagement.StudentGroups
 {
-    public class StudentGroupApplicationService : BaseAppService<StudentGroup, Guid,
+    public class StudentGroupAppService : BaseAppService<StudentGroup, Guid,
         CreateUpdateStudentGroupDto, GetStudentGroupDto, GetStudentGroupForEditDto,
-        GetStudentGroupForInputDto>, IStudentGroupApplicationService
+        GetStudentGroupForInputDto>, IStudentGroupAppService
     {
 
         protected override string CreatePolicyName { get; set; } = ProjectManagementPermissions.StudentGroup.Create;
@@ -19,7 +19,7 @@ namespace doan.ProjectManagement.StudentGroups
         protected override string GetListPolicyName { get; set; } = ProjectManagementPermissions.StudentGroup.Default;
         protected override string GetPolicyName { get; set; } = ProjectManagementPermissions.StudentGroup.Default;
 
-        public StudentGroupApplicationService(IRepository<StudentGroup, Guid> repository) : base(repository)
+        public StudentGroupAppService(IRepository<StudentGroup, Guid> repository) : base(repository)
         {
         }
 
