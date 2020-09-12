@@ -62,6 +62,27 @@ namespace doan.ProjectManagement.Permissions
             public const string Delete = Default + ".Delete";
         }
         #endregion
+
+        #region Project information
+        public class ProjectInformation
+        {
+            public const string Default = GroupName + ".ProjectInformation";
+            public const string Create = Default + ".Create";
+            public const string Update = Default + ".Update";
+            public const string Delete = Default + ".Delete";
+        }
+
+        #endregion
+
+        #region project
+        public class Project
+        {
+            public const string Default = GroupName + ".Project";
+            public const string Create = Default + ".Create";
+            public const string Update = Default + ".Update";
+            public const string Delete = Default + ".Delete";
+        }
+        #endregion
     }
 
 

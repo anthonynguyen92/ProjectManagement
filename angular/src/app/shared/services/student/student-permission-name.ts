@@ -22,7 +22,7 @@ export class StudentGroupPermission {
 
 export class StudentGroupInformationPermission {
   public static Default = GroupName + '.StudentGroupInformation';
-  public static Create = StudentGroupInformationPermission.Default + 'Create'
+  public static Create = StudentGroupInformationPermission.Default + '.Create'
   public static Update = StudentGroupInformationPermission.Default + '.Update';
   public static Delete = StudentGroupInformationPermission.Default + '.Delete';
 }

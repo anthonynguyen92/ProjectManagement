@@ -9,6 +9,7 @@ namespace doan.ProjectManagement.Permissions
         public override void Define(IPermissionDefinitionContext context)
         {
             var myGroup = context.AddGroup(ProjectManagementPermissions.GroupName, L("Permission:ProjectManagement"));
+
             #region student
             var student = myGroup.AddPermission(ProjectManagementPermissions.Student.Default, L("Permission:Student"));
             student.AddChild(ProjectManagementPermissions.Student.Create, L("Permission:Create"));
@@ -47,6 +48,18 @@ namespace doan.ProjectManagement.Permissions
                 L("Permission:Update"));
             studentGroupInformation.AddChild(ProjectManagementPermissions.StudentGroupInformation.Delete,
                 L("Permission:Delete"));
+            #endregion
+
+            #region project
+            var project = myGroup.AddPermission(ProjectManagementPermissions.Project.Default,
+                L("Permission:Project"));
+            project.AddChild(ProjectManagementPermissions.Project.Create,
+                L("Permission:Create"));
+            project.AddChild(ProjectManagementPermissions.Project.Update,
+                L("Permission:Update"));
+            project.AddChild(ProjectManagementPermissions.Project.Delete,
+                L("Permission:Delete"));
+
             #endregion
         }
 

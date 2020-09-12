@@ -36,7 +36,7 @@
 
             <ft-datatables #studentGroupInformation [dtOptions]="dtOptions"></ft-datatables>
             <!-- *abpPermission="creatingPermission" -->
-            <button  mat-mini-fab color="primary" class="btn-add-new pull-right"
+            <button mat-mini-fab color="primary" class="btn-add-new pull-right" *abpPermission="creatingPermission"
               (click)="create()">
               <mat-icon>add</mat-icon>
             </button>

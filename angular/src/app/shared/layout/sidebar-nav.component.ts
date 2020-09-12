@@ -2,6 +2,7 @@ import { Component, Injector, ViewEncapsulation } from '@angular/core';
 import { AppBaseComponent } from '../app.base.component';
 import { UserPermission } from 'src/app/shared/services/system-configuration/system-permission-name';
 import { StudentPermission, TeacherPermission } from '../services/student/student-permission-name';
+import { ProjectPermission } from '../services/project/project-permission-name';
 
 @Component({
   templateUrl: './sidebar-nav.component.html',
@@ -22,6 +23,7 @@ export class SideBarNavComponent extends AppBaseComponent {
       new MenuItem('::StudentGroup', '', 'groups', '/student/group-student'),
     ]),
     new MenuItem('::Teacher', TeacherPermission.Default, 'perm_contact_calendar', '/teacher/management'),
+    new MenuItem('::Project','','view_list','/project/list'),
 
   ];
 
