@@ -41,13 +41,20 @@ namespace doan.ProjectManagement.EntityFrameworkCore
             {
                 b.ToTable("ProjectInformation");
                 b.ConfigureByConvention();
-            }); builder.Entity<Project>(b =>
+            });
+            builder.Entity<Project>(b =>
             {
                 b.ToTable("Project");
                 b.ConfigureByConvention();
-            }); builder.Entity<ProjectRequest>(b =>
+            });
+            builder.Entity<ProjectRequest>(b =>
             {
                 b.ToTable("ProjectRequest");
+                b.ConfigureByConvention();
+            });
+            builder.Entity<TeacherInformationGroup>(b =>
+            {
+                b.ToTable("TeacherInformationGroup");
                 b.ConfigureByConvention();
             });
         }

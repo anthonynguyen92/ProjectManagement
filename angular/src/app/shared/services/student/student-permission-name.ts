@@ -26,3 +26,10 @@ export class StudentGroupInformationPermission {
   public static Update = StudentGroupInformationPermission.Default + '.Update';
   public static Delete = StudentGroupInformationPermission.Default + '.Delete';
 }
+
+export class TeacherInformationGroupPermission{
+  public static Default = GroupName + '.TeacherInformationGroup';
+  public static Create = StudentGroupInformationPermission.Default + '.Create'
+  public static Update = StudentGroupInformationPermission.Default + '.Update';
+  public static Delete = StudentGroupInformationPermission.Default + '.Delete';
+}

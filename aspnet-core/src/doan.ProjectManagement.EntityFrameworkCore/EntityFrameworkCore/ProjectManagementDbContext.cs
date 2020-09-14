@@ -30,6 +30,7 @@ namespace doan.ProjectManagement.EntityFrameworkCore
         public DbSet<ProjectInformation> ProjectInformations { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<ProjectRequest> ProjectRequests { get; set; }
+        public DbSet<TeacherInformationGroup> TeacherInformationGroups { get; set; }
 
         public ProjectManagementDbContext(DbContextOptions<ProjectManagementDbContext> options)
             : base(options)

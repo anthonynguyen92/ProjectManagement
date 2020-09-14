@@ -3,7 +3,7 @@
     <div class="card main-content">
       <div class="header">
         <h2>
-          {{ '::ProjectInformation' | abpLocalization }}
+          {{ '::Teacher' | abpLocalization }}
         </h2>
         <div class="buttonHeaderContainer">
           <button mat-button (click)="goBack()">
@@ -63,7 +63,8 @@
                           <mat-label>
                             {{ '::StudentGroupName' | abpLocalization }}
                           </mat-label>
-                          <input matInput [(ngModel)]="vm.studentGroupName" name="studentGroupName" maxlength="200" [disabled]='id'>
+                          <input matInput [(ngModel)]="vm.studentGroupName" name="studentGroupName" maxlength="200"
+                            [disabled]='id'>
                         </mat-form-field>
                       </div>
 
@@ -72,8 +73,8 @@
                           <mat-label>
                             {{ '::EmailContact' | abpLocalization }}
                           </mat-label>
-                          <input matInput [(ngModel)]="vm.emailContact" name="emailContact" maxlength="200"
-                            required [disabled]='id' >
+                          <input matInput [(ngModel)]="vm.emailContact" name="emailContact" maxlength="200" required
+                            [disabled]='id'>
                         </mat-form-field>
                       </div>
 
@@ -81,7 +82,8 @@
                         <mat-form-field class="w-100">
                           <mat-label>{{'::StartDate' | abpLocalization}}
                           </mat-label>
-                          <input matInput [matDatepicker]="picker1" [(ngModel)]="vm.startDate" name="startDate" required>
+                          <input matInput [matDatepicker]="picker1" [(ngModel)]="vm.startDate" name="startDate"
+                            required>
                           <mat-datepicker-toggle matSuffix [for]="picker1">
                           </mat-datepicker-toggle>
                           <mat-datepicker #picker1></mat-datepicker>
@@ -123,3 +125,4 @@
     </div>
   </div>
 </form>
+<ft-teacher-information-group *ngIf="id" [ProjectInformationId]='id' [projectId]='projectId'></ft-teacher-information-group>

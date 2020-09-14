@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 using doan.ProjectManagement.EntityFrameworkCore;
@@ -10,9 +11,10 @@ using doan.ProjectManagement.EntityFrameworkCore;
 namespace doan.ProjectManagement.Migrations
 {
     [DbContext(typeof(ProjectManagementMigrationsDbContext))]
-    partial class ProjectManagementMigrationsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200914171108_add-description-teacher-information-group")]
+    partial class adddescriptionteacherinformationgroup
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2304,9 +2306,6 @@ namespace doan.ProjectManagement.Migrations
                         .HasColumnName("LastModifierId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ProjectInformationId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Roles")
                         .HasColumnType("nvarchar(max)");
 
@@ -2317,6 +2316,8 @@ namespace doan.ProjectManagement.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("TeacherId");
 
                     b.ToTable("TeacherInformationGroup");
                 });
@@ -2598,6 +2599,13 @@ namespace doan.ProjectManagement.Migrations
                     b.HasOne("doan.ProjectManagement.Entities.Student", "Student")
                         .WithOne("StudentGroupInformation")
                         .HasForeignKey("doan.ProjectManagement.Entities.StudentGroupInformation", "StudentId");
+                });
+
+            modelBuilder.Entity("doan.ProjectManagement.Entities.TeacherInformationGroup", b =>
+                {
+                    b.HasOne("doan.ProjectManagement.Entities.Teacher", "Teacher")
+                        .WithMany()
+                        .HasForeignKey("TeacherId");
                 });
 #pragma warning restore 612, 618
         }

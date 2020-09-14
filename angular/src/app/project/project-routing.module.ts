@@ -6,6 +6,8 @@ import { ProjectComponent } from './project.component';
 import { ABP } from '@abp/ng.core';
 import { CreateUpdateProjectComponent } from './create-update/create-update-project.component';
 import { CreateUpdateProjectInformationComponent } from './project-information/create-update/create-update-project-information.component';
+import { CreateTeacherInformationGroupComponent } from './project-information/teacher-group-information/create/create-teacher-information-group.component';
+import { TeacherInformationGroupPermission } from '../shared/services/student/student-permission-name';
 
 const routes = [
   {
@@ -55,6 +57,10 @@ const routes = [
           } as ABP.Route
         },
       },
+      {
+        path:'teacher/create/:id/:projectId',
+        component: CreateTeacherInformationGroupComponent
+      }
     ]
   }
 ]
