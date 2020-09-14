@@ -3,6 +3,17 @@
   "texts": {
     "Menu:Home": "Home",
     "Welcome": "Welcome",
-    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io."
+    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+    "Permission:ProjectInformation": "Project information permission",
+    "Permission:Create": "Create",
+    "Permission:Update": "Update",
+    "Permission:Delete": "Delete",
+    "Permission:Project": "Project Permission",
+    "Permission:StudentGroupInformation": "Student group information permission",
+    "Permission:StudentGroup": "Student group permission",
+    "Permission:SystemSetting": "System setting permission",
+    "Permission:Teacher": "Teacher permission",
+    "Permission:Student": "Student permission",
+    "Permission:ProjectManagement": "Project management permission"
   }
 }

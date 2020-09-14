@@ -63,7 +63,7 @@ namespace doan.ProjectManagement.Permissions
 
             #region project information
             var projectInformation = myGroup.AddPermission(ProjectManagementPermissions.ProjectInformation.Default,
-                L("Permission:Project"));
+                L("Permission:ProjectInformation"));
             projectInformation.AddChild(ProjectManagementPermissions.ProjectInformation.Create,
                 L("Permission:Create"));
             projectInformation.AddChild(ProjectManagementPermissions.ProjectInformation.Update,

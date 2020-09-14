@@ -38,5 +38,11 @@ namespace doan.ProjectManagement.Projects
             if (data == null) throw new UserFriendlyException();
             data.Status = data.Status == Status.Active ? Status.Inactive : Status.Active;
         }
+
+        protected override Task<Project> Create(CreateUpdateProjectDto input)
+        {
+            input.NumberOfTeamRegister = 0;
+            return base.Create(input);
+        }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using doan.ProjectManagement.ProjectInformations.Dto;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace doan.ProjectManagement.ProjectInformations
 {
@@ -10,5 +12,6 @@ namespace doan.ProjectManagement.ProjectInformations
         GetProjectInformationForEditDto,
         GetProjectInformationForInputDto>
     {
+        Task ToggleStatus(Guid Id);
     }
 }

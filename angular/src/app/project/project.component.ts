@@ -117,6 +117,7 @@ export class ProjectComponent extends AppBaseComponent implements OnInit {
 
   toggleStatus(id: string) {
     this._projectService.toogletStatus(id).subscribe(() => {
+      this.notifySuccess('::UpdateSuccessfully');
       this.refresh();
     })
   }
