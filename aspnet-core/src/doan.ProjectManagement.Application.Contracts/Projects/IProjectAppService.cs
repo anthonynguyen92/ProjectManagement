@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace doan.ProjectManagement.Projects
 {
-    public interface IProjectApplicationService : IBaseAppService<
+    public interface IProjectAppService : IBaseAppService<
         Guid, CreateUpdateProjectDto, GetProjectDto, GetProjectForEditDto, GetProjectForInputDto>
     {
         Task ToggleStatus(Guid id);

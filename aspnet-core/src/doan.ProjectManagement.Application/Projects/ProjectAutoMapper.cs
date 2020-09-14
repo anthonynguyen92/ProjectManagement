@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using doan.ProjectManagement.Entities;
 using doan.ProjectManagement.Projects.Dto;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace doan.ProjectManagement.Projects
 {

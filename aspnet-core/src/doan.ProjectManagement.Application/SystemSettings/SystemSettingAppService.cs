@@ -7,10 +7,10 @@ using Volo.Abp.Domain.Repositories;
 
 namespace doan.ProjectManagement.SystemSettings
 {
-    public class SystemSettingApplicationService : BaseAppService<SystemSetting
+    public class SystemSettingAppService : BaseAppService<SystemSetting
         , Guid, CreateUpdateSystemDto, GetSystemSettingDto,
         GetSystemSettingForEditDto, GetSystemSettingInputDto>,
-        ISystemSettingApplicationService
+        ISystemSettingAppService
     {
 
         protected override string GetListPolicyName { get; set; } = ProjectManagementPermissions.SystemSetting.Default;
@@ -18,7 +18,7 @@ namespace doan.ProjectManagement.SystemSettings
         protected override string UpdatePolicyName { get; set; } = ProjectManagementPermissions.SystemSetting.Update;
         protected override string DeletePolicyName { get; set; } = ProjectManagementPermissions.SystemSetting.Delete;
         protected override string CreatePolicyName { get; set; } = ProjectManagementPermissions.SystemSetting.Create;
-        public SystemSettingApplicationService(IRepository<SystemSetting, Guid> repository) : base(repository)
+        public SystemSettingAppService(IRepository<SystemSetting, Guid> repository) : base(repository)
         {
         }
 

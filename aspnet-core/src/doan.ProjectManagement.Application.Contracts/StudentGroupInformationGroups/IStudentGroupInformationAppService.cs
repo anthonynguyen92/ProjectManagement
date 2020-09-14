@@ -3,7 +3,7 @@ using System;
 
 namespace doan.ProjectManagement.StudentGroupInformationGroups
 {
-    public interface IStudentGroupInformationApplicationService : IBaseAppService<
+    public interface IStudentGroupInformationAppService : IBaseAppService<
         Guid, CreateUpdateStudentGroupInformationDto, GetStudentGroupInformationDto,
         GetStudentGroupInformationForEditDto, GetStudentGroupInformationForInputDto>
     {

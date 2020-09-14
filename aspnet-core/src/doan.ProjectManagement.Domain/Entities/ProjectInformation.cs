@@ -1,8 +1,9 @@
-﻿using Abp.Domain.Entities.Auditing;
+﻿
 using doan.ProjectManagement.Enum;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using Volo.Abp.Domain.Entities.Auditing;
 
 namespace doan.ProjectManagement.Entities
 {
@@ -11,10 +12,11 @@ namespace doan.ProjectManagement.Entities
         public Project Project { get; set; }
         [ForeignKey("ProjectId")]
         public Guid? ProjectId { get; set; }
-        public ICollection<Teacher> Teachers { get; set; }
+        public string ProjectName { get; set; }
         public StudentGroup StudentGroup { get; set; }
         [ForeignKey("StudentGroupId")]
         public Guid? StudentGroupId { get; set; }
+        public string StudentGroupName { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? ExpiredDate { get; set; }
         public string EmailContact { get; set; }

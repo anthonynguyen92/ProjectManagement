@@ -6,12 +6,13 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories;
+using Volo.Abp.Localization;
 
 namespace doan.ProjectManagement.StudentGroupInformations
 {
-    public class StudentGroupInformationApplicationService : BaseAppService<
+    public class StudentGroupInformationAppService : BaseAppService<
         StudentGroupInformation, Guid, CreateUpdateStudentGroupInformationDto, GetStudentGroupInformationDto,
-        GetStudentGroupInformationForEditDto, GetStudentGroupInformationForInputDto>, IStudentGroupInformationApplicationService
+        GetStudentGroupInformationForEditDto, GetStudentGroupInformationForInputDto>, IStudentGroupInformationAppService
     {
 
         protected override string CreatePolicyName { get; set; } = ProjectManagementPermissions.StudentGroupInformation.Create;
@@ -19,8 +20,15 @@ namespace doan.ProjectManagement.StudentGroupInformations
         protected override string UpdatePolicyName { get; set; } = ProjectManagementPermissions.StudentGroupInformation.Update;
         protected override string GetListPolicyName { get; set; } = ProjectManagementPermissions.StudentGroupInformation.Default;
         protected override string GetPolicyName { get; set; } = ProjectManagementPermissions.StudentGroupInformation.Default;
-        public StudentGroupInformationApplicationService(IRepository<StudentGroupInformation, Guid> repository) : base(repository)
+
+        private readonly IRepository<Project, Guid> _projectRepository;
+        private readonly ILocalizableString _localizable;
+        public StudentGroupInformationAppService(IRepository<StudentGroupInformation, Guid> repository,
+            IRepository<Project, Guid> projectRepository,
+            ILocalizableString localizable) : base(repository)
         {
+            _projectRepository = _projectRepository;
+            _localizable = localizable;
         }
 
         protected override IQueryable<StudentGroupInformation> CreateFilteredQuery(GetStudentGroupInformationForInputDto input)

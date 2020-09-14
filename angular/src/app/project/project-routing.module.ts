@@ -51,7 +51,7 @@ const routes = [
         data: {
           routes: {
             name: ':Information',
-            requiredPolicy: ProjectInformationPermission.Create
+            requiredPolicy: ProjectInformationPermission.Update
           } as ABP.Route
         },
       },

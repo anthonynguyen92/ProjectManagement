@@ -13,9 +13,9 @@ using Volo.Abp.Domain.Repositories;
 
 namespace doan.ProjectManagement.Students
 {
-    public class StudentApplicationService : BaseAppService<
+    public class StudentAppService : BaseAppService<
         Student, Guid, CreateUpdateStudentDto,
-        GetStudentDto, GetStudentForEditDto, GetStudentInput>, IStudentApplicationService
+        GetStudentDto, GetStudentForEditDto, GetStudentInput>, IStudentAppService
     {
         protected override string CreatePolicyName { get; set; } = ProjectManagementPermissions.Student.Create;
         protected override string DeletePolicyName { get; set; } = ProjectManagementPermissions.Student.Delete;
@@ -24,7 +24,7 @@ namespace doan.ProjectManagement.Students
         protected override string GetPolicyName { get; set; } = ProjectManagementPermissions.Student.Default;
 
         private readonly IStringLocalizer<ProjectManagementResource> _localizers;
-        public StudentApplicationService(IRepository<Student, Guid> repository, IStringLocalizer<ProjectManagementResource> localizers) : base(repository)
+        public StudentAppService(IRepository<Student, Guid> repository, IStringLocalizer<ProjectManagementResource> localizers) : base(repository)
         {
             _localizers = localizers;
         }

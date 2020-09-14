@@ -10,9 +10,9 @@ using Volo.Abp.Domain.Repositories;
 
 namespace doan.ProjectManagement.Projects
 {
-    public class ProjectApplicationService : BaseAppService<
+    public class ProjectAppService : BaseAppService<
         Project, Guid, CreateUpdateProjectDto, GetProjectDto, GetProjectForEditDto, GetProjectForInputDto>,
-        IProjectApplicationService
+        IProjectAppService
     {
 
         protected override string CreatePolicyName { get; set; } = ProjectManagementPermissions.Project.Create;
@@ -20,7 +20,7 @@ namespace doan.ProjectManagement.Projects
         protected override string GetListPolicyName { get; set; } = ProjectManagementPermissions.Project.Delete;
         protected override string GetPolicyName { get; set; } = ProjectManagementPermissions.Project.Delete;
         protected override string UpdatePolicyName { get; set; } = ProjectManagementPermissions.Project.Update;
-        public ProjectApplicationService(IRepository<Project, Guid> repository) : base(repository)
+        public ProjectAppService(IRepository<Project, Guid> repository) : base(repository)
         {
 
         }
@@ -37,6 +37,12 @@ namespace doan.ProjectManagement.Projects
             var data = await Repository.GetAsync(id);
             if (data == null) throw new UserFriendlyException();
             data.Status = data.Status == Status.Active ? Status.Inactive : Status.Active;
+        }
+
+        protected override Task<Project> Create(CreateUpdateProjectDto input)
+        {
+            input.NumberOfTeamRegister = 0;
+            return base.Create(input);
         }
     }
 }
