@@ -14,6 +14,7 @@
     "Permission:SystemSetting": "System setting permission",
     "Permission:Teacher": "Teacher permission",
     "Permission:Student": "Student permission",
-    "Permission:ProjectManagement": "Project management permission"
+    "Permission:ProjectManagement": "Project management permission",
+    "Permission:TeacherInformationGroup": "Teacher information group permission"
   }
 }

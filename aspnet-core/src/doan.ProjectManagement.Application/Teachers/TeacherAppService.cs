@@ -4,6 +4,7 @@ using doan.ProjectManagement.Permissions;
 using doan.ProjectManagement.Teachers.Dto;
 using Microsoft.Extensions.Localization;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
@@ -17,11 +18,13 @@ namespace doan.ProjectManagement.Teachers
         GetTeacherForEditDto, GetTeacherInput>, ITeacherAppService
     {
         private readonly IStringLocalizer<ProjectManagementResource> _localizable;
-
+        private readonly IRepository<TeacherInformationGroup, Guid> _teacherInformationGroupsRepository;
         public TeacherAppService(IRepository<Teacher, Guid> repository,
-            IStringLocalizer<ProjectManagementResource> localizable) : base(repository)
+            IStringLocalizer<ProjectManagementResource> localizable,
+            IRepository<TeacherInformationGroup, Guid> teacherInformationGroupsRepository) : base(repository)
         {
             _localizable = localizable;
+            _teacherInformationGroupsRepository = teacherInformationGroupsRepository;
         }
 
         protected override string CreatePolicyName { get; set; } = ProjectManagementPermissions.Teacher.Create;
@@ -42,30 +45,26 @@ namespace doan.ProjectManagement.Teachers
         {
             if (Repository.Any(x => x.Email == input.Email))
             {
-                throw new UserFriendlyException(L["EmailHasAlreadyExists"]);
+                throw new UserFriendlyException(_localizable["EmailHasAlreadyExists"]);
             }
 
             if (Repository.Any(x => x.PhoneNumber == input.PhoneNumber))
             {
-                throw new UserFriendlyException(L["PhoneNumberShouldBeUnique"]);
+                throw new UserFriendlyException(_localizable["PhoneNumberShouldBeUnique"]);
             }
 
             return await base.Create(input);
         }
 
-        protected override async Task<Teacher> Update(CreateUpdateTeacherDto input)
+        public async Task<List<GetTeacherDto>> getTeacherRegisted(Guid projectInformationId)
         {
+            var teacherRegisted = _teacherInformationGroupsRepository
+                .Where(x => x.ProjectInformationId == projectInformationId)
+                .Select(x => x.TeacherId);
 
-            await CheckUpdatePolicyAsync();
+            var getListTeacher = Repository.Where(x => !teacherRegisted.Contains(x.Id)).ToList();
 
-            var entity = await Repository.GetAsync(input.Id.Value);
-
-            MapToEntity(input, entity);
-
-            await CurrentUnitOfWork.SaveChangesAsync();
-
-            return entity;
+            return ObjectMapper.Map<List<Teacher>, List<GetTeacherDto>>(getListTeacher);
         }
-
     }
 }

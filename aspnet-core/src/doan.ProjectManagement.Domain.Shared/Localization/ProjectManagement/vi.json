@@ -14,7 +14,8 @@
     "Permission:SystemSetting": "Quyền quản lý hệ thống",
     "Permission:Teacher": "Quyền giáo viên",
     "Permission:Student": "Quyền học sinh",
-    "Permission:ProjectManagement": "Quản lý"
+    "Permission:ProjectManagement": "Quản lý",
+    "Permission:TeacherInformationGroup": "Quản lý nhóm giáo viên"
 
   }
 }

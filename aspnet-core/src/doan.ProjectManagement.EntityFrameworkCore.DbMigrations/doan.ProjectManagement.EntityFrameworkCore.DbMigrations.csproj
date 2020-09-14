@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200914171033_add-description-teacher-information-grou[.cs" />
+    <Compile Remove="Migrations\20200914171033_add-description-teacher-information-grou[.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="appsettings.json" />
   </ItemGroup>
 

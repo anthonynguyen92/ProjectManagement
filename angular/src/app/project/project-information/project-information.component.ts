@@ -44,7 +44,6 @@ export class ProjectInformationComponent extends AppBaseComponent implements OnI
         inputFilter.projectId = this.id;
         inputFilter.skipCount = skipCount;
         inputFilter.sorting = sorting;
-        console.log(inputFilter)
         this._projectInformationService.getListBypaged(inputFilter).subscribe(result => {
           callBack({
             data: result.items,
@@ -138,7 +137,7 @@ export class ProjectInformationComponent extends AppBaseComponent implements OnI
   }
 
   goBack() {
-    this.redirect(`project/lit/edit/${this.id}`);
+    this.redirect(`project/list/edit/${this.id}`);
   }
 
   refresh() {

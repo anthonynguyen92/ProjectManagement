@@ -83,6 +83,16 @@ namespace doan.ProjectManagement.Permissions
             public const string Delete = Default + ".Delete";
         }
         #endregion
+
+        #region Teacher group information 
+        public class TeacherInformationGroup
+        {
+            public const string Default = GroupName + ".TeacherInformationGroup";
+            public const string Create = Default + ".Create";
+            public const string Update = Default + ".Update";
+            public const string Delete = Default + ".Delete";
+        }
+        #endregion
     }
 
 

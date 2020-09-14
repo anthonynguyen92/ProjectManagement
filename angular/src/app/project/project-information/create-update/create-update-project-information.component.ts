@@ -4,13 +4,11 @@ import { appModuleAnimation } from 'src/app/shared/animations/routerTransition';
 import { AppBaseComponent } from 'src/app/shared/app.base.component';
 import { CreateUpdateProjectInformationDto } from 'src/app/shared/services/project/project-information/models';
 import { ProjectInformationService } from 'src/app/shared/services/project/project-information/services/project-information.service';
-import { GetProjectDto } from 'src/app/shared/services/project/project/models';
 import { ProjectService } from 'src/app/shared/services/project/project/services';
 import { GetStudentGroupDto } from 'src/app/shared/services/student/student-group/models';
 import { StudentGroupService } from 'src/app/shared/services/student/student-group/service';
 
 @Component({
-
   templateUrl: './create-update-project-information.component.html',
   animations: [appModuleAnimation()],
 })

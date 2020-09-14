@@ -32,4 +32,9 @@ export class TeacherService {
     return this.restService.request({ url: '/api/projectmanagement/teacher', method: 'GET' }, { apiName: this.apiName });
   }
 
+  getListTeacher(id: string): Observable<GetTeacherDto[]> {
+    return this.restService.request({ url: `/api/projectmanagement/teacher/getTeacherRegisted/${id}`, method: 'GET' },
+      { apiName: this.apiName });
+  }
+
 }
