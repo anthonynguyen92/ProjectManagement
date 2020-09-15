@@ -2,7 +2,10 @@
 
 #Node.js Tools for Visual Studio
 node_modules/
-angular/package-lock.json
+/applications/admin-web/package-lock.json
+/applications/student-web/package-lock.json
+/applications/teacher-web/package-lock.json
+
 
 # IDEs and editors
 .vscode/
