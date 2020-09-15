@@ -23,7 +23,7 @@ export class StudentGroupInformationComponent extends AppBaseComponent implement
   public readonly creatingPermission: string = StudentGroupInformationPermission.Create;
 
   @ViewChild('studentGroupInformation', { static: false }) public studentGroupInformation: FtDatatablesComponent;
-  @Input() public studentGroupId: string;
+  @Input('studentGroupId') public studentGroupId: string;
   constructor(injector: Injector,
     private readonly _groupInformationService: StudentGroupInformationService) {
     super(injector);
