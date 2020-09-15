@@ -23,13 +23,13 @@ export class CreateEditTeacherComponent extends AppBaseComponent implements OnIn
 
   ngOnInit(): void {
     if (this.id) {
-      this.title = "Teacher Information";
+      this.title = "TeacherInformation";
       this._teacherService.getById(this.id).subscribe(data => {
         this.vm = data;
       })
     }
     else {
-      this.title = "Create Teacher";
+      this.title = "CreateTeacher";
     }
   }
 
@@ -42,10 +42,10 @@ export class CreateEditTeacherComponent extends AppBaseComponent implements OnIn
       this.setBusy();
       this._teacherService.saveByInput(this.vm).subscribe(() => {
         if (this.id) {
-          this.notifySuccess('::UpdateSuccessfully');
+          this.notifySuccess('ProjectManagement::UpdateSuccessfully');
         }
         else {
-          this.notifySuccess(this.l('::CreateSuccessfully'));
+          this.notifySuccess(this.l('ProjectManagement::CreateSuccessfully'));
         }
         this.goBack();
       }, () => {

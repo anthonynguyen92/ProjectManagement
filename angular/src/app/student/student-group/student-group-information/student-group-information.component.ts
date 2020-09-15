@@ -53,7 +53,7 @@ export class StudentGroupInformationComponent extends AppBaseComponent implement
       },
       columns: [
         {
-          title: this.l('::Actions'),
+          title: this.l('ProjectManagement::Actions'),
           width: '150px',
           data: 'id',
           orderable: false,
@@ -65,19 +65,19 @@ export class StudentGroupInformationComponent extends AppBaseComponent implement
           }
         },
         {
-          title: this.l('::StudentName'),
+          title: this.l('ProjectManagement::StudentName'),
           data: 'studentName'
         },
         {
-          title: this.l('::Position'),
+          title: this.l('ProjectManagement::Position'),
           data: 'position',
         },
         {
-          title: this.l('::Role'),
+          title: this.l('ProjectManagement::Roles'),
           data: 'roles',
         },
         {
-          title: this.l('::Description'),
+          title: this.l('ProjectManagement::Description'),
           data: 'description',
         }
       ],
@@ -111,10 +111,10 @@ export class StudentGroupInformationComponent extends AppBaseComponent implement
   }
 
   delete(input: GetStudentGroupInformationDto) {
-    this.confirmationPopup(this.l('::WillBeDelete') + ' ' + input.studentName,
-      this.l('::AreYouSure'), () => {
+    this.confirmationPopup(this.l('ProjectManagement::WillBeDelete') + ' ' + input.studentName,
+      this.l('ProjectManagement::AreYouSure'), () => {
         this._groupInformationService.delete(input.id).subscribe(() => {
-          this.notifySuccess('::DeleteSuccessfully');
+          this.notifySuccess('ProjectManagement::DeleteSuccessfully');
           this.refresh();
         })
       }

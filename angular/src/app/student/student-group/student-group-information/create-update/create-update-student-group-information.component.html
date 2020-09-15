@@ -3,17 +3,17 @@
     <div class="card main-content">
       <div class="header">
         <h2>
-          {{ '::StudentGroupInformation' | abpLocalization }}
+          {{ 'ProjectManagement::StudentGroupInformation' | abpLocalization }}
         </h2>
         <div class="buttonHeaderContainer">
           <button mat-button (click)="goBack()">
             <mat-icon>arrow_back_ios</mat-icon>
-            {{ '::Back' | abpLocalization }}
+            {{ 'ProjectManagement::Back' | abpLocalization }}
           </button>
           <button mat-flat-button color="primary" type="submit" [disabled]="editForm.form.invalid" (click)="save()"
             class="ml-3">
             <mat-icon>save</mat-icon>
-            {{ '::Save' | abpLocalization }}
+            {{ 'ProjectManagement::Save' | abpLocalization }}
           </button>
         </div>
       </div>
@@ -29,7 +29,7 @@
           <mat-expansion-panel [expanded]="true">
             <mat-expansion-panel-header>
               <mat-panel-title>
-                {{'::' + title | abpLocalization}}
+                {{'ProjectManagement::' + title | abpLocalization}}
               </mat-panel-title>
             </mat-expansion-panel-header>
             <div class="main-content">
@@ -41,7 +41,7 @@
                       <div class="col-md-6" [hidden]="isHidenStudent">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ '::StudentName' | abpLocalization }}
+                            {{ 'ProjectManagement::StudentName' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.studentName" name="studentName" [disabled]="vm.id">
                         </mat-form-field>
@@ -50,16 +50,16 @@
                       <div class="col-md-6" [hidden]="isHidenInformation">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ '::StudentCode' | abpLocalization }}
+                            {{ 'ProjectManagement::StudentCode' | abpLocalization }}
                           </mat-label>
-                          <input matInput [(ngModel)]="studentCode" name="studentCode" type="number">
+                          <input matInput [(ngModel)]="studentCode" name="studentCode" type="number" required>
                         </mat-form-field>
                       </div>
 
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ '::Position' | abpLocalization }}
+                            {{ 'ProjectManagement::Position' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.position" minlength="2" maxlength="20" name="position"
                             required>
@@ -69,7 +69,7 @@
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ '::Roles' | abpLocalization }}
+                            {{ 'ProjectManagement::Roles' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.roles" name="roles" minlength="2" maxlength="20" required>
                         </mat-form-field>
@@ -78,7 +78,7 @@
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ '::Description' | abpLocalization }}
+                            {{ 'ProjectManagement::Description' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.description" maxlength="200" minlength="5" name="description">
                         </mat-form-field>

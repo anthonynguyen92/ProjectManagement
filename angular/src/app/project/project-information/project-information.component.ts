@@ -66,23 +66,23 @@ export class ProjectInformationComponent extends AppBaseComponent implements OnI
           }
         },
         {
-          title: this.l('::ProjectName'),
+          title: this.l('ProjectManagement::ProjectName'),
           data: 'projectName'
         },
         {
-          title: this.l('::StudentGroupName'),
+          title: this.l('ProjectManagement::StudentGroupName'),
           data: 'studentGroupName'
         },
         {
-          title: this.l('::StartDate'),
+          title: this.l('ProjectManagement::StartDate'),
           data: 'startDate'
         },
         {
-          title: this.l('::ExpiredDate'),
+          title: this.l('ProjectManagement::ExpireDate'),
           data: 'expiredDate'
         },
         {
-          title: this.l('::Status'),
+          title: this.l('ProjectManagement::Status'),
           data: 'status',
           render: (data) => {
             return this.renderStatusToggle(data, !this.getGrantedPolicy(ProjectInformationPermission.Update))
@@ -121,7 +121,7 @@ export class ProjectInformationComponent extends AppBaseComponent implements OnI
 
   toggleStatus(id: string) {
     this._projectInformationService.toggleStatus(id).subscribe(() => {
-      this.notifySuccess('::UpdateSuccessfully');
+      this.notifySuccess('ProjectManagement::UpdateSuccessfully');
       this.refresh();
     })
   }
@@ -130,7 +130,7 @@ export class ProjectInformationComponent extends AppBaseComponent implements OnI
     this.confirmationPopup(this.l('::WillBeDelete') + ' ' + input.studentGroupName,
       this.l('::AreYouSure'), () => {
         this._projectInformationService.deleteById(input.id).subscribe(() => {
-          this.notifySuccess('::DeleteSuccessfully');
+          this.notifySuccess('ProjectManagement::DeleteSuccessfully');
           this.refresh();
         })
       })

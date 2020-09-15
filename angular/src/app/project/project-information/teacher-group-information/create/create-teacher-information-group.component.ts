@@ -31,8 +31,6 @@ export class CreateTeacherInformationGroupComponent extends AppBaseComponent imp
   }
 
   ngOnInit(): void {
-    console.log(this.id + ": id");
-    console.log(this.projectId + ": projectId")
     this.title = 'AddTeacher';
     this._teacherService.getListTeacher(this.id).subscribe(data => {
       this.listTeacher = data;
@@ -48,7 +46,7 @@ export class CreateTeacherInformationGroupComponent extends AppBaseComponent imp
     this.vm.teacherId = this.teacher.id;
     console.log(this.vm)
     this._teacherInformationService.saveByInput(this.vm).subscribe(() => {
-      this.notifySuccess("::CreateSuccessfully")
+      this.notifySuccess("ProjectManagement::CreateSuccessfully")
       this.goBack();
     }, () => this.clearBusy(), () => this.clearBusy())
   }

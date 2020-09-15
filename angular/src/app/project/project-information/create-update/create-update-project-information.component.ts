@@ -26,7 +26,7 @@ export class CreateUpdateProjectInformationComponent extends AppBaseComponent im
   public vm: CreateUpdateProjectInformationDto = new CreateUpdateProjectInformationDto();
   public studentGroups: GetStudentGroupDto[] = [];
   public studentGroup: GetStudentGroupDto = new GetStudentGroupDto();
-  public titleSelect = '::PickUpone';
+  public titleSelect = 'PickUpone';
 
   constructor(injector: Injector,
     private readonly _projectInformationService: ProjectInformationService,
@@ -69,10 +69,10 @@ export class CreateUpdateProjectInformationComponent extends AppBaseComponent im
     this.vm.studentGroupName = this.studentGroup.groupName;
     this._projectInformationService.saveByInput(this.vm).subscribe(() => {
       if (this.id) {
-        this.notifySuccess("::UpdateSuccessfully")
+        this.notifySuccess("ProjectManagement::UpdateSuccessfully")
       }
       else {
-        this.notifySuccess(this.l('::CreateSuccessfully'));
+        this.notifySuccess(this.l('ProjectManagement::CreateSuccessfully'));
       }
       this.goBack();
     }, () => this.clearBusy(), () => this.clearBusy())

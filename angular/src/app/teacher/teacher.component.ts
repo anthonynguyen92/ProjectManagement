@@ -57,11 +57,11 @@ export class TeacherComponent extends AppBaseComponent implements OnInit {
           }
         },
         {
-          title: this.l('::Name'),
+          title: this.l('ProjectManagement::TeacherName'),
           data: 'name',
         },
         {
-          title: this.l('::Faculty'),
+          title: this.l('ProjectManagement::Faculty'),
           data: 'faculty',
         },
       ],
@@ -91,10 +91,10 @@ export class TeacherComponent extends AppBaseComponent implements OnInit {
   }
 
   delete(input: GetTeacherDto) {
-    this.confirmationPopup(this.l('::WillBeDelete') + ' ' + input.name,
+    this.confirmationPopup(this.l('ProjectManagement::WillBeDelete') + ' ' + input.name,
       this.l('::AreYouSure'), () => {
         this._teacherService.deleteById(input.id).subscribe(() => {
-          this.notifySuccess('::DeleteSuccessfully');
+          this.notifySuccess('ProjectManagement::DeleteSuccessfully');
           this.refresh();
         })
       })

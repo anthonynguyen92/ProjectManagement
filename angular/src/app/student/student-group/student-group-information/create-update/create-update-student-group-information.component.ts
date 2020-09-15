@@ -62,7 +62,7 @@ export class CreateEditStudentGroupInformationComponent extends AppBaseComponent
         this.vm.studentGroupId = this.getStudentGroupId;
         this._groupInformationService.saveByInput(this.vm).subscribe(() => {
           if (this.id) {
-            this.notifySuccess('::UpdateSuccessfully');
+            this.notifySuccess('ProjectManagement::UpdateSuccessfully');
           }
           this.goBack();
         }, () => {
@@ -79,7 +79,7 @@ export class CreateEditStudentGroupInformationComponent extends AppBaseComponent
             this.vm.studentGroupId = this.getStudentGroupId;
             this._groupInformationService.saveByInput(this.vm).subscribe(() => {
 
-              this.notifySuccess(this.l('::CreateSuccessfully'));
+              this.notifySuccess(this.l('ProjectManagement::CreateSuccessfully'));
               this.goBack();
             }, () => {
               this.clearBusy();
@@ -88,7 +88,7 @@ export class CreateEditStudentGroupInformationComponent extends AppBaseComponent
             })
           }
           else {
-            this.notifyError('::StudentCodeDoesntNotExists');
+            this.notifyError('ProjectManagement::StudentCodeDoesntNotExists');
             this.goBack()
           }
         })

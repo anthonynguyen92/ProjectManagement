@@ -25,13 +25,13 @@ export class CreateOrUpdateStudentGroupComponent extends AppBaseComponent implem
 
   ngOnInit(): void {
     if (this.id) {
-      this.title = "Student Group Information";
+      this.title = "StudentGroupInformation";
       this._studentGroupService.getById(this.id).subscribe(data => {
         this.vm = data;
       })
     }
     else {
-      this.title = "Create a Student Group";
+      this.title = "CreateaStudentGroup";
     }
   }
 
@@ -40,10 +40,10 @@ export class CreateOrUpdateStudentGroupComponent extends AppBaseComponent implem
       this.setBusy();
       this._studentGroupService.saveByInput(this.vm).subscribe(() => {
         if (this.id) {
-          this.notifySuccess('::UpdateSuccessfully');
+          this.notifySuccess('ProjectManagement::UpdateSuccessfully');
         }
         else {
-          this.notifySuccess(this.l('::CreateSuccessfully'));
+          this.notifySuccess(this.l('ProjectManagement::CreateSuccessfully'));
         }
         this.goBack();
       }, () => {

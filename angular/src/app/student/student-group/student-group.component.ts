@@ -48,7 +48,7 @@ export class StudentGroupComponent extends AppBaseComponent implements OnInit {
       },
       columns: [
         {
-          title: this.l('::Actions'),
+          title: this.l('ProjectManagement::Actions'),
           width: '150px',
           data: 'id',
           orderable: false,
@@ -58,11 +58,11 @@ export class StudentGroupComponent extends AppBaseComponent implements OnInit {
           }
         },
         {
-          title: this.l('::GroupName'),
+          title: this.l('ProjectManagement::GroupName'),
           data: 'groupName'
         },
         {
-          title: this.l('::NumberOfMember'),
+          title: this.l('ProjectManagement::NumberOfMember'),
           data: 'numberOfMenber'
         }
       ],
@@ -88,10 +88,10 @@ export class StudentGroupComponent extends AppBaseComponent implements OnInit {
   }
 
   delete(input: GetStudentGroupDto) {
-    this.confirmationPopup(this.l('::WillBeDelete') + ' ' + input.groupName,
-      this.l('::AreYouSure'), () => {
+    this.confirmationPopup(this.l('ProjectManagement::WillBeDelete') + ' ' + input.groupName,
+      this.l('ProjectManagement::AreYouSure'), () => {
         this._studentGroupService.deleteById(input.id).subscribe(() => {
-          this.notifySuccess('::DeleteSuccessfully');
+          this.notifySuccess('ProjectManagement::DeleteSuccessfully');
           this.refresh();
         })
       }

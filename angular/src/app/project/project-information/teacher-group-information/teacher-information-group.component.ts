@@ -58,7 +58,7 @@ export class TeacherInformationGroupComponent extends AppBaseComponent implement
       },
       columns: [
         {
-          title: this.l('::Actions'),
+          title: this.l('ProjectManagement::Actions'),
           width: '150px',
           data: 'id',
           orderable: false,
@@ -68,15 +68,15 @@ export class TeacherInformationGroupComponent extends AppBaseComponent implement
           }
         },
         {
-          title: this.l('::TeacherName'),
+          title: this.l('ProjectManagement::TeacherName'),
           data: 'teacherName',
         },
         {
-          title: this.l('::Roles'),
+          title: this.l('ProjectManagement::Roles'),
           data: 'roles'
         },
         {
-          title: this.l('::Description'),
+          title: this.l('ProjectManagement::Description'),
           data: 'description',
         }
       ],
@@ -92,9 +92,9 @@ export class TeacherInformationGroupComponent extends AppBaseComponent implement
 
   delete(input: GetTeacherInformationGroupDto) {
     this.confirmationPopup(this.l('::WillBeDelete') + ' ' + input.teacherName,
-      this.l('::AreYouSure'), () => {
+      this.l('ProjectManagement::AreYouSure'), () => {
         this._teacherInformationGroupService.deleteById(input.id).subscribe(() => {
-          this.notifySuccess('::DeleteSuccessfully');
+          this.notifySuccess('ProjectManagement::DeleteSuccessfully');
           this.refresh();
         })
       })

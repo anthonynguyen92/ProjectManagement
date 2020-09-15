@@ -2,7 +2,7 @@
   <div class="col-12">
       <div class="card main-content">
           <div class="header">
-              <h2>{{ '::TeacherManagement' | abpLocalization }}</h2>
+              <h2>{{ 'ProjectManagement::TeacherManagement' | abpLocalization }}</h2>
           </div>
           <div class="body table-responsive">
               <!--query start-->
@@ -11,14 +11,14 @@
                       <form autocomplete="off">
                           <mat-form-field class="w-100">
                               <mat-label>
-                                  {{ '::Filter' | abpLocalization }}
+                                  {{ 'ProjectManagement::Filter' | abpLocalization }}
                               </mat-label>
                               <input matInput [(ngModel)]="filter" name="filter" (keypress)="keyPressFilter($event)">
                           </mat-form-field>
                           <div class="row">
                               <div class="col-md-12 text-right">
                                   <button mat-raised-button color="primary" (click)="refresh()">
-                                      <mat-icon>search</mat-icon>{{ '::Search' | abpLocalization }}
+                                      <mat-icon>search</mat-icon>{{ 'ProjectManagement::Search' | abpLocalization }}
                                   </button>
                               </div>
                           </div>

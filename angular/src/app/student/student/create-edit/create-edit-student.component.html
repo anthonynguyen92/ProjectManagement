@@ -3,7 +3,7 @@
     <div class="card main-content">
       <div class="header">
         <h2>
-          {{ '::Student' | abpLocalization }}
+          {{ 'ProjectManagement::Student' | abpLocalization }}
         </h2>
         <div class="buttonHeaderContainer">
           <button mat-button (click)="goBack()">
@@ -28,7 +28,7 @@
           <mat-expansion-panel [expanded]="true">
             <mat-expansion-panel-header>
               <mat-panel-title>
-                {{'::' + title | abpLocalization}}
+                {{'ProjectManagement::' + title | abpLocalization}}
               </mat-panel-title>
             </mat-expansion-panel-header>
             <div class="main-content">
@@ -40,7 +40,7 @@
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ 'TeacherManagement::Name' | abpLocalization }}
+                            {{ 'ProjectManagement::StudentName' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.name" name="name" maxlength="200" autofocus required>
                         </mat-form-field>
@@ -49,7 +49,7 @@
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ 'TeacherManagement::PhoneNumber' | abpLocalization }}
+                            {{ 'ProjectManagement::PhoneNumber' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.phoneNumber" name="phoneNumber" minlength="10"
                             [disabled]="vm.id" required>
@@ -58,7 +58,7 @@
 
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
-                          <mat-label>{{'TeacherManagement::BirthDate' | abpLocalization}}
+                          <mat-label>{{'ProjectManagement::BirthDate' | abpLocalization}}
                           </mat-label>
                           <input matInput [matDatepicker]="picker" [(ngModel)]="vm.birthday" name="birthDate" required>
                           <mat-datepicker-toggle matSuffix [for]="picker">
@@ -70,7 +70,7 @@
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ 'TeacherManagement::Email' | abpLocalization }}
+                            {{ 'ProjectManagement::Email' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.email" name="email" [disabled]="vm.id"
                             pattern="^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$" required>
@@ -80,7 +80,7 @@
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ 'TeacherManagement::Address' | abpLocalization }}
+                            {{ 'ProjectManagement::Address' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.address" name="address" required>
                         </mat-form-field>
@@ -89,7 +89,7 @@
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ 'TeacherManagement::Branch' | abpLocalization }}
+                            {{ 'ProjectManagement::Branch' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.branch" name="branch" required>
                         </mat-form-field>
@@ -98,7 +98,7 @@
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ 'TeacherManagement::Faculty' | abpLocalization }}
+                            {{ 'ProjectManagement::Faculty' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.faculty" name="faculty" required>
                         </mat-form-field>
@@ -107,7 +107,7 @@
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ 'TeacherManagement::CourseYear' | abpLocalization }}
+                            {{ 'ProjectManagement::CourseYear' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.courseYear" name="courseYear" type="number" required>
                         </mat-form-field>
@@ -116,7 +116,7 @@
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ 'TeacherManagement::StudentCode' | abpLocalization }}
+                            {{ 'ProjectManagement::StudentCode' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.studentCode" name="StudentCode" type="number" required [disabled]="vm.id">
                         </mat-form-field>

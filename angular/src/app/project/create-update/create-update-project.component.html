@@ -3,16 +3,16 @@
     <div class="card main-content">
       <div class="header">
         <h2>
-          {{ '::Project' | abpLocalization }}
+          {{ 'ProjectManagement::Project' | abpLocalization }}
         </h2>
         <div class="buttonHeaderContainer">
           <button mat-button (click)="goBack()">
             <mat-icon>arrow_back_ios</mat-icon>
-            {{ '::Back' | abpLocalization }}
+            {{ 'ProjectManagement::Back' | abpLocalization }}
           </button>
           <button mat-flat-button color="primary" [disabled]="editForm.form.invalid" (click)="save()" class="ml-3">
             <mat-icon>save</mat-icon>
-            {{ '::Save' | abpLocalization }}
+            {{ 'ProjectManagement::Save' | abpLocalization }}
           </button>
         </div>
       </div>
@@ -28,7 +28,7 @@
           <mat-expansion-panel [expanded]="true">
             <mat-expansion-panel-header>
               <mat-panel-title>
-                {{'::' + title | abpLocalization}}
+                {{'ProjectManagement::' + title | abpLocalization}}
               </mat-panel-title>
             </mat-expansion-panel-header>
             <div class="main-content">
@@ -40,7 +40,7 @@
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ 'TeacherManagement::ProjectName' | abpLocalization }}
+                            {{ 'ProjectManagement::ProjectName' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.projectName" name="projectName" maxlength="200" autofocus
                             required [disabled]='id'>
@@ -50,7 +50,7 @@
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ 'TeacherManagement::NumberOfTeamRegister' | abpLocalization }}
+                            {{ 'ProjectManagement::NumberOfTeamRegister' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.numberOfTeamRegister" name="NumberOfTeamRegister"
                             type="number" maxlength="200" required [disabled]='id'>
@@ -60,7 +60,7 @@
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ 'TeacherManagement::LimitSubscriptions' | abpLocalization }}
+                            {{ 'ProjectManagement::LimitSubscriptions' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.limitSubscriptions" name="limitSubscriptions" type="number"
                             maxlength="200" required [disabled]='id'>
@@ -69,10 +69,10 @@
 
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
-                          <mat-select placeholder="{{ '::Type' | abpLocalization }}"
+                          <mat-select placeholder="{{ 'ProjectManagement::Type' | abpLocalization }}"
                             [(ngModel)]="vm.type" name="Type" required>
                             <mat-option *ngFor="let item of listType" [value]="item">
-                              {{ '::Type_' + item | abpLocalization}}
+                              {{ 'ProjectManagement::Type_' + item | abpLocalization}}
                             </mat-option>
                           </mat-select>
                         </mat-form-field>
@@ -80,17 +80,17 @@
 
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
-                          <mat-select placeholder="{{ '::Level' | abpLocalization }}"
+                          <mat-select placeholder="{{ 'ProjectManagement::Level' | abpLocalization }}"
                             [(ngModel)]="vm.level" name="classType" required>
                             <mat-option *ngFor="let item of listLevel" [value]="item">
-                              {{ '::Level_' + item | abpLocalization}}
+                              {{ 'ProjectManagement::Level_' + item | abpLocalization}}
                             </mat-option>
                           </mat-select>
                         </mat-form-field>
                       </div>
 
                       <mat-checkbox class="ml-3" matInput name="Status" [(ngModel)]="vm.status">
-                        {{'::Active' | abpLocalization}}
+                        {{'ProjectManagement::Active' | abpLocalization}}
                       </mat-checkbox>
                     </div>
                   </div>
