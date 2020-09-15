@@ -41,12 +41,14 @@ namespace doan.ProjectManagement.IdentityServer
                 Name = eventData.Name,
             };
 
-            var role = await _roleManager.FindByIdAsync("student");
+            var role = await _roleManager.FindByNameAsync("student");
 
             if (role != null)
                 user.AddRole(role.Id);
 
-            (await _userManager.CreateAsync(user, eventData.StudentCode)).CheckErrors();
+            var password = "1q2w3E*";
+
+            (await _userManager.CreateAsync(user, password)).CheckErrors();
 
             if (role == null)
                 await _userManager.AddDefaultRolesAsync(user);

@@ -4,6 +4,7 @@ import { Navigate, RouterState } from '@ngxs/router-plugin';
 import { AppBaseComponent } from '../app.base.component';
 import {MatDialog} from '@angular/material/dialog';
 import {ChangePasswordDialog} from './change-password-dialog.component';
+import { StudentService } from '../services/student/services';
 
 @Component({
     templateUrl: './sidebar-user-area.component.html',
@@ -17,14 +18,18 @@ export class SideBarUserAreaComponent extends AppBaseComponent implements OnInit
     constructor(
         public dialog: MatDialog,
         protected readonly injector: Injector,
-        private readonly authService: AuthService
+        private readonly authService: AuthService,
+        private readonly _studentService:StudentService
     ) {
         super(injector);
     }
 
+    // fix user and email
     ngOnInit() {
-        this.shownLoginName = this.config.getDeep('currentUser.userName');
-        this.shownLoginEmail = this.config.getDeep('currentUser.email');
+      this._studentService.getCurrentUser().subscribe(data =>{
+        this.shownLoginName = data.name;
+        this.shownLoginEmail = data.email;
+      })
     }
 
     logout(): void {
@@ -37,11 +42,11 @@ export class SideBarUserAreaComponent extends AppBaseComponent implements OnInit
             this.redirect('/account/login');
         });
     }
-    
+
     openDialog(): void {
         const dialogRef = this.dialog.open(ChangePasswordDialog, {
           width: 'auto',
         });
       }
- 
+
 }
