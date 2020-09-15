@@ -5,7 +5,7 @@ using System.Text;
 namespace doan.Shared.Eto
 {
     [Serializable]
-    class TeacherEto
+    public class TeacherEto
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

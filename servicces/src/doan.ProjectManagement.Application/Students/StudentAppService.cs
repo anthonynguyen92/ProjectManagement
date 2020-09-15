@@ -4,12 +4,14 @@ using doan.ProjectManagement.Localization;
 using doan.ProjectManagement.Permissions;
 using doan.ProjectManagement.Students.Dto;
 using doan.ProjectManagements.Student;
+using doan.Shared.Eto;
 using Microsoft.Extensions.Localization;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Domain.Repositories;
+using Volo.Abp.EventBus.Distributed;
 
 namespace doan.ProjectManagement.Students
 {
@@ -24,9 +26,13 @@ namespace doan.ProjectManagement.Students
         protected override string GetPolicyName { get; set; } = ProjectManagementPermissions.Student.Default;
 
         private readonly IStringLocalizer<ProjectManagementResource> _localizers;
-        public StudentAppService(IRepository<Student, Guid> repository, IStringLocalizer<ProjectManagementResource> localizers) : base(repository)
+        private readonly IDistributedEventBus _distributedEventBus;
+        public StudentAppService(IRepository<Student, Guid> repository,
+            IStringLocalizer<ProjectManagementResource> localizers,
+            IDistributedEventBus distributedEventBus) : base(repository)
         {
             _localizers = localizers;
+            _distributedEventBus = distributedEventBus;
         }
 
         //add status for student
@@ -60,14 +66,17 @@ namespace doan.ProjectManagement.Students
                 throw new UserFriendlyException(_localizers["StudentCodeAlreadyExists"]);
             }
 
-            return await base.Create(input);
+            var student = await base.Create(input);
+
+            await _distributedEventBus.PublishAsync(new StudentEto(student.Id,
+                student.Name, student.StudentCode, student.Email, CurrentTenant.Id));
+
+            return student;
         }
 
         protected override async Task<Student> Update(CreateUpdateStudentDto input)
         {
             await CheckUpdatePolicyAsync();
-            // phone number cant change rightnow
-            // email cant change right now
 
             var entity = await Repository.GetAsync(input.Id.Value);
 
