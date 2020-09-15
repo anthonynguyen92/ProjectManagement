@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 using doan.ProjectManagement.EntityFrameworkCore;
@@ -10,9 +11,10 @@ using doan.ProjectManagement.EntityFrameworkCore;
 namespace doan.ProjectManagement.Migrations
 {
     [DbContext(typeof(ProjectManagementMigrationsDbContext))]
-    partial class ProjectManagementMigrationsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200914225232_fix-student-group-information-table")]
+    partial class fixstudentgroupinformationtable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

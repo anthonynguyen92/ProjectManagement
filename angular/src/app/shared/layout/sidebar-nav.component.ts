@@ -13,18 +13,17 @@ export class SideBarNavComponent extends AppBaseComponent {
 
   menuItems: MenuItem[] = [
     new MenuItem('::Home', '', 'home', '/home'),
-    new MenuItem('SystemConfiguration::SystemConfiguration', '', 'settings', '', [
-      new MenuItem('SystemConfiguration::SystemSetting', '', 'list_alt', '/setting/system-setting'),
-      new MenuItem('AbpIdentity::Users', UserPermission.Default, 'account_box', '/setting/manage-user'),
-      new MenuItem('AbpIdentity::Roles', '', 'group', '/setting/role')
-    ]),
     new MenuItem('::Student', '', 'person', '', [
       new MenuItem('::Student', StudentPermission.Default, 'person', '/student/management'),
       new MenuItem('::StudentGroup', '', 'groups', '/student/group-student'),
     ]),
     new MenuItem('::Teacher', TeacherPermission.Default, 'perm_contact_calendar', '/teacher/management'),
     new MenuItem('::Project','','view_list','/project/list'),
-
+    new MenuItem('SystemConfiguration::SystemConfiguration', '', 'settings', '', [
+      new MenuItem('SystemConfiguration::SystemSetting', '', 'list_alt', '/setting/system-setting'),
+      new MenuItem('AbpIdentity::Users', UserPermission.Default, 'account_box', '/setting/manage-user'),
+      new MenuItem('AbpIdentity::Roles', '', 'group', '/setting/role')
+    ]),
   ];
 
   constructor(
