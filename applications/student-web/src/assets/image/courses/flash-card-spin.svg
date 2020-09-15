@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="74" height="70" viewBox="0 0 74 70">
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(10 14.105)">
+            <rect width="42" height="43" x="1" y="1" fill="#F4F4F4" stroke="#979797" stroke-width="2" rx="8"/>
+            <circle cx="36.5" cy="6.5" r="1.5" fill="#92929D"/>
+            <circle cx="7.5" cy="6.5" r="1.5" fill="#92929D"/>
+            <circle cx="36.5" cy="38.5" r="1.5" fill="#92929D"/>
+            <circle cx="7.5" cy="38.5" r="1.5" fill="#92929D"/>
+        </g>
+        <g transform="rotate(33 17.385 62.707)">
+            <rect width="42" height="43" x="1" y="1" fill="#FCFCFC" stroke="#979797" stroke-width="2" rx="8"/>
+            <circle cx="36.5" cy="6.5" r="1.5" fill="#92929D"/>
+            <circle cx="7.5" cy="6.5" r="1.5" fill="#92929D"/>
+            <circle cx="36.5" cy="38.5" r="1.5" fill="#92929D"/>
+            <circle cx="7.5" cy="38.5" r="1.5" fill="#92929D"/>
+        </g>
+        <path fill="#FFC542" fill-rule="nonzero" d="M10 29.097v1.547c-2.954.81-4.661 1.766-4.661 2.788 0 2.003 12.203 3.283 27.817 3.443v-4.31l9.448 6.554-9.448 6.986V41.36C14.293 40.987 0 37.488 0 33.502c0-1.695 3.772-3.252 10-4.405zm59.733 1.753C71.836 31.66 73 32.56 73 33.5c0 3.703-12.328 6.986-29.199 7.734v-4.43c9.739-.228 17.715-.914 21.495-1.952l.113-.032c.427-.094.855-.244 1.283-.452.153-.07.288-.142.405-.214l.147-.085c.272-.162.545-.348.817-.557.56-.846 1.072-1.656 1.534-2.429z"/>
+        <circle cx="56" cy="56.105" r="13" fill="#FFC542"/>
+        <text fill="#FFF" font-family="Roboto-Medium, Roboto" font-size="14" font-weight="400" letter-spacing="-.05">
+            <tspan x="52" y="61.105">2</tspan>
+        </text>
+    </g>
+</svg>

@@ -1,0 +1,135 @@
+.actual-test {
+    .top-bar {
+        position: relative;
+        box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.07);
+        img {
+            padding-left: 17rem/14;
+            padding-top: 16rem/14;
+            padding-bottom: 15rem/14;
+        }
+        .menu-bar {
+            position: absolute;
+            z-index: 1000;
+            top: 24px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            ul {
+                li {
+                    a {
+                        font-family: Poppins-Medium;
+                        font-size: 16rem/14;
+                        color: #696974;
+                        padding: 0 20rem/14;
+                        text-decoration: none;
+                    }
+                    button {
+                        color: #92929d;
+                        background: none;
+                        font-size: 18rem/14;
+                        line-height: 1;
+                        padding: 0 20rem/14 0 0;
+                        margin-top: -4rem/14;
+                    }
+                    button:focus {
+                        box-shadow: none;
+                    }
+                    .dropdown-menu {
+                        right: 0;
+                        left: unset;
+                    }
+                }
+                li.active a {
+                    font-family: Poppins-SemiBold;
+                    color: #005b94;
+                }
+            }
+        }
+    }
+    .actual-content {
+        h2 {
+            font-family: Poppins-SemiBold;
+            font-size: 32rem/14;
+            color: #171725;
+            margin-top: 60rem/14;
+            letter-spacing: 0.13rem/14;
+        }
+        p {
+            font-family: Gilroy-Regular;
+            font-size: 18rem/14;
+            color: #696974;
+            letter-spacing: 0.08rem/14;
+            margin-bottom: 50rem/14;
+        }
+        .col-4 {
+            flex: 0 0 32.333333%;
+            max-width: 32.333333%;
+        }
+        .col-4:nth-child(1) {
+            margin-right: 32rem/14;
+        }
+        .test {
+            padding: 15rem/14 25rem/14 40rem/14;
+            .color-blue {
+                color: #005b94;
+            }
+            .color-red {
+                color: #ef4136;
+            }
+            .test-minute {
+                border-bottom: 1px solid rgba(0,0,0,.1);
+                h1 {
+                    font-family: Poppins-SemiBold;
+                    font-size: 64rem/14;
+                }
+                h4 {
+                    font-family: Poppins-SemiBold;
+                    font-size: 24rem/14;
+                }
+                h5 {
+                    font-family: Poppins-Regular;
+                    font-size: 18rem/14;
+                }
+            }
+            .test-content {
+                p {
+                    font-family: Gilroy-Regular;
+                    font-size: 16rem/14;
+                    color: #171725;
+                }
+                strong {
+                    font-family: Gilroy-Bold;
+                }
+                ul li {
+                    font-size: 16rem/14;
+                    line-height: 1.5;
+                    span {
+                        font-family: Gilroy-Regular;
+                        color: #171725;
+                    }
+                }
+            }
+            button {
+                font-family: Poppins-SemiBold;
+                font-size: 15.2rem/14;
+            }
+            .button-start {
+                color: #fff;
+                border-radius: 17.6rem/14;
+                background-color: #005b94;
+                padding: 13rem/14 62.25rem/14;
+                margin-left: 55rem/14;
+            }
+            .button-start-red {
+                background-color: #ef4136;
+            }
+        }
+        .listening-test {
+            background: url('../image/test/45m-bg.png') no-repeat center center;
+            background-size: 100% 100%;
+        }
+        .reading-test {
+            background: url('../image/test/75m-bg.png') no-repeat center center;
+            background-size: 100% 100%;
+        }
+    }
+}

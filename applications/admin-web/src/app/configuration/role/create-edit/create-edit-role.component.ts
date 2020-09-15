@@ -37,6 +37,7 @@ export class CreateOrEditRoleComponent extends AppBaseComponent implements OnIni
   get id(): string {
     return this.getParamId('id');
   }
+
   public vm: any = {};
 
   treeControl = new NestedTreeControl<IPermission>(node => node.permissions);

@@ -94,5 +94,24 @@ namespace doan.ProjectManagement.Students
             var entity = ObjectMapper.Map<Student, GetStudentForEditDto>(result);
             return entity;
         }
+
+        public async Task<bool> ValidStudent(ValidStudentInputDto input)
+        {
+            if (CurrentUser.IsAuthenticated == false)
+            {
+                if (input == null)
+                    return false;
+            }
+            var student = Repository.FirstOrDefault(x => x.StudentCode == input.StudentCode);
+            if (student != null)
+                return true;
+            return false;
+        }
+
+        public async Task<GetStudentDto> GetCurrentStudent()
+        {
+            var student = Repository.FirstOrDefault(x => CurrentUser.UserName == x.StudentCode);
+            return ObjectMapper.Map<Student, GetStudentDto>(student);
+        }
     }
 }

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace doan.Shared.Eto
 {
@@ -27,5 +25,4 @@ namespace doan.Shared.Eto
             CurrentTenantId = currentTenantId;
         }
     }
-}
 }

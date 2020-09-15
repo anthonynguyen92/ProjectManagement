@@ -1,0 +1,313 @@
+.home-page {
+    .content {
+        h1 {
+            font-family: Poppins-SemiBold;
+            font-size: 24rem/14;
+            color: #171725;
+        }
+        .course-info {
+            width: 100%;
+            height: auto;
+            h1 {
+                font-family: Poppins-SemiBold;
+                font-size: 24rem/14;
+                color: #171725;
+            }
+            .topic-content {
+                width: 100%;
+                padding-left: 30rem/14;
+                border-radius: 20rem/14;
+                box-shadow: 0 4rem/14 24rem/14 0 rgba(0, 0, 0, 0.07);
+                background-color: #ffffff;
+                .back {
+                    font-family: Poppins-SemiBold;
+                    font-size: 15.2rem/14;
+                    color: #005b94;
+                    border-radius: 19rem/14;
+                    background-color: #fff;
+                    padding: 12rem/14 70rem/14;
+                    border: 1.3rem/14 solid #005b94;
+                    margin-top: 24rem/14;
+                }
+                .learning {
+                    font-family: Poppins-SemiBold;
+                    font-size: 15.2rem/14;
+                    color: white;
+                    border-radius: 19rem/14;
+                    background-color: #005b94;
+                    padding: 12rem/14 70rem/14;
+                    margin-top: 24rem/14;
+                }
+                .review-question {
+                    margin-top: 60rem/14;
+                    h5 {
+                        display: inline;
+                    }
+                    .blank-word {
+                        width: 80rem/14;
+                        border-bottom: 2rem/14 solid #979797;
+                    }
+                    .question-number {
+                        font-family: Gilroy-Medium;
+                        font-size: 15rem/14;
+                        color: #ffffff;
+                        padding: 3rem/14 9rem/14;
+                        background-color: #000000;
+                        border-radius: 50%;
+                    }
+                    .question {
+                        font-family: Poppins-SemiBold;
+                        font-size: 24em/14;
+                        color: #18182a;
+                    }
+                    .wrapper{
+                        width:80%;
+                        nav {
+                            background:rgba(250,250,250,0.7);
+                            width:80%;
+                            padding-bottom:3px;
+                        }
+                        .defaultBar{
+                            width:80%;
+                            position:relative;
+                            background:lavender;
+                            height:10px;
+                        }
+                            .progressBar{
+                            position:absolute;
+                            height:10px;
+                            background:#dedeef;
+                            width:0px;
+                        }
+                        .buttons{
+                            margin-top:3px;
+                            margin-left:3px;
+                        }
+                        .playButton{
+                            background:pink;
+                            border:none;
+                            height:30px;
+                            width:30px;
+                            cursor:pointer;
+                            outline:none;
+                            margin-right:2px;
+                        }
+                        .playButton:active{
+                            position:relative;
+                            top:2px;
+                            left:2px;
+                        }
+                    }
+                    .answer-wrong {
+                        color: #ef4136;
+                        background-color: #ffeceb;
+                        border-radius: 6px;
+                    }
+                    .answer-right {
+                        color: #82c43c;
+                        background-color: #e8ffd0;
+                        border-radius: 6px;
+                    }
+                    .answer {
+                        font-family: Gilroy-Medium;
+                        font-size: 24rem/14;
+                        display: block;
+                        position: relative;
+                        margin-bottom: 15rem/14;
+                        margin-top: 30rem/14;
+                        margin-left: 50px;
+                        padding-left: calc(23.34px + 14px + 2px + 24px + 16px + 50px);
+                        input {
+                            position: absolute;
+                            opacity: 0;
+                            height: 0;
+                            width: 0;
+                        }
+                          /* Create a custom checkbox */
+                        .checkmark {
+                            position: absolute;
+                            top: 5px;
+                            left: calc(23.34px + 14px + 2px + 50px);
+                            height: 24rem/14;
+                            width: 24rem/14;
+                            border: 2rem/14 solid #b5b5be;
+                            border-radius: 6rem/14;
+                        }
+                        .checkmark-false:before {
+                            font-family: "Font Awesome 5 Free";
+                            content: "\f00d";
+                            color: #ef4136;
+                            display: inline-block;
+                            font-weight: 900;
+                            position: absolute;
+                            top: -7px;
+                            left: -78px;
+                        }
+                        .checkmark-true:before {
+                            font-family: "Font Awesome 5 Free";
+                            content: "\f00c";
+                            color: #82c43c;
+                            display: inline-block;
+                            font-weight: 900;
+                            position: absolute;
+                            top: -7px;
+                            left: -78px;
+                        }
+                    }
+                    .answer input:checked ~ .checkmark {
+                        background-color: #ef4136;
+                    }
+                    .answer input:checked ~ .checkmark-check {
+                        background-color: #82c43c;
+                    }
+                    /* Create the checkmark/indicator (hidden when not checked) */
+                    .checkmark:after {
+                        content: "";
+                        position: absolute;
+                        display: none;
+                    }
+                    /* Show the checkmark when checked */
+                    .answer input:checked ~ .checkmark:after {
+                        display: block;
+                    }
+                    /* Style the checkmark/indicator */
+                    .answer .checkmark:after {
+                        left: 9rem/14;
+                        top: 5rem/14;
+                        width: 5rem/14;
+                        height: 10rem/14;
+                        border: solid white;
+                        border-width: 0 3rem/14 3rem/14 0;
+                        -webkit-transform: rotate(45deg);
+                        -ms-transform: rotate(45deg);
+                        transform: rotate(45deg);
+                    }
+                    .popup-explain {
+                        position: relative;
+                        box-sizing: border-box;
+                        margin-left: 50px;
+                        border: 1px solid #e2e2ea;
+                        background-color: #fafafb;
+                        border-radius: 6px;
+                        p {
+                            font-family: Gilroy-Regular;
+                            font-size: 18rem/14;
+                            color: #171725;
+                        }
+                    }
+                    .popup-explain:before, .popup-explain:after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        width: 15px;
+                        height: 15px;
+                        border: 1px solid #dadada;
+                        background: #fff;
+                        -webkit-transform: rotate(45deg);
+                        -moz-transform: rotate(45deg);
+                        -ms-transform: rotate(45deg);
+                        -o-transform: rotate(45deg);
+                        transform: rotate(45deg);
+                    }
+                    .popup-explain:before {
+                        z-index: -1;
+                    }
+                    .popup-explain.arrow-top:before, .popup-explain.arrow-top:after {
+                        bottom: 100%;
+                        left: 20px;
+                        margin-bottom: -7px; 
+                        border-bottom: 0;
+                        border-right: 0;
+                    }
+                    .definition {
+                        border-radius: 20rem/14;
+                        border: 1rem/14 solid #f1f1f5;
+                        background-color: #fafafb;
+                        h5 {
+                            font-family: Poppins-SemiBold;
+                            font-size: 14rem/14;
+                            color: #44444f;
+                        }
+                        ul {
+                            list-style-type: disc;
+                            opacity: 0.5;
+                            li {
+                                font-family: Gilroy-Regular;
+                                font-size: 14rem/14;
+                                line-height: 24rem/14;
+                                padding-bottom: 10rem/14;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 240px) {
+    
+}
+@media screen and (min-width: 320px) {
+
+}
+@media screen and (min-width: 480px) {
+    
+}
+@media screen and (min-width: 768px) {
+    
+}
+@media screen and (min-width: 1024px) {
+    
+}
+@media screen and (min-width: 1280px) {
+    
+}
+@media screen and (min-width: 1440px) {
+    
+}
+@media screen and (min-width: 1600px) {
+    .home-page {
+        .content {
+            .daily-quote {
+                margin-bottom: 3rem !important;
+            }
+            .current-achievement {
+                .rank-info {
+                    .e-coin, .rank {
+                        .number {
+                            padding-left: 21rem/14;
+                        }
+                        .shop-coin {
+                            top: -18%;
+                            right: 10%;
+                        }
+                    }
+                }
+            }
+            .course-info {
+                #content-tabs {
+                    .content-tab {
+                        .extra-courses {
+                            .courses-hub {
+                                max-height: 150px;
+                            }
+                        }
+                    }
+                }
+            }
+            .lession-class {
+                .current-lession {
+                    .lession-unit {
+                        img {
+                            top: 15%;
+                        }
+                        .progress-item {
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

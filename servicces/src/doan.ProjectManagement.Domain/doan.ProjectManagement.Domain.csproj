@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\doan.Shared\doan.Shared.csproj" />
     <ProjectReference Include="..\doan.ProjectManagement.Domain.Shared\doan.ProjectManagement.Domain.Shared.csproj" />
   </ItemGroup>
 

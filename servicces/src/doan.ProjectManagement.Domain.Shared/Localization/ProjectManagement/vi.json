@@ -96,6 +96,7 @@
     "StudentGroupManagement": "Quản lý nhóm sinh viên",
     "Level": "Cấp độ",
     "PickUpone": "Chọn nhóm",
-    "AddAGroupStudent": "Thêm một nhóm sinh viên"
+    "AddAGroupStudent": "Thêm một nhóm sinh viên",
+    "StudentGroup": "Nhóm sinh viên"
   }
 }

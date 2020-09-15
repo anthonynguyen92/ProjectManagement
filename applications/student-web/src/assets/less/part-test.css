@@ -1,0 +1,108 @@
+.actual-test {
+  height: 100vh;
+  background-color: #fafafb;
+}
+.actual-test .top-bar {
+  height: 70px;
+  position: relative;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.07);
+}
+.actual-test .top-bar img {
+  padding-left: 1.21428571rem;
+  padding-top: 1.07142857rem;
+  padding-bottom: 1.07142857rem;
+}
+.actual-test .top-bar .menu-bar {
+  position: absolute;
+  z-index: 1000;
+  top: 24px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.actual-test .top-bar .menu-bar ul li a {
+  font-family: Poppins-Medium;
+  font-size: 1.14285714rem;
+  color: #696974;
+  padding: 0 1.42857143rem;
+  text-decoration: none;
+}
+.actual-test .top-bar .menu-bar ul li button {
+  color: #92929d;
+  background: none;
+  font-size: 1.28571429rem;
+  line-height: 1;
+  padding: 0 1.42857143rem 0 0;
+  margin-top: -0.28571429rem;
+}
+.actual-test .top-bar .menu-bar ul li button:focus {
+  box-shadow: none;
+}
+.actual-test .top-bar .menu-bar ul li .dropdown-menu {
+  right: 0;
+  left: unset;
+}
+.actual-test .top-bar .menu-bar ul li.active a {
+  font-family: Poppins-SemiBold;
+  color: #005b94;
+}
+.actual-test .actual-content {
+  height: calc(100vh - 70px - 1.5rem);
+  background-color: #fff;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.07);
+  border-top-left-radius: 1.42857143rem;
+  border-top-right-radius: 1.42857143rem;
+}
+.actual-test .actual-content h2 {
+  font-family: Poppins-SemiBold;
+  font-size: 2.28571429rem;
+  color: #171725;
+  margin-top: 4.28571429rem;
+  letter-spacing: 0.00928571rem;
+}
+.actual-test .actual-content p {
+  font-family: Gilroy-Regular;
+  font-size: 1.28571429rem;
+  color: #696974;
+  letter-spacing: 0.00571429rem;
+  margin-bottom: 3.57142857rem;
+}
+.actual-test .actual-content .img-part {
+  min-height: 10.8125vw;
+  border-radius: 1.14285714rem;
+}
+.actual-test .actual-content .img-part img {
+  position: relative;
+  border-radius: 1.14285714rem;
+}
+.actual-test .actual-content .img-part .middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 15px;
+  bottom: 0;
+  right: 15px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 1.14285714rem;
+}
+.actual-test .actual-content .img-part .middle .text .select {
+  font-family: Poppins-SemiBold;
+  font-size: 1.08571429rem;
+  color: #005b94;
+  border-radius: 1rem;
+  background-color: #fff;
+  padding: 0.21428571rem 2.59642857rem;
+}
+.actual-test .actual-content .img-part:hover img {
+  border-radius: 1.14285714rem;
+}
+.actual-test .actual-content .img-part:hover .middle {
+  opacity: 1;
+}
+.actual-test .actual-content .img-part:hover .middle button {
+  opacity: 1;
+}

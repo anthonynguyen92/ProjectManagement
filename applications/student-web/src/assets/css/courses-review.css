@@ -1,0 +1,200 @@
+.home-page .content h1 {
+  font-family: Poppins-SemiBold;
+  font-size: 1.71428571rem;
+  color: #171725;
+}
+.home-page .content .course-info {
+  width: 100%;
+  height: auto;
+}
+.home-page .content .course-info h1 {
+  font-family: Poppins-SemiBold;
+  font-size: 1.71428571rem;
+  color: #171725;
+}
+.home-page .content .course-info .height-content {
+  min-height: calc(859.5px);
+  border-bottom-left-radius: unset !important;
+  border-bottom-right-radius: unset !important;
+}
+.home-page .content .course-info .topic-content {
+  width: 95%;
+  margin: auto;
+  border-radius: 1.42857143rem;
+  box-shadow: 0 0.28571429rem 1.71428571rem 0 rgba(0, 0, 0, 0.07);
+  background-color: #ffffff;
+}
+.home-page .content .course-info .topic-content .back {
+  font-family: Poppins-SemiBold;
+  font-size: 1.08571429rem;
+  color: #005b94;
+  border-radius: 1.71428571rem;
+  background-color: #fff;
+  padding: 0.87178571rem 3.975rem;
+  border: 0.09285714rem solid #005b94;
+  margin-top: 1.71428571rem;
+}
+.home-page .content .course-info .topic-content .learning {
+  font-family: Poppins-SemiBold;
+  font-size: 1.08571429rem;
+  color: white;
+  border-radius: 1.71428571rem;
+  background-color: #005b94;
+  padding: 0.96428571rem 3.72607143rem;
+  margin-top: 1.71428571rem;
+}
+.home-page .content .course-info .review-question {
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Show the checkmark when checked */
+  /* Style the checkmark/indicator */
+}
+.home-page .content .course-info .review-question h5 {
+  display: inline-block;
+}
+.home-page .content .course-info .review-question .blank-word {
+  width: 5.71428571rem;
+  border-bottom: 0.14285714rem solid #979797;
+}
+.home-page .content .course-info .review-question .question-number {
+  width: 20px;
+  height: 20px;
+  font-family: Gilroy-Medium;
+  font-size: 1.07142857rem;
+  color: #ffffff;
+  margin-bottom: 0;
+  background-color: #000000;
+  border-radius: 50%;
+}
+.home-page .content .course-info .review-question .question {
+  font-family: Poppins-Regular;
+  font-size: 1.14285714rem;
+  color: #171725;
+}
+.home-page .content .course-info .review-question .answer-box {
+  align-items: center;
+  border: 2px solid #ffffff;
+  border-radius: 0.71428571rem;
+  background: rgba(146, 146, 157, 0.1);
+  margin-left: calc(35.34px);
+}
+.home-page .content .course-info .review-question .answer-box:hover {
+  background-color: #50b5ff;
+  opacity: 0.8;
+}
+.home-page .content .course-info .review-question .answer-box:hover .answer {
+  color: #fff;
+}
+.home-page .content .course-info .review-question .answer-box:hover .checkmark {
+  border-color: #fff;
+}
+.home-page .content .course-info .review-question .answer-box-checked {
+  background: #50b5ff;
+}
+.home-page .content .course-info .review-question .answer-box-checked .answer {
+  color: #fff;
+}
+.home-page .content .course-info .review-question .answer-box-checked .answer .checkmark {
+  border: none;
+  background-color: #50b5ff;
+}
+.home-page .content .course-info .review-question .answer-box-checked-radius .answer .checkmark:after {
+  border-radius: 50%;
+}
+.home-page .content .course-info .review-question .answer {
+  font-family: Gilroy-Regular;
+  font-size: 1.14285714rem;
+  color: #44444f;
+  display: block;
+  position: relative;
+  padding-left: calc(54px);
+  cursor: pointer;
+  /* Create a custom checkbox */
+}
+.home-page .content .course-info .review-question .answer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.home-page .content .course-info .review-question .answer .bd-rd {
+  border-radius: 0.42857143rem !important;
+}
+.home-page .content .course-info .review-question .answer .answer-btn {
+  border-radius: 0.8rem;
+  background-color: rgba(115, 195, 255, 0.05);
+  border-color: #fff;
+  font-family: Gilroy-Regular;
+  font-size: 1.5rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.63;
+  letter-spacing: 0.15px;
+  color: #4e4e59;
+  padding: 0.5rem 0.8rem;
+  margin: 0.5rem;
+}
+.home-page .content .course-info .review-question .answer .active {
+  background-color: #50b5ff !important;
+  color: #fff;
+}
+.home-page .content .course-info .review-question .answer .checkmark {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  height: 1.71428571rem;
+  width: 1.71428571rem;
+  border: 0.14285714rem solid #b5b5be;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.home-page .content .course-info .review-question .answer .answer-label {
+  font-family: Poppins-Regular !important;
+  font-size: 24px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.13px;
+  text-align: right;
+  color: #005b94;
+  position: relative;
+  top: 0.7rem;
+}
+.home-page .content .course-info .review-question .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.home-page .content .course-info .review-question .answer input:checked ~ .checkmark:after {
+  display: block;
+}
+.home-page .content .course-info .review-question .answer .checkmark:after {
+  content: '';
+  background: url('../image/courses/ic-uncheck.png') no-repeat;
+  background-size: 100% 100%;
+  width: 1.71428571rem;
+  height: 1.71428571rem;
+  position: absolute;
+  z-index: 1000;
+  top: 0px;
+  left: 0.5px;
+}
+@media screen and (min-width: 320px) {
+  .home-page .content .course-info .review-question .question-number {
+    padding: 4px 7px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .home-page .content .course-info .topic-content {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .home-page .content .course-info .review-question .question-number {
+    width: 24px;
+    height: 24px;
+    padding: 4px 8px;
+  }
+}

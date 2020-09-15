@@ -1,0 +1,469 @@
+.home-page {
+    .content {
+        h1 {
+            font-family: Poppins-SemiBold;
+            font-size  : 24rem/14;
+            color      : #171725;
+        }
+
+        .course-info {
+            width : 100%;
+            height: auto;
+
+            h1 {
+                font-family: Poppins-SemiBold;
+                font-size  : 24rem/14;
+                color      : #171725;
+            }
+
+            .course-list {
+                width           : 95%;
+                margin          : auto;
+                border-radius   : 20rem/14;
+                box-shadow      : 0 4rem/14 24rem/14 0 rgba(0, 0, 0, 0.07);
+                background-color: #ffffff;
+
+                .toeic-row {
+                    margin-bottom: 14px;
+
+                    #search-bar {
+                        margin-top      : 32rem/14;
+                        border-radius   : 10rem/14;
+                        background-color: #fafafb;
+
+                        input {
+                            font-family     : Gilroy-Regular;
+                            font-size       : 14rem/14;
+                            background-color: #fafafb;
+                        }
+
+                        input:focus {
+                            outline: none;
+                        }
+
+                        ::placeholder {
+                            color: #c8c8c8;
+                        }
+
+                        i {
+                            color: #92929d;
+                        }
+                    }
+
+                    .dropdown-toeic {
+                        i {
+                            color: #92929d;
+                        }
+                    }
+
+                    .dropdown-toeic:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                .toeic-open {
+                    max-height: calc(1114px - 174px - 70.5px - 21px);
+                    overflow-y: scroll;
+                }
+
+                .toeic-open::-webkit-scrollbar {
+                    width        : 3rem/14;
+                    padding-right: 14rem/14;
+                }
+
+                .toeic-open::-webkit-scrollbar-track {
+                    background-color: #fff;
+                }
+
+                .toeic-open::-webkit-scrollbar-thumb {
+                    background-color: #d5d5dc;
+                }
+
+                .toeic-open::-webkit-scrollbar-thumb:hover {
+                    background-color: #000;
+                }
+
+                // .toeic-open::-webkit-scrollbar-track-piece:end {
+                //     background: transparent;
+                //     margin-bottom: 50%;
+                // }
+                .toeic-infos {
+                    h5 {
+                        font-family: Poppins-SemiBold;
+                        font-size  : 18rem/14;
+                        color      : #005b94;
+                    }
+
+                    p {
+                        font-family   : Gilroy-Regular;
+                        font-size     : 12rem/14;
+                        line-height   : 24rem/14;
+                        letter-spacing: 0.09rem/14;
+                        color         : #92929d;
+                    }
+
+                    .dropdown-unit {
+                        height: 100%;
+
+                        i {
+                            color      : #92929d;
+                            margin-left: 10rem/14;
+                        }
+                    }
+
+                    .dropdown-unit:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                .unit-info {
+                    .progress-position {
+                        .progress {
+                            width      : 56px;
+                            height     : 56px;
+                            line-height: 56px;
+                            background : none;
+                            box-shadow : none;
+                            position   : relative;
+                        }
+
+                        .progress>span {
+                            width   : 50%;
+                            height  : 100%;
+                            overflow: hidden;
+                            position: absolute;
+                            top     : 0;
+                            z-index : 1;
+                        }
+
+                        .progress .progress-left {
+                            left: 0;
+                        }
+
+                        .progress .progress-bar {
+                            width       : 100%;
+                            height      : 100%;
+                            background  : none;
+                            border-width: 7px;
+                            border-style: solid;
+                            position    : absolute;
+                            top         : 0;
+                        }
+
+                        .progress .progress-left .progress-bar {
+                            left                      : 100%;
+                            border-top-right-radius   : 80px;
+                            border-bottom-right-radius: 80px;
+                            border-left               : 0;
+                            -webkit-transform-origin  : center left;
+                            transform-origin          : center left;
+                        }
+
+                        .progress .progress-right {
+                            right: 0;
+                        }
+
+                        .progress .progress-right .progress-bar {
+                            left                     : -100%;
+                            border-top-left-radius   : 80px;
+                            border-bottom-left-radius: 80px;
+                            border-right             : 0;
+                            -webkit-transform-origin : center right;
+                            transform-origin         : center right;
+                            animation                : loading-1 1.8s linear forwards;
+                        }
+
+                        .progress .progress-value {
+                            width        : 100%;
+                            height       : 100%;
+                            border-radius: 50%;
+                            background   : none;
+                            font-family  : Poppins-SemiBold;
+                            font-size    : 17.5rem/14;
+                            color        : #171725;
+                            text-align   : center;
+                            position     : absolute;
+                            top          : 0;
+                            left         : 0;
+                        }
+
+                        .progress.light .progress-bar {
+                            border-color: #50b5ff;
+                        }
+
+                        .progress.light .progress-left .progress-bar {
+                            animation: loading-3 1s linear forwards 1.8s;
+                        }
+
+                        @keyframes loading-1 {
+                            0% {
+                                -webkit-transform: rotate(0deg);
+                                transform        : rotate(0deg);
+                            }
+
+                            100% {
+                                -webkit-transform: rotate(180deg);
+                                transform        : rotate(180deg);
+                            }
+                        }
+
+                        @keyframes loading-2 {
+                            0% {
+                                -webkit-transform: rotate(0deg);
+                                transform        : rotate(0deg);
+                            }
+
+                            100% {
+                                -webkit-transform: rotate(144deg);
+                                transform        : rotate(144deg);
+                            }
+                        }
+
+                        @keyframes loading-3 {
+                            0% {
+                                -webkit-transform: rotate(0deg);
+                                transform        : rotate(0deg);
+                            }
+
+                            100% {
+                                -webkit-transform: rotate(12deg);
+                                transform        : rotate(12deg);
+                            }
+                        }
+
+                        @keyframes loading-4 {
+                            0% {
+                                -webkit-transform: rotate(0deg);
+                                transform        : rotate(0deg);
+                            }
+
+                            100% {
+                                -webkit-transform: rotate(36deg);
+                                transform        : rotate(36deg);
+                            }
+                        }
+
+                        @keyframes loading-5 {
+                            0% {
+                                -webkit-transform: rotate(0deg);
+                                transform        : rotate(0deg);
+                            }
+
+                            100% {
+                                -webkit-transform: rotate(126deg);
+                                transform        : rotate(126deg);
+                            }
+
+                        }
+                    }
+
+                    .topic-name {
+                        width: 40%;
+
+                        h5 {
+                            font-family: Poppins-Medium;
+                            font-size  : 14rem/14;
+                            color      : #696974;
+                        }
+
+                        .progress {
+                            height: 6rem/14;
+
+                            .progress-bar {
+                                width       : 33%;
+                                margin-right: 1rem/14;
+                            }
+
+                            .progress-bar:first-child {
+                                border-top-left-radius   : 8.5rem/14;
+                                border-bottom-left-radius: 8.5rem/14;
+                            }
+
+                            .progress-bar:last-child {
+                                border-top-right-radius   : 8.5rem/14;
+                                border-bottom-right-radius: 8.5rem/14;
+                            }
+                        }
+                    }
+
+                    .active {
+                        background-color: #f4fbff;
+
+                        h5 {
+                            color: #005b94;
+                        }
+                    }
+                }
+            }
+
+            .topic-content {
+                width           : 95%;
+                margin          : auto;
+                border-radius   : 20rem/14;
+                box-shadow      : 0 4rem/14 24rem/14 0 rgba(0, 0, 0, 0.07);
+                background-color: #ffffff;
+
+                h5 {
+                    font-family: Gilroy-Regular;
+                    font-size  : 16rem/14;
+                    color      : #92929d;
+                }
+
+                a {
+                    text-decoration: none;
+                }
+
+                .img-topic {
+                    width : 98%;
+                    height: auto;
+
+                    img {
+                        max-width : 100%;
+                        max-height: 500px;
+                        width     : auto;
+                    }
+                }
+
+                .unit-name {
+                    font-family: Gilroy-Regular;
+                    font-size  : 16rem/14;
+                    color      : #005b94;
+                }
+
+                .topic-describe {
+                    width           : 98%;
+                    border-radius   : 20rem/14;
+                    border          : 1rem/14 solid #f1f1f5;
+                    background-color: #fafafb;
+                    margin-top      : 32rem/14;
+
+                    h5 {
+                        font-family: Poppins-SemiBold;
+                        font-size  : 14rem/14;
+                        color      : #44444f;
+                    }
+
+                    p {
+                        font-family: Gilroy-Regular;
+                        font-size  : 14rem/14;
+                        // color: #92929d;
+                    }
+                }
+
+                .topic-warning {
+                    img {
+                        filter       : invert(53%) sepia(80%) saturate(4751%) hue-rotate(336deg) brightness(104%) contrast(91%);
+                        margin-bottom: 2px;
+                    }
+
+                    p {
+                        font-family: Poppins-Regular;
+                        font-size  : 14rem/14;
+                        color      : #f45447;
+                    }
+                }
+
+                .learning {
+                    font-family     : Poppins-SemiBold;
+                    font-size       : 15.2rem/14;
+                    color           : white;
+                    border-radius   : 19rem/14;
+                    background-color: #005b94;
+                    padding         : 13.5rem/14 61.25rem/14;
+                    margin-top      : 24rem/14;
+                }
+
+                .result {
+                    font-family     : Poppins-SemiBold;
+                    font-size       : 15.2rem/14;
+                    color           : white;
+                    border-radius   : 19rem/14;
+                    background-color: #ffc542;
+                    padding         : 13.5rem/14 41.58rem/14;
+                    margin-top      : 24rem/14;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 240px) {}
+
+@media screen and (min-width: 320px) {}
+
+@media screen and (min-width: 480px) {}
+
+@media screen and (min-width: 768px) {
+    .home-page {
+        .content {
+            .course-info {
+                .course-list {
+                    width: 100%;
+                }
+
+                .topic-content {
+                    width: 100%;
+                }
+
+                .height-content {
+                    height                    : calc(1114px - 70.5px - 21px);
+                    border-bottom-left-radius : unset !important;
+                    border-bottom-right-radius: unset !important;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {}
+
+@media screen and (min-width: 1280px) {}
+
+@media screen and (min-width: 1440px) {}
+
+@media screen and (min-width: 1600px) {
+    .home-page {
+        .content {
+            .current-achievement {
+                .rank-info {
+
+                    .e-coin,
+                    .rank {
+                        .number {
+                            padding-left: 21rem/14;
+                        }
+
+                        .shop-coin {
+                            top  : -18%;
+                            right: 10%;
+                        }
+                    }
+                }
+            }
+
+            .course-info {
+                #content-tabs {
+                    .content-tab {
+                        .extra-courses {
+                            .courses-hub {
+                                max-height: 150px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .lession-class {
+                .current-lession {
+                    .lession-unit {
+                        img {
+                            top: 15%;
+                        }
+
+                        .progress-item {}
+                    }
+                }
+            }
+        }
+    }
+}

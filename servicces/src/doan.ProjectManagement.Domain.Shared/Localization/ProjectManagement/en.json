@@ -96,6 +96,7 @@
     "StudentGroupManagement": "Student group management",
     "Level": "Level",
     "PickUpone": "Pick up one",
-    "AddAGroupStudent": "Add a group student"
+    "AddAGroupStudent": "Add a group student",
+    "StudentGroup": "Student group"
   }
 }
