@@ -35,6 +35,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "doan.ProjectManagement.Http
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "doan.ProjectManagement.HttpApi.Host", "src\doan.ProjectManagement.HttpApi.Host\doan.ProjectManagement.HttpApi.Host.csproj", "{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{0D3341EE-B2A7-4C30-925E-034B90846B03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "doan.Shared", "doan.Shared\doan.Shared.csproj", "{B372F3A5-75EA-4969-B117-9EDCE8839D48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +101,10 @@ Global
 		{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B372F3A5-75EA-4969-B117-9EDCE8839D48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B372F3A5-75EA-4969-B117-9EDCE8839D48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B372F3A5-75EA-4969-B117-9EDCE8839D48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B372F3A5-75EA-4969-B117-9EDCE8839D48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,6 +124,7 @@ Global
 		{E512F4D9-9375-480F-A2F6-A46509F9D824} = {04DBDB01-70F4-4E06-B468-8F87850B22BE}
 		{EF480016-9127-4916-8735-D2466BDBC582} = {04DBDB01-70F4-4E06-B468-8F87850B22BE}
 		{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
+		{B372F3A5-75EA-4969-B117-9EDCE8839D48} = {0D3341EE-B2A7-4C30-925E-034B90846B03}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28315BFD-90E7-4E14-A2EA-F3D23AF4126F}
