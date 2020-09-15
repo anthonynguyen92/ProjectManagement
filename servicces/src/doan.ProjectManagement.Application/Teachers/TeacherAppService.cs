@@ -2,6 +2,7 @@
 using doan.ProjectManagement.Localization;
 using doan.ProjectManagement.Permissions;
 using doan.ProjectManagement.Teachers.Dto;
+using doan.Shared.Eto;
 using Microsoft.Extensions.Localization;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Domain.Repositories;
+using Volo.Abp.EventBus.Distributed;
 
 namespace doan.ProjectManagement.Teachers
 {
@@ -19,12 +21,15 @@ namespace doan.ProjectManagement.Teachers
     {
         private readonly IStringLocalizer<ProjectManagementResource> _localizable;
         private readonly IRepository<TeacherInformationGroup, Guid> _teacherInformationGroupsRepository;
+        private readonly IDistributedEventBus _distributedEventBus;
         public TeacherAppService(IRepository<Teacher, Guid> repository,
             IStringLocalizer<ProjectManagementResource> localizable,
-            IRepository<TeacherInformationGroup, Guid> teacherInformationGroupsRepository) : base(repository)
+            IRepository<TeacherInformationGroup, Guid> teacherInformationGroupsRepository,
+            IDistributedEventBus distributedEventBus) : base(repository)
         {
             _localizable = localizable;
             _teacherInformationGroupsRepository = teacherInformationGroupsRepository;
+            _distributedEventBus = distributedEventBus;
         }
 
         protected override string CreatePolicyName { get; set; } = ProjectManagementPermissions.Teacher.Create;
@@ -53,7 +58,12 @@ namespace doan.ProjectManagement.Teachers
                 throw new UserFriendlyException(_localizable["PhoneNumberShouldBeUnique"]);
             }
 
-            return await base.Create(input);
+            var teacher = await base.Create(input);
+
+            await _distributedEventBus.PublishAsync(new TeacherEto(teacher.Id, teacher.Name,
+                teacher.PhoneNumber, teacher.Email, CurrentTenant.Id));
+
+            return teacher;
         }
 
         public async Task<List<GetTeacherDto>> getTeacherRegisted(Guid projectInformationId)
