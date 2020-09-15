@@ -7,7 +7,7 @@
 
           <mat-expansion-panel-header>
             <mat-panel-title>
-              {{"::StudentGroupInformation" | abpLocalization}}
+              {{"ProjectManagement::StudentGroupInformation" | abpLocalization}}
             </mat-panel-title>
           </mat-expansion-panel-header>
 
@@ -18,7 +18,7 @@
                 <form>
                   <mat-form-field class='w-100'>
                     <mat-label>
-                      {{'::Filter' | abpLocalization}}
+                      {{'ProjectManagement::Filter' | abpLocalization}}
                     </mat-label>
                     <input matInput autocomplete="off" [(ngModel)]="filter" name="filter"
                       (keypress)="keyPressFilter($event)">
@@ -26,7 +26,7 @@
                   <div class="row">
                     <div class="col-md-12 text-right">
                       <button mat-raised-button color="primary" (click)="refresh()">
-                        <mat-icon>search</mat-icon>{{"::Search"|abpLocalization}}
+                        <mat-icon>search</mat-icon>{{"ProjectManagement::Search"|abpLocalization}}
                       </button>
                     </div>
                   </div>

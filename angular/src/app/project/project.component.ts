@@ -47,7 +47,7 @@ export class ProjectComponent extends AppBaseComponent implements OnInit {
       },
       columns: [
         {
-          title: this.l('::Actions'),
+          title: this.l('ProjectManagement::Actions'),
           width: '150px',
           data: 'id',
           orderable: false,
@@ -58,23 +58,23 @@ export class ProjectComponent extends AppBaseComponent implements OnInit {
           }
         },
         {
-          title: this.l('::ProjectName'),
+          title: this.l('ProjectManagement::ProjectName'),
           data: 'projectName'
         },
         {
-          title: this.l('::ProjectType'),
+          title: this.l('ProjectManagement::ProjectType'),
           data: 'type'
         },
         {
-          title: this.l('::LevelOfProject'),
+          title: this.l('ProjectManagement::LevelOfProject'),
           data: 'level'
         },
         {
-          title: this.l('::NumberOfTeamRegiste'),
+          title: this.l('ProjectManagement::NumberOfTeamRegiste'),
           data: 'numberOfTeamRegister',
         },
         {
-          title: this.l('::LimitSubscriptions'),
+          title: this.l('ProjectManagement::LimitSubscriptions'),
           data: 'limitSubscriptions'
         },
         {
@@ -117,7 +117,7 @@ export class ProjectComponent extends AppBaseComponent implements OnInit {
 
   toggleStatus(id: string) {
     this._projectService.toogletStatus(id).subscribe(() => {
-      this.notifySuccess('::UpdateSuccessfully');
+      this.notifySuccess('ProjectManagement::UpdateSuccessfully');
       this.refresh();
     })
   }
@@ -126,7 +126,7 @@ export class ProjectComponent extends AppBaseComponent implements OnInit {
     this.confirmationPopup(this.l('::WillBeDelete') + ' ' + input.projectName,
       this.l('::AreYouSure'), () => {
         this._projectService.deleteByid(input.id).subscribe(() => {
-          this.notifySuccess('::DeleteSuccessfully');
+          this.notifySuccess('ProjectManagement::DeleteSuccessfully');
           this.refresh();
         })
       })

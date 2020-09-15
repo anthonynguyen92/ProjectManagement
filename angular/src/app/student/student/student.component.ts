@@ -52,7 +52,7 @@ export class StudentComponent extends AppBaseComponent implements OnInit {
       },
       columns: [
         {
-          title: this.l('::Actions'),
+          title: this.l('ProjectManagement::Actions'),
           width: '150px',
           data: 'id',
           orderable: false,
@@ -62,19 +62,19 @@ export class StudentComponent extends AppBaseComponent implements OnInit {
           }
         },
         {
-          title: this.l('::Name'),
+          title: this.l('ProjectManagement::StudentName'),
           data: 'name',
         },
         {
-          title: this.l('::Faculty'),
+          title: this.l('ProjectManagement::Faculty'),
           data: 'faculty',
         },
         {
-          title: this.l('::Branch'),
+          title: this.l('ProjectManagement::Branch'),
           data: 'branch',
         },
         {
-          title: this.l('CourseYear'),
+          title: this.l('ProjectManagement::CourseYear'),
           data: 'courseYear',
         }
       ],
@@ -106,9 +106,9 @@ export class StudentComponent extends AppBaseComponent implements OnInit {
 
   delete(input: GetStudentDto) {
     this.confirmationPopup(this.l('::WillBeDelete') + ' ' + input.name,
-      this.l('::AreYouSure'), () => {
+      this.l('ProjectManagement::AreYouSure'), () => {
         this._studentService.deleteById(input.id).subscribe(() => {
-          this.notifySuccess('::DeleteSuccessfully');
+          this.notifySuccess('ProjectManagement::DeleteSuccessfully');
           this.refresh();
         })
       })

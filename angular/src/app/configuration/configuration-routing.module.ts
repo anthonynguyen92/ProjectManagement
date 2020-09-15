@@ -19,7 +19,7 @@ const routes = [
         component: SystemSettingComponent,
         data: {
           routes: {
-            name: 'SystemConfiguration::SystemSetting',
+            name: 'ProjectManagement::SystemSetting',
             requiredPolicy: SystemSettingPermission.Default
           } as ABP.Route
         }
@@ -29,7 +29,7 @@ const routes = [
         component: CreateOrEditSystemSettingComponent,
         data: {
           routes: {
-            name: 'SystemConfiguration::SystemSettingInformation',
+            name: 'ProjectManagement::SystemSettingInformation',
             requiredPolicy: SystemSettingPermission.Create
           } as ABP.Route
         }
@@ -39,7 +39,7 @@ const routes = [
         component: CreateOrEditSystemSettingComponent,
         data: {
           routes: {
-            name: 'SystemConfiguration::SystemSettingInformation',
+            name: 'ProjectManagement::SystemSettingInformation',
             requiredPolicy: SystemSettingPermission.Update
           } as ABP.Route
         }

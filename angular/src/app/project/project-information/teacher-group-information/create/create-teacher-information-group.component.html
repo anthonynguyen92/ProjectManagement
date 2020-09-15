@@ -3,17 +3,17 @@
     <div class="card main-content">
       <div class="header">
         <h2>
-          {{ '::TeacherInYourGroup' | abpLocalization }}
+          {{ 'ProjectManagement::TeacherInYourGroup' | abpLocalization }}
         </h2>
         <div class="buttonHeaderContainer">
           <button mat-button (click)="goBack()">
             <mat-icon>arrow_back_ios</mat-icon>
-            {{ '::Back' | abpLocalization }}
+            {{ 'ProjectManagement::Back' | abpLocalization }}
           </button>
           <button mat-flat-button color="primary" type="submit" [disabled]="editForm.form.invalid" (click)="save()"
             class="ml-3">
             <mat-icon>save</mat-icon>
-            {{ '::Save' | abpLocalization }}
+            {{ 'ProjectManagement::Save' | abpLocalization }}
           </button>
         </div>
       </div>
@@ -40,7 +40,7 @@
 
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
-                          <mat-label>{{"::SelectYourTeacher" | abpLocalization}}</mat-label>
+                          <mat-label>{{"ProjectManagement::SelectYourTeacher" | abpLocalization}}</mat-label>
                           <mat-select [(ngModel)]="teacher" name="teacher" required>
                             <mat-option *ngFor="let item of listTeacher" [value]="item">
                               {{item.name}}
@@ -52,7 +52,7 @@
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ '::Roles' | abpLocalization }}
+                            {{ 'ProjectManagement::Roles' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.roles" name="roles" maxlength="200" required>
                         </mat-form-field>
@@ -61,7 +61,7 @@
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ '::Description' | abpLocalization }}
+                            {{ 'ProjectManagement::Description' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.description" name="description" maxlength="200" required>
                         </mat-form-field>

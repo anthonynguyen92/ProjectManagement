@@ -38,13 +38,13 @@ export class CreateUpdateProjectComponent extends AppBaseComponent implements On
     }
 
     if (this.id) {
-      this.title = "Project Type Infor"
+      this.title = "ProjectTypeInfor"
       this._projectService.getbyId(this.id).subscribe(data => {
         this.vm = data;
       })
     }
     else {
-      this.title = "Create Project";
+      this.title = "CreateProject";
     }
   }
 
@@ -53,10 +53,10 @@ export class CreateUpdateProjectComponent extends AppBaseComponent implements On
       this.setBusy();
       this._projectService.saveById(this.vm).subscribe(() => {
         if (this.id) {
-          this.notifySuccess("::UpdateSuccessfully")
+          this.notifySuccess("ProjectManagement::UpdateSuccessfully")
         }
         else {
-          this.notifySuccess(this.l('::CreateSuccessfully'));
+          this.notifySuccess(this.l('ProjectManagement::CreateSuccessfully'));
         }
         this.goBack();
       }, () => {

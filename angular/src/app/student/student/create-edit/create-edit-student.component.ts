@@ -23,12 +23,12 @@ export class CreatOrEditStudentComponent extends AppBaseComponent implements OnI
 
   ngOnInit(): void {
     if (this.Id) {
-      this.title = "Student information";
+      this.title = "StudentInformation";
       this._studentService.getById(this.Id).subscribe(data => {
         this.vm = data;
       })
     } else {
-      this.title = "Add Student";
+      this.title = "AddStudent";
     }
   }
 
@@ -41,10 +41,10 @@ export class CreatOrEditStudentComponent extends AppBaseComponent implements OnI
       this.setBusy();
       this._studentService.saveByInput(this.vm).subscribe(() => {
         if (this.Id) {
-          this.notifySuccess('::UpdateSuccessfully');
+          this.notifySuccess('ProjectManagement::UpdateSuccessfully');
         }
         else {
-          this.notifySuccess(this.l('::CreateSuccessfully'));
+          this.notifySuccess(this.l('ProjectManagement::CreateSuccessfully'));
         }
         this.goBack();
       }, () => {

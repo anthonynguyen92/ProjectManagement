@@ -58,19 +58,19 @@ export class SystemSettingComponent extends AppBaseComponent implements OnInit {
                     }
                 },
                 {
-                    title: this.l('SystemConfiguration::Key'),
+                    title: this.l('ProjectManagement::Key'),
                     data: 'key'
                 },
                 {
-                    title: this.l('SystemConfiguration::Value'),
+                    title: this.l('ProjectManagement::Value'),
                     data: 'value'
                 },
                 {
-                    title: this.l('SystemConfiguration::Description'),
+                    title: this.l('ProjectManagement::Description'),
                     data: 'description'
                 },
                 {
-                    title: this.l('SystemConfiguration::ExpireDate'),
+                    title: this.l('ProjectManagement::ExpireDate'),
                     data: 'expireDate',
                     render: (data) => {
                         if (data) {
@@ -82,7 +82,7 @@ export class SystemSettingComponent extends AppBaseComponent implements OnInit {
                     }
                 },
                 {
-                    title: this.l('SystemConfiguration::Status'),
+                    title: this.l('ProjectManagement::Status'),
                     data: 'status',
                     render: (status) => {
                         return this.renderStatusToggle(status, !this.getGrantedPolicy(SystemSettingPermission.Update));
@@ -123,7 +123,7 @@ export class SystemSettingComponent extends AppBaseComponent implements OnInit {
         this.confirmationPopup(this.l('::WillBeDeleted') + ' ' + input.key,
             this.l('::AreYouSure'), () => {
                 this._systemsttingService.deleteById(input.id).subscribe(() => {
-                    this.notifySuccess(this.l('::DeleteSuccessfully'));
+                    this.notifySuccess(this.l('ProjectManagement::DeleteSuccessfully'));
                     this.refresh();
                 })
             })
@@ -131,7 +131,7 @@ export class SystemSettingComponent extends AppBaseComponent implements OnInit {
 
     toggleStatus(id: string){
         this._systemsttingService.toggleStatus(id).subscribe(()=>{
-            this.notifySuccess(this.l("SystemConfiguration::ChangeStatusSuccessfully"));
+            this.notifySuccess(this.l("ProjectManagement::ChangeStatusSuccessfully"));
         });
     }
 

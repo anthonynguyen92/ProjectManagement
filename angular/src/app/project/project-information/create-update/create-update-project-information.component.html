@@ -3,17 +3,17 @@
     <div class="card main-content">
       <div class="header">
         <h2>
-          {{ '::Teacher' | abpLocalization }}
+          {{ 'ProjectManagement::ProjectInformation' | abpLocalization }}
         </h2>
         <div class="buttonHeaderContainer">
           <button mat-button (click)="goBack()">
             <mat-icon>arrow_back_ios</mat-icon>
-            {{ '::Back' | abpLocalization }}
+            {{ 'ProjectManagement::Back' | abpLocalization }}
           </button>
           <button mat-flat-button color="primary" type="submit" [disabled]="editForm.form.invalid" (click)="save()"
             class="ml-3">
             <mat-icon>save</mat-icon>
-            {{ '::Save' | abpLocalization }}
+            {{ 'ProjectManagement::Save' | abpLocalization }}
           </button>
         </div>
       </div>
@@ -41,7 +41,7 @@
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ '::ProjectName' | abpLocalization }}
+                            {{ 'ProjectManagement::ProjectName' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.projectName" name="projectName" maxlength="200" disabled>
                         </mat-form-field>
@@ -49,7 +49,7 @@
 
                       <div class="col-md-6" [hidden]='id'>
                         <mat-form-field class="w-100">
-                          <mat-label>{{titleSelect | abpLocalization}}</mat-label>
+                          <mat-label>{{"ProjectManagement::PickUpone"   | abpLocalization}}</mat-label>
                           <mat-select [(ngModel)]="studentGroup" name="studentGroup" required>
                             <mat-option *ngFor="let item of studentGroups" [value]="item">
                               {{item.groupName}}
@@ -61,7 +61,7 @@
                       <div class="col-md-6" [hidden]='!id'>
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ '::StudentGroupName' | abpLocalization }}
+                            {{ 'ProjectManagement::StudentGroupName' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.studentGroupName" name="studentGroupName" maxlength="200"
                             [disabled]='id'>
@@ -71,7 +71,7 @@
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ '::EmailContact' | abpLocalization }}
+                            {{ 'ProjectManagement::EmailContact' | abpLocalization }}
                           </mat-label>
                           <input matInput [(ngModel)]="vm.emailContact" name="emailContact" maxlength="200" required
                             [disabled]='id'>
@@ -80,7 +80,7 @@
 
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
-                          <mat-label>{{'::StartDate' | abpLocalization}}
+                          <mat-label>{{'ProjectManagement::StartDate' | abpLocalization}}
                           </mat-label>
                           <input matInput [matDatepicker]="picker1" [(ngModel)]="vm.startDate" name="startDate"
                             required>
@@ -92,7 +92,7 @@
 
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
-                          <mat-label>{{'::ExpiredDate' | abpLocalization}}
+                          <mat-label>{{'ProjectManagement::expireDate' | abpLocalization}}
                           </mat-label>
                           <input matInput [matDatepicker]="picker" [(ngModel)]="vm.expiredDate" name="expiredDate">
                           <mat-datepicker-toggle matSuffix [for]="picker">
@@ -111,7 +111,7 @@
                       </div>
 
                       <mat-checkbox class="ml-3" matInput name="Status" [(ngModel)]="vm.status">
-                        {{'::Active' | abpLocalization}}
+                        {{'ProjectManagement::Active' | abpLocalization}}
                       </mat-checkbox>
 
                     </div>
@@ -125,4 +125,5 @@
     </div>
   </div>
 </form>
-<ft-teacher-information-group *ngIf="id" [ProjectInformationId]='id' [projectId]='projectId'></ft-teacher-information-group>
+<ft-teacher-information-group *ngIf="id" [ProjectInformationId]='id' [projectId]='projectId'>
+</ft-teacher-information-group>
