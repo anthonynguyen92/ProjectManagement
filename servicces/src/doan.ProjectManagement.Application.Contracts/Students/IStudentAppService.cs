@@ -10,5 +10,7 @@ namespace doan.ProjectManagements.Student
     {
 
         Task<GetStudentForEditDto> GetStudentByCode(string code);
+        Task<bool> ValidStudent(ValidStudentInputDto input);
+        Task<GetStudentDto> GetCurrentStudent();
     }
 }

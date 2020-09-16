@@ -1843,12 +1843,6 @@ namespace doan.ProjectManagement.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProjectId");
-
-                    b.HasIndex("StudentGroupId")
-                        .IsUnique()
-                        .HasFilter("[StudentGroupId] IS NOT NULL");
-
                     b.ToTable("ProjectInformation");
                 });
 
@@ -2571,21 +2565,10 @@ namespace doan.ProjectManagement.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("doan.ProjectManagement.Entities.ProjectInformation", b =>
-                {
-                    b.HasOne("doan.ProjectManagement.Entities.Project", "Project")
-                        .WithMany()
-                        .HasForeignKey("ProjectId");
-
-                    b.HasOne("doan.ProjectManagement.Entities.StudentGroup", "StudentGroup")
-                        .WithOne("ProjectInformation")
-                        .HasForeignKey("doan.ProjectManagement.Entities.ProjectInformation", "StudentGroupId");
-                });
-
             modelBuilder.Entity("doan.ProjectManagement.Entities.ProjectRequest", b =>
                 {
                     b.HasOne("doan.ProjectManagement.Entities.ProjectInformation", "ProjectInformation")
-                        .WithMany("Required")
+                        .WithMany()
                         .HasForeignKey("ProjectInformationId");
                 });
 

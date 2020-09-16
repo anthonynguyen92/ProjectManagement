@@ -1,0 +1,12 @@
+<li class="dropdown fix-margin">
+  <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+    <i class="{{currentLanguage.flagIcon}}" title="{{currentLanguage.displayName}}"></i>
+    {{currentLanguage.displayName}}
+    <b class="caret"></b>
+  </a>
+  <ul class="dropdown-menu fix-language">
+    <li *ngFor="let language of languages">
+      <a *ngIf="language.cultureName !== currentLanguage.cultureName" (click)="onChangeLang(language.cultureName)"><i class="{{language.flagIcon}}"></i> {{language.displayName}}</a>
+    </li>
+  </ul>
+</li>

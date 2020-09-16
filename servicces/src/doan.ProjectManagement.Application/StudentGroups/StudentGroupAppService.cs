@@ -20,10 +20,13 @@ namespace doan.ProjectManagement.StudentGroups
         protected override string GetListPolicyName { get; set; } = ProjectManagementPermissions.StudentGroup.Default;
         protected override string GetPolicyName { get; set; } = ProjectManagementPermissions.StudentGroup.Default;
         private readonly IRepository<ProjectInformation, Guid> _projectInformationRepository;
+        private readonly IRepository<StudentGroupInformation, Guid> _studentGroupInformation;
         public StudentGroupAppService(IRepository<StudentGroup, Guid> repository,
-            IRepository<ProjectInformation, Guid> projectInformationRepository) : base(repository)
+            IRepository<ProjectInformation, Guid> projectInformationRepository,
+            IRepository<StudentGroupInformation, Guid> studentGroupInformation) : base(repository)
         {
             _projectInformationRepository = projectInformationRepository;
+            _studentGroupInformation = studentGroupInformation;
         }
 
         protected override IQueryable<StudentGroup> CreateFilteredQuery(GetStudentGroupForInputDto input)
@@ -46,6 +49,17 @@ namespace doan.ProjectManagement.StudentGroups
                 .Where(x => !listOfGroupRegisted.Contains(x.Id))
                 .ToList();
             return ObjectMapper.Map<List<StudentGroup>, List<StudentGroupDto>>(listByStudentDontRegister);
+        }
+
+        public async Task<List<StudentGroupDto>> GetStudentForUI(StudentGroupDtoForStudentSite input)
+        {
+            var getStudentGroupsId = _studentGroupInformation
+                .Where(x => x.StudentId == input.StudentId)
+                .Select(x => x.StudentGroupId)
+                .ToHashSet();
+
+            var listGroups = Repository.Where(x => getStudentGroupsId.Contains(x.Id)).ToList();
+            return ObjectMapper.Map<List<StudentGroup>, List<StudentGroupDto>>(listGroups);
         }
     }
 }

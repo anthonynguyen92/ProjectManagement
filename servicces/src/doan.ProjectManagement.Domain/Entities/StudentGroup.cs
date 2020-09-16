@@ -10,6 +10,5 @@ namespace doan.ProjectManagement.Entities
         public string GroupName { get; set; }
         public int? NumberOfMenber { get; set; }
         public ICollection<StudentGroupInformation> StudentGroupInformation { get; set; }
-        public ProjectInformation ProjectInformation { get; set; }
     }
 }
