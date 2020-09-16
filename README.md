@@ -27,7 +27,7 @@ Open Powershell and run. Make sure you installed enviroment for this source.
 dotnet ef database update
 ```
 
-#2.  Run Project
+# 2.  Run Project
 
 Go to aspnet-core\src\StudentManagementProject.HttpApi.Host
 ```sh
