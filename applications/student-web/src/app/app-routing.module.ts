@@ -9,16 +9,23 @@ const routes: Routes = [
     path: '',
     canActivate: [AuthGuard],
     children: [
-
+      {
+        path: 'student',
+        loadChildren: () => import('./student-group/student-group.module').then(m => m.StudentGroupModule),
+      },
       {
         path: 'home',
         loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
       },
       {
+        path: 'project',
+        loadChildren: () => import('./project/project.module').then(m => m.ProjectModule),
+      },
+      {
         path: '',
         redirectTo: '/home',
         pathMatch: 'full'
-      }
+      },
     ]
   },
   {

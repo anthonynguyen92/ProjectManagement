@@ -107,4 +107,12 @@ export class AppBaseComponent {
     const disabled = isDisabled ? ' disabled' : '';
     return `<div class="status-switch"><input type="checkbox" id="${switchId}" class="status-switch__input switch-status${cssClass ?? ''}"${checked}${disabled}><label for="${switchId}" class="status-switch__label"></label></div>`;
   }
+
+  protected renderButtonView(isGrandView: boolean): string {
+    if (isGrandView) {
+        return '<button class="btn btn-sm btn-light waves-effect btn-view" title="'
+            + this.l('::View') + '"><i class="material-icons">visibility</i></button>';
+    }
+    return '';
+}
 }

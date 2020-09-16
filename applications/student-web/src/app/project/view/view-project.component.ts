@@ -1,0 +1,50 @@
+import { Component, Injector, OnInit } from '@angular/core';
+import { appModuleAnimation } from 'src/app/shared/animations/routerTransition';
+import { AppBaseComponent } from 'src/app/shared/app.base.component';
+import { CreateOrUpdateProjectDto, Level, ProjectType } from 'src/app/shared/services/project/project/models';
+import { ProjectService } from 'src/app/shared/services/project/project/services';
+
+@Component({
+  templateUrl: './view-project.component.html',
+  animations: [appModuleAnimation()]
+})
+
+export class ViewProjectComponent extends AppBaseComponent implements OnInit {
+
+  get id(): string {
+    return this.getParamId('id');
+  }
+
+  public vm: CreateOrUpdateProjectDto = new CreateOrUpdateProjectDto();
+
+  public listLevel: number[] = [];
+  public listType: number[] = [];
+  constructor(injector: Injector,
+    private readonly _projectService: ProjectService) {
+    super(injector)
+  }
+
+  ngOnInit(): void {
+    for (const item in ProjectType) {
+      if (!isNaN(parseInt(item))) {
+        this.listType.push(parseInt(item));
+      }
+    }
+
+    for (const item in Level) {
+      if (!isNaN(parseInt(item))) {
+        this.listLevel.push(parseInt(item));
+      }
+    }
+    this.title = "ProjectTypeInfor"
+    this._projectService.getbyId(this.id).subscribe(data => {
+      this.vm = data;
+    })
+
+  }
+
+  goBack() {
+    this.redirect('project/list');
+  }
+}
+

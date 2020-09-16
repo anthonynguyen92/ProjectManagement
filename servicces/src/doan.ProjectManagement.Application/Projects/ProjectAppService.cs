@@ -27,13 +27,13 @@ namespace doan.ProjectManagement.Projects
 
         protected override IQueryable<Project> CreateFilteredQuery(GetProjectForInputDto input)
         {
-            //return Repository.WhereIf(!string.IsNullOrWhiteSpace(input.Filter),
-            //    x => x.ProjectName.Contains(input.Filter));
-            return base.CreateFilteredQuery(input);
+            return Repository.WhereIf(!string.IsNullOrWhiteSpace(input.Filter),
+                x => x.ProjectName.Contains(input.Filter));
         }
 
         public async Task ToggleStatus(Guid id)
         {
+            await CheckUpdatePolicyAsync();
             var data = await Repository.GetAsync(id);
             if (data == null) throw new UserFriendlyException();
             data.Status = data.Status == Status.Active ? Status.Inactive : Status.Active;

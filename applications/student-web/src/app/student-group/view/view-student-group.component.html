@@ -1,0 +1,65 @@
+<div class="row clearfix sticky-toolbar" [@routerTransition]>
+  <div class="col-12">
+    <div class="card main-content">
+      <div class="header">
+        <h2>
+          {{ 'ProjectManagement::GroupStudent' | abpLocalization }}
+        </h2>
+        <div class="buttonHeaderContainer">
+          <button mat-button (click)="goBack()">
+            <mat-icon>arrow_back_ios</mat-icon>
+            {{ 'ProjectManagement::Back' | abpLocalization }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form #editForm="ngForm">
+  <div class="row clearfix" [@routerTransition]>
+    <div class="col-12">
+      <div class="card">
+        <mat-accordion>
+          <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{'ProjectManagement::' + title | abpLocalization}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="main-content">
+              <div class="body table-responsive">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="row">
+
+                      <div class="col-md-6">
+                        <mat-form-field class="w-100">
+                          <mat-label>
+                            {{ 'ProjectManagement::GroupName' | abpLocalization }}
+                          </mat-label>
+                          <input matInput [(ngModel)]="vm.groupName" name="name" maxlength="200" [disabled]="id">
+                        </mat-form-field>
+                      </div>
+
+                      <div class="col-md-6">
+                        <mat-form-field class="w-100">
+                          <mat-label>
+                            {{ 'ProjectManagement::NumberOfMember' | abpLocalization }}
+                          </mat-label>
+                          <input matInput [(ngModel)]="vm.numberOfMenber" name="numberOfMenber" type="number" [disabled]="id">
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+  </div>
+</form>
+
+<student-group-information *ngIf="id" [studentGroupId]="id"></student-group-information>

@@ -1,0 +1,46 @@
+<div class="row clearfix" [@routerTransition]>
+  <div class="col-12">
+    <div class="card">
+
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{"ProjectManagement::TeacherSupportList" | abpLocalization}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div class="main-content">
+
+            <div class="row clearfix">
+              <div class="col-md-12">
+                <form>
+                  <mat-form-field class='w-100'>
+                    <mat-label>
+                      {{'ProjectManagement::Filter' | abpLocalization}}
+                    </mat-label>
+                    <input matInput autocomplete="off" [(ngModel)]="filter" name="filter"
+                      (keypress)="keyPressFilter($event)">
+                  </mat-form-field>
+                  <div class="row">
+                    <div class="col-md-12 text-right">
+                      <button mat-raised-button color="primary" (click)="refresh()">
+                        <mat-icon>search</mat-icon>{{"::Search"|abpLocalization}}
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <ft-datatables #teacherInformationGroup [dtOptions]="dtOptions"></ft-datatables>
+            <!-- *abpPermission="creatingPermission" -->
+          </div>
+
+        </mat-expansion-panel>
+      </mat-accordion>
+
+    </div>
+  </div>
+</div>

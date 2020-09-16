@@ -3,17 +3,12 @@
     <div class="card main-content">
       <div class="header">
         <h2>
-          {{ 'ProjectManagement::StudentGroupInformation' | abpLocalization }}
+          {{ 'ProjectManagement::Project' | abpLocalization }}
         </h2>
         <div class="buttonHeaderContainer">
           <button mat-button (click)="goBack()">
             <mat-icon>arrow_back_ios</mat-icon>
             {{ 'ProjectManagement::Back' | abpLocalization }}
-          </button>
-          <button mat-flat-button color="primary" type="submit" [disabled]="editForm.form.invalid" (click)="save()"
-            class="ml-3">
-            <mat-icon>save</mat-icon>
-            {{ 'ProjectManagement::Save' | abpLocalization }}
           </button>
         </div>
       </div>
@@ -38,52 +33,61 @@
                   <div class="col-sm-12">
                     <div class="row">
 
-                      <div class="col-md-6" [hidden]="isHidenStudent">
+                      <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ 'ProjectManagement::StudentName' | abpLocalization }}
+                            {{ 'ProjectManagement::ProjectName' | abpLocalization }}
                           </mat-label>
-                          <input matInput [(ngModel)]="vm.studentName" name="studentName" [disabled]="vm.id">
-                        </mat-form-field>
-                      </div>
-
-                      <div class="col-md-6" [hidden]="isHidenInformation">
-                        <mat-form-field class="w-100">
-                          <mat-label>
-                            {{ 'ProjectManagement::StudentCode' | abpLocalization }}
-                          </mat-label>
-                          <input matInput [(ngModel)]="studentCode" name="studentCode" type="number" required>
+                          <input matInput [(ngModel)]="vm.projectName" name="projectName" maxlength="200" autofocus
+                            required [disabled]='id'>
                         </mat-form-field>
                       </div>
 
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ 'ProjectManagement::Position' | abpLocalization }}
+                            {{ 'ProjectManagement::NumberOfTeamRegister' | abpLocalization }}
                           </mat-label>
-                          <input matInput [(ngModel)]="vm.position" minlength="2" maxlength="20" name="position"
-                            required>
+                          <input matInput [(ngModel)]="vm.numberOfTeamRegister" name="NumberOfTeamRegister"
+                            type="number" maxlength="200" required [disabled]='id'>
                         </mat-form-field>
                       </div>
 
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
                           <mat-label>
-                            {{ 'ProjectManagement::Roles' | abpLocalization }}
+                            {{ 'ProjectManagement::LimitSubscriptions' | abpLocalization }}
                           </mat-label>
-                          <input matInput [(ngModel)]="vm.roles" name="roles" minlength="2" maxlength="20" required>
+                          <input matInput [(ngModel)]="vm.limitSubscriptions" name="limitSubscriptions" type="number"
+                            maxlength="200" required [disabled]='id'>
                         </mat-form-field>
                       </div>
 
                       <div class="col-md-6">
                         <mat-form-field class="w-100">
-                          <mat-label>
-                            {{ 'ProjectManagement::Description' | abpLocalization }}
-                          </mat-label>
-                          <input matInput [(ngModel)]="vm.description" maxlength="200" minlength="5" name="description" required>
+                          <mat-select placeholder="{{ 'ProjectManagement::Type' | abpLocalization }}"
+                            [(ngModel)]="vm.type" name="Type" required>
+                            <mat-option *ngFor="let item of listType" [value]="item">
+                              {{ 'ProjectManagement::Type_' + item | abpLocalization}}
+                            </mat-option>
+                          </mat-select>
                         </mat-form-field>
                       </div>
 
+                      <div class="col-md-6">
+                        <mat-form-field class="w-100">
+                          <mat-select placeholder="{{ 'ProjectManagement::Level' | abpLocalization }}"
+                            [(ngModel)]="vm.level" name="classType" required>
+                            <mat-option *ngFor="let item of listLevel" [value]="item">
+                              {{ 'ProjectManagement::Level_' + item | abpLocalization}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+
+                      <mat-checkbox class="ml-3" matInput name="Status" [(ngModel)]="vm.status">
+                        {{'ProjectManagement::Active' | abpLocalization}}
+                      </mat-checkbox>
                     </div>
                   </div>
                 </div>
@@ -95,3 +99,5 @@
     </div>
   </div>
 </form>
+
+<ft-project-information *ngIf="id" [projectId]="id"></ft-project-information>

@@ -14,7 +14,7 @@ export class ProjectService {
   }
 
   deleteByid(id: string): Observable<void> {
-    return this.restService.request({ url: `/api/projectmanagement/project/${id}]`, method: 'DELETE' }, { apiName: this.apiName });
+    return this.restService.request({ url: `/api/projectmanagement/project/${id}`, method: 'DELETE' }, { apiName: this.apiName });
   }
 
   saveById(body: CreateOrUpdateProjectDto): Observable<string> {

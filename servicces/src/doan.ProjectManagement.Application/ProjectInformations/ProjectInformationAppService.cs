@@ -50,28 +50,5 @@ namespace doan.ProjectManagement.ProjectInformations
             if (data == null) throw new UserFriendlyException();
             data.Status = data.Status == Status.Active ? Status.Inactive : Status.Active;
         }
-
-        protected override async Task<ProjectInformation> Create(CreateUpdateProjectInformationDto input)
-        {
-            await CheckCreatePolicyAsync();
-            var project = await _projectRepository.GetAsync(input.ProjectId.Value);
-
-            if (project.NumberOfTeamRegister >= project.LimitSubscriptions)
-            {
-                throw new UserFriendlyException(_localizer["LimitNumberOfRegisterToThisProject"]);
-            }
-
-            project.NumberOfTeamRegister++;
-
-            var entity = MapToEntity(input);
-
-            await _projectRepository.UpdateAsync(project);
-
-            await Repository.InsertAsync(entity);
-
-            await CurrentUnitOfWork.SaveChangesAsync();
-
-            return entity;
-        }
     }
 }
