@@ -5,7 +5,7 @@ import { DataTablesOptions, FtDatatablesComponent } from 'src/app/shared/compone
 import { GetProjectInformationDto, GetProjectInformationForinputDto } from 'src/app/shared/services/project/project-information/models';
 import { ProjectInformationService } from 'src/app/shared/services/project/project-information/services/project-information.service';
 import { ProjectInformationPermission } from 'src/app/shared/services/project/project-permission-name';
-
+import * as moment from 'moment';
 @Component({
   selector: 'ft-project-information',
   templateUrl: './project-information.component.html',
@@ -73,11 +73,19 @@ export class ProjectInformationComponent extends AppBaseComponent implements OnI
         },
         {
           title: this.l('ProjectManagement::StartDate'),
-          data: 'startDate'
+          data: 'startDate',
+          render: (data) => {
+            if (!data) return '';
+            return moment(data).format('DD-MM-YYYY');
+          }
         },
         {
           title: this.l('ProjectManagement::ExpireDate'),
-          data: 'expiredDate'
+          data: 'expiredDate',
+          render: (data) => {
+            if (!data) return '';
+            return moment(data).format('DD-MM-YYYY');
+          }
         },
         {
           title: this.l('ProjectManagement::Status'),

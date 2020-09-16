@@ -75,5 +75,18 @@ namespace doan.ProjectManagement.ProjectInformations
 
             return entity;
         }
+
+        public override Task Delete(Guid id)
+        {
+            var projectInformation = Repository.Where(x => x.Id == id).FirstOrDefault();
+
+            var project = _projectRepository.Where(x => x.Id == projectInformation.ProjectId).FirstOrDefault();
+
+            project.NumberOfTeamRegister--;
+
+            _projectRepository.UpdateAsync(project);
+
+            return base.Delete(id);
+        }
     }
 }

@@ -94,7 +94,7 @@
                         <mat-form-field class="w-100">
                           <mat-label>{{'ProjectManagement::expireDate' | abpLocalization}}
                           </mat-label>
-                          <input matInput [matDatepicker]="picker" [(ngModel)]="vm.expiredDate" name="expiredDate">
+                          <input matInput [matDatepicker]="picker" [(ngModel)]="vm.expiredDate" name="expiredDate" required >
                           <mat-datepicker-toggle matSuffix [for]="picker">
                           </mat-datepicker-toggle>
                           <mat-datepicker #picker></mat-datepicker>
@@ -106,7 +106,7 @@
                           <mat-label>
                             {{ '::Source' | abpLocalization }}
                           </mat-label>
-                          <input matInput [(ngModel)]="vm.source" name="Source" maxlength="200">
+                          <input matInput [(ngModel)]="vm.source" name="Source" maxlength="200" required>
                         </mat-form-field>
                       </div>
 
