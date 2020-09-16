@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 using doan.ProjectManagement.EntityFrameworkCore;
@@ -10,9 +11,10 @@ using doan.ProjectManagement.EntityFrameworkCore;
 namespace doan.ProjectManagement.Migrations
 {
     [DbContext(typeof(ProjectManagementMigrationsDbContext))]
-    partial class ProjectManagementMigrationsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200916201742_fix-studentservice")]
+    partial class fixstudentservice
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1843,6 +1845,10 @@ namespace doan.ProjectManagement.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("StudentGroupId")
+                        .IsUnique()
+                        .HasFilter("[StudentGroupId] IS NOT NULL");
+
                     b.ToTable("ProjectInformation");
                 });
 
@@ -2563,6 +2569,13 @@ namespace doan.ProjectManagement.Migrations
                         .HasForeignKey("TenantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("doan.ProjectManagement.Entities.ProjectInformation", b =>
+                {
+                    b.HasOne("doan.ProjectManagement.Entities.StudentGroup", null)
+                        .WithOne("ProjectInformation")
+                        .HasForeignKey("doan.ProjectManagement.Entities.ProjectInformation", "StudentGroupId");
                 });
 
             modelBuilder.Entity("doan.ProjectManagement.Entities.ProjectRequest", b =>

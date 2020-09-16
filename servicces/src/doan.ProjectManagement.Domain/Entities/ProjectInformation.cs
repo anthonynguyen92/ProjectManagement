@@ -9,12 +9,8 @@ namespace doan.ProjectManagement.Entities
 {
     public class ProjectInformation : FullAuditedAggregateRoot<Guid>
     {
-        public Project Project { get; set; }
-        [ForeignKey("ProjectId")]
         public Guid? ProjectId { get; set; }
         public string ProjectName { get; set; }
-        public StudentGroup StudentGroup { get; set; }
-        [ForeignKey("StudentGroupId")]
         public Guid? StudentGroupId { get; set; }
         public string StudentGroupName { get; set; }
         public DateTime? StartDate { get; set; }
@@ -23,6 +19,5 @@ namespace doan.ProjectManagement.Entities
         public double? Mark { get; set; }
         public string Source { get; set; }
         public Status Status { get; set; }
-        public ICollection<ProjectRequest> Required { get; set; }
     }
 }

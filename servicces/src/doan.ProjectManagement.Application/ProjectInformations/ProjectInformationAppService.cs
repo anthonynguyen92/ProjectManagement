@@ -6,6 +6,7 @@ using doan.ProjectManagement.Permissions;
 using doan.ProjectManagement.ProjectInformations.Dto;
 using Microsoft.Extensions.Localization;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories;
@@ -26,12 +27,15 @@ namespace doan.ProjectManagement.ProjectInformations
 
         private readonly IRepository<Project, Guid> _projectRepository;
         private readonly IStringLocalizer<ProjectManagementResource> _localizer;
+        private readonly IRepository<StudentGroupInformation, Guid> _studentGroupInformation;
         public ProjectInformationAppService(IRepository<ProjectInformation, Guid> repository,
             IStringLocalizer<ProjectManagementResource> localizer,
-            IRepository<Project, Guid> projectRepository) : base(repository)
+            IRepository<Project, Guid> projectRepository,
+            IRepository<StudentGroupInformation, Guid> studentGroupInformation) : base(repository)
         {
             _localizer = localizer;
             _projectRepository = projectRepository;
+            _studentGroupInformation = studentGroupInformation;
 
         }
 
@@ -49,6 +53,27 @@ namespace doan.ProjectManagement.ProjectInformations
             var data = await Repository.GetAsync(Id);
             if (data == null) throw new UserFriendlyException();
             data.Status = data.Status == Status.Active ? Status.Inactive : Status.Active;
+        }
+        protected override async Task<ProjectInformation> Create(CreateUpdateProjectInformationDto input)
+        {
+            await CheckCreatePolicyAsync();
+
+            var isLimited = _projectRepository.Where(x => x.Id == input.ProjectId).FirstOrDefault();
+            isLimited.NumberOfTeamRegister++;
+            if (isLimited.NumberOfTeamRegister > isLimited.LimitSubscriptions)
+            {
+                throw new UserFriendlyException("LimitedForSubscription");
+            }
+
+            var entity = MapToEntity(input);
+
+            await _projectRepository.UpdateAsync(isLimited);
+
+            await Repository.InsertAsync(entity);
+
+            await CurrentUnitOfWork.SaveChangesAsync();
+
+            return entity;
         }
     }
 }

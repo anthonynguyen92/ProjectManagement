@@ -4,6 +4,7 @@ using doan.ProjectManagement.Enum;
 using doan.ProjectManagement.Permissions;
 using doan.ProjectManagement.Projects.Dto;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories;
@@ -20,9 +21,15 @@ namespace doan.ProjectManagement.Projects
         protected override string GetListPolicyName { get; set; } = ProjectManagementPermissions.Project.Delete;
         protected override string GetPolicyName { get; set; } = ProjectManagementPermissions.Project.Delete;
         protected override string UpdatePolicyName { get; set; } = ProjectManagementPermissions.Project.Update;
-        public ProjectAppService(IRepository<Project, Guid> repository) : base(repository)
-        {
 
+        private readonly IRepository<StudentGroupInformation, Guid> _studentGroupRepository;
+        private readonly IRepository<ProjectInformation, Guid> _projectInformation;
+        public ProjectAppService(IRepository<Project, Guid> repository,
+            IRepository<StudentGroupInformation, Guid> studentGroupRepository,
+            IRepository<ProjectInformation, Guid> projectInformation) : base(repository)
+        {
+            _studentGroupRepository = studentGroupRepository;
+            _projectInformation = projectInformation;
         }
 
         protected override IQueryable<Project> CreateFilteredQuery(GetProjectForInputDto input)
@@ -43,6 +50,27 @@ namespace doan.ProjectManagement.Projects
         {
             input.NumberOfTeamRegister = 0;
             return base.Create(input);
+        }
+
+        public async Task<List<ProjectDto>> getAllByStudentId(Guid studentId)
+        {
+            var currentStudentGroupInformation = _studentGroupRepository
+                                .Where(x => x.StudentId == studentId)
+                                .Select(x => x.StudentGroupId)
+                                .ToHashSet();
+
+            var projectInformationOfStudent = _projectInformation
+                                .Where(x => currentStudentGroupInformation.Contains(x.StudentGroupId))
+                                .Select(x => x.ProjectId)
+                                .ToHashSet();
+
+            var currentProjectOfStudent = Repository
+                                .Where(x => projectInformationOfStudent.Contains(x.Id))
+                                .ToHashSet()
+                                .ToList();
+
+            return ObjectMapper.Map<List<Project>, List<ProjectDto>>(currentProjectOfStudent);
+            ;
         }
     }
 }

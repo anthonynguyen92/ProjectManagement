@@ -5,6 +5,7 @@ import { DataTablesOptions, FtDatatablesComponent } from '../shared/components/f
 import { ProjectPermission } from '../shared/services/project/project-permission-name';
 import { GetProjectDto, GetProjectForInputDto } from '../shared/services/project/project/models';
 import { ProjectService } from '../shared/services/project/project/services';
+import { StudentService } from '../shared/services/student/services';
 
 @Component({
   templateUrl: './project.component.html',
@@ -18,7 +19,8 @@ export class ProjectComponent extends AppBaseComponent implements OnInit {
   @ViewChild('project', { static: false }) project: FtDatatablesComponent;
 
   constructor(injector: Injector,
-    private readonly _projectService: ProjectService) {
+    private readonly _projectService: ProjectService,
+    private readonly _studentService: StudentService) {
     super(injector)
   }
 
@@ -36,13 +38,15 @@ export class ProjectComponent extends AppBaseComponent implements OnInit {
         inputFilter.skipCount = skipCount;
         inputFilter.sorting = sorting;
 
-        this._projectService.getListByPage(inputFilter).subscribe(result => {
-          callBack({
-            data: result.items,
-            recordsTotal: result.totalCount,
-            recordsFiltered: result.totalCount
-          })
-        }, () => this.clearBusy(), () => this.clearBusy())
+        this._studentService.getCurrentUser().subscribe(data => {
+          this._projectService.getAllByStudentId(data.id).subscribe(result => {
+            callBack({
+              data: result,
+              recordsFiltered: result.totalCount,
+              recordsTotal: result.totalCount,
+            })
+          }, () => this.clearBusy(), () => this.clearBusy())
+        })
       },
       columns: [
         {
