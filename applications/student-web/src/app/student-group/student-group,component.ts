@@ -44,10 +44,13 @@ export class StudentGroupComponent extends AppBaseComponent implements OnInit {
           inputFilter.sorting = sorting;
           inputFilter.studentId = data.id;
           this._studentGroupService.getGroupOfStudent(inputFilter).subscribe(result => {
+            let count = 0;
+            result.forEach(x => count++);
+
             callBack({
               data: result,
-              recordsFiltered: result.totalCount,
-              recordsTotal: result.totalCount
+              recordsFiltered: count,
+              recordsTotal: count
             });
           }, () => this.clearBusy(), () => this.clearBusy())
         })

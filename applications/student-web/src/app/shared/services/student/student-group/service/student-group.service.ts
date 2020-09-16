@@ -43,7 +43,7 @@ export class StudentGroupService {
       { apiName: this.apiName });
   }
 
-  getGroupOfStudent(params = {} as GetStudentGroupForUx): Observable<PagedResultDto<GetStudentGroupDto>> {
+  getGroupOfStudent(params = {} as GetStudentGroupForUx): Observable<GetStudentGroupDto[]> {
     return this.restService.request({ url: `/api/projectmanagement/studentGroup/studentForUI`, params, method: 'GET' },
       { apiName: this.apiName });
   }

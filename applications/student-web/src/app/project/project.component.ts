@@ -40,10 +40,14 @@ export class ProjectComponent extends AppBaseComponent implements OnInit {
 
         this._studentService.getCurrentUser().subscribe(data => {
           this._projectService.getAllByStudentId(data.id).subscribe(result => {
+            let count = 0;
+            result.forEach(x => {
+              count++;
+            })
             callBack({
               data: result,
-              recordsFiltered: result.totalCount,
-              recordsTotal: result.totalCount,
+              recordsFiltered: count,
+              recordsTotal: count,
             })
           }, () => this.clearBusy(), () => this.clearBusy())
         })

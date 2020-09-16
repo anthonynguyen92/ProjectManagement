@@ -39,7 +39,7 @@ export class ProjectService {
       { apiName: this.apiName });
   }
 
-  getAllByStudentId(id: string): Observable<PagedResultDto<GetProjectDto>> {
+  getAllByStudentId(id: string): Observable<GetProjectDto[]> {
     return this.restService.request({ url: `/api/projectmanagement/project/getAllByStudentId/${id}`, method: 'GET' },
       { apiName: this.apiName });
   }
