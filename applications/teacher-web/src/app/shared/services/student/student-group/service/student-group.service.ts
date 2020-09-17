@@ -2,6 +2,7 @@ import { RestService, PagedResultDto } from '@abp/ng.core';
 import { Injectable } from "@angular/core";
 import { CreateOrEditStudentGroupDto, GetStudentGroupForEditDto, GetStudentGroupDto, GetStudentGroupForInputDto } from '../models';
 import { Observable } from 'rxjs';
+import { GetStudentGroupForUx } from '../models/student-group-for-ux';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,11 @@ export class StudentGroupService {
 
   getListGroupOfStudentnotRegister(): Observable<GetStudentGroupDto[]> {
     return this.restService.request({ url: '/api/projectmanagement/studentGroup/byStudentInGroupForProject', method: 'GET' },
+      { apiName: this.apiName });
+  }
+
+  getGroupOfStudent(params = {} as GetStudentGroupForUx): Observable<GetStudentGroupDto[]> {
+    return this.restService.request({ url: `/api/projectmanagement/studentGroup/studentForUI`, params, method: 'GET' },
       { apiName: this.apiName });
   }
 }

@@ -13,7 +13,7 @@ export class ProjectInformationService {
   constructor(private readonly restService: RestService) { }
 
   toggleStatus(id: string): Observable<void> {
-    return this.restService.request({ url: `/api/projectmanagement/projectInformation/toggleStatus/${id}`, method: 'POST' },
+    return this.restService.request({ url: `/api/projectmanagement/projectInformation/${id}/toggleStatus`, method: 'POST' },
       { apiName: this.apiName });
   }
 

@@ -23,18 +23,27 @@ export class StudentService {
   }
 
   saveByInput(body: CreateUpdateStudentDto): Observable<string> {
-    return this.restService.request({ url: '/api/projectmanagement/student/save', body, method: 'POST' }, { apiName: this.apiName });
+    return this.restService.request({ url: '/api/projectmanagement/student/save', body, method: 'POST' },
+      { apiName: this.apiName });
   }
 
   getListPagedByInput(params = {} as GetStudentInputDto): Observable<PagedResultDto<GetStudentDto>> {
-    return this.restService.request({ url: '/api/projectmanagement/student/paged', params, method: 'GET' }, { apiName: this.apiName });
+    return this.restService.request({ url: '/api/projectmanagement/student/paged', params, method: 'GET' },
+      { apiName: this.apiName });
   }
 
   getAll(): Observable<GetStudentDto[]> {
-    return this.restService.request({ url: '/api/projectmanagement/student', method: 'GET' }, { apiName: this.apiName });
+    return this.restService.request({ url: '/api/projectmanagement/student', method: 'GET' },
+      { apiName: this.apiName });
   }
 
   getByCode(code: string): Observable<GetStudentForEditDto> {
-    return this.restService.request({ url: `/api/projectmanagement/student/studentByCode?code=${code}`, method: 'GET', }, { apiName: this.apiName });
+    return this.restService.request({ url: `/api/projectmanagement/student/studentByCode?code=${code}`, method: 'GET', },
+      { apiName: this.apiName });
+  }
+
+  getCurrentUser(): Observable<GetStudentDto> {
+    return this.restService.request({ url: '/api/projectmanagement/student/currentStudent', method: 'GET' },
+      { apiName: this.apiName });
   }
 }
