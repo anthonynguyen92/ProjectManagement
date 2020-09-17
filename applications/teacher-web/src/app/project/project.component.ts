@@ -5,7 +5,6 @@ import { DataTablesOptions, FtDatatablesComponent } from '../shared/components/f
 import { ProjectPermission } from '../shared/services/project/project-permission-name';
 import { GetProjectDto, GetProjectForInputDto } from '../shared/services/project/project/models';
 import { ProjectService } from '../shared/services/project/project/services';
-import { StudentService } from '../shared/services/student/services';
 
 @Component({
   templateUrl: './project.component.html',
@@ -15,12 +14,12 @@ import { StudentService } from '../shared/services/student/services';
 export class ProjectComponent extends AppBaseComponent implements OnInit {
 
   public filter: string;
+  public readonly CreatePermission: string = ProjectPermission.Create;
   public dtOptions: DataTablesOptions;
   @ViewChild('project', { static: false }) project: FtDatatablesComponent;
 
   constructor(injector: Injector,
-    private readonly _projectService: ProjectService,
-    private readonly _studentService: StudentService) {
+    private readonly _projectService: ProjectService) {
     super(injector)
   }
 
@@ -38,19 +37,13 @@ export class ProjectComponent extends AppBaseComponent implements OnInit {
         inputFilter.skipCount = skipCount;
         inputFilter.sorting = sorting;
 
-        this._studentService.getCurrentUser().subscribe(data => {
-          this._projectService.getAllByStudentId(data.id).subscribe(result => {
-            let count = 0;
-            result.forEach(x => {
-              count++;
-            })
-            callBack({
-              data: result,
-              recordsFiltered: count,
-              recordsTotal: count,
-            })
-          }, () => this.clearBusy(), () => this.clearBusy())
-        })
+        this._projectService.getListByPage(inputFilter).subscribe(result => {
+          callBack({
+            data: result.items,
+            recordsTotal: result.totalCount,
+            recordsFiltered: result.totalCount
+          })
+        }, () => this.clearBusy(), () => this.clearBusy())
       },
       columns: [
         {
@@ -58,8 +51,9 @@ export class ProjectComponent extends AppBaseComponent implements OnInit {
           width: '150px',
           data: 'id',
           orderable: false,
-          render: () => {
-            return this.renderButtonView(this.getGrantedPolicy(ProjectPermission.Default));
+          visible: this.getGrantedPolicy(ProjectPermission.Update),
+          render: (data, type, row) => {
+            return this.renderButtonEdit(this.getGrantedPolicy(ProjectPermission.Update))
           }
         },
         {
@@ -93,17 +87,48 @@ export class ProjectComponent extends AppBaseComponent implements OnInit {
       rowCallback: (row: Node, data: GetProjectDto, index: number) => {
         if (data) {
 
-          $('.btn-view', row).unbind('click');
-          $('.btn-view', row).bind('click', () => {
-            this.view(data.id);
+          $('.btn-edit', row).unbind('click');
+          $('.btn-edit', row).bind('click', () => {
+            this.edit(data.id);
+          });
+
+          $('.btn-delete', row).unbind('click');
+          $('.btn-delete', row).bind('click', () => {
+            this.delete(data);
+          });
+
+          $('.switch-status', row).unbind('click');
+          $('.switch-status', row).bind('click', () => {
+            this.toggleStatus(data.id);
           });
         }
       }
     }
   }
 
-  view(id: string) {
+  edit(id: string) {
     this.redirect('project/list/edit/' + id);
+  }
+
+  create() {
+    this.redirect('project/list/create');
+  }
+
+  toggleStatus(id: string) {
+    this._projectService.toogletStatus(id).subscribe(() => {
+      this.notifySuccess('ProjectManagement::UpdateSuccessfully');
+      this.refresh();
+    })
+  }
+
+  delete(input: GetProjectDto) {
+    this.confirmationPopup(this.l('::WillBeDelete') + ' ' + input.projectName,
+      this.l('::AreYouSure'), () => {
+        this._projectService.deleteByid(input.id).subscribe(() => {
+          this.notifySuccess('ProjectManagement::DeleteSuccessfully');
+          this.refresh();
+        })
+      })
   }
 
   refresh() {

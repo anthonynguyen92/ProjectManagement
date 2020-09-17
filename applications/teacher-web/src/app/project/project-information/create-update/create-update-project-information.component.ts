@@ -9,11 +9,11 @@ import { GetStudentGroupDto } from 'src/app/shared/services/student/student-grou
 import { StudentGroupService } from 'src/app/shared/services/student/student-group/service';
 
 @Component({
-  templateUrl: './view-project-information.component.html',
+  templateUrl: './create-update-project-information.component.html',
   animations: [appModuleAnimation()],
 })
 
-export class ViewProjectInformationComponent extends AppBaseComponent implements OnInit {
+export class CreateUpdateProjectInformationComponent extends AppBaseComponent implements OnInit {
 
   get id(): string {
     return this.getParamId('id');
@@ -43,21 +43,38 @@ export class ViewProjectInformationComponent extends AppBaseComponent implements
       this.vm.projectId = project.id;
       this.vm.projectName = project.projectName;
     })
+    if (this.id) {
+      this.title = "InformationProjectStudent";
+      this._projectInformationService.getById(this.id).subscribe(data => {
+        this.vm = data;
 
-    this.title = "InformationProjectStudent";
-    this._projectInformationService.getById(this.id).subscribe(data => {
-      this.vm = data;
+        this.studentGroup = this.studentGroups.find(x => {
+          x.id === this.vm.studentGroupId
+        });
 
-      this.studentGroup = this.studentGroups.find(x => {
-        x.id === this.vm.studentGroupId
-      });
-
-    })
-
+      })
+    }
+    else {
+      this.title = "AddAGroupStudent"
+    }
   }
 
   goBack() {
     this.redirect('project/list/edit/' + this.projectId);
   }
 
+  save() {
+    this.setBusy();
+    this.vm.studentGroupId = this.studentGroup.id;
+    this.vm.studentGroupName = this.studentGroup.groupName;
+    this._projectInformationService.saveByInput(this.vm).subscribe(() => {
+      if (this.id) {
+        this.notifySuccess("ProjectManagement::UpdateSuccessfully")
+      }
+      else {
+        this.notifySuccess(this.l('ProjectManagement::CreateSuccessfully'));
+      }
+      this.goBack();
+    }, () => this.clearBusy(), () => this.clearBusy())
+  }
 }

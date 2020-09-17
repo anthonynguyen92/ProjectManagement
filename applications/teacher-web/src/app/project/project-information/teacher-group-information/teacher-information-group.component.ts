@@ -8,7 +8,7 @@ import { TeacherInformationGroupService } from 'src/app/shared/services/teacher/
 
 @Component({
   selector: 'ft-teacher-information-group',
-  templateUrl: './teacher-group-information.component.html',
+  templateUrl: './teacher-information-group.component.html',
   animations: [appModuleAnimation()]
 })
 
@@ -58,6 +58,16 @@ export class TeacherInformationGroupComponent extends AppBaseComponent implement
       },
       columns: [
         {
+          title: this.l('ProjectManagement::Actions'),
+          width: '150px',
+          data: 'id',
+          orderable: false,
+          visible: this.getGrantedPolicy(TeacherInformationGroupPermission.Delete),
+          render: (data, type, row) => {
+            return this.renderButtonDelete(this.getGrantedPolicy(TeacherInformationGroupPermission.Delete));
+          }
+        },
+        {
           title: this.l('ProjectManagement::TeacherName'),
           data: 'teacherName',
         },
@@ -71,13 +81,31 @@ export class TeacherInformationGroupComponent extends AppBaseComponent implement
         }
       ],
       rowCallback: (row: Node, data: GetTeacherInformationGroupDto, index: number) => {
+        $('.btn-delete', row).unbind('click');
+        $('.btn-delete', row).bind('click', () => {
+          this.delete(data);
+        });
 
       }
     }
   }
 
+  delete(input: GetTeacherInformationGroupDto) {
+    this.confirmationPopup(this.l('::WillBeDelete') + ' ' + input.teacherName,
+      this.l('ProjectManagement::AreYouSure'), () => {
+        this._teacherInformationGroupService.deleteById(input.id).subscribe(() => {
+          this.notifySuccess('ProjectManagement::DeleteSuccessfully');
+          this.refresh();
+        })
+      })
+  }
+
   refresh() {
     this.teacherInformationGroup.reload();
+  }
+
+  create() {
+    this.redirect(`project/list/teacher/create/${this.id}/${this.pId}`);
   }
 
   keyPressFilter(event: KeyboardEvent) {

@@ -9,5 +9,6 @@ namespace doan.ProjectManagement.Teachers
         Guid, CreateUpdateTeacherDto, GetTeacherDto, GetTeacherForEditDto, GetTeacherInput>
     {
         Task<List<GetTeacherDto>> getTeacherRegisted(Guid projectInformationId);
+        Task<TeacherDto> GetCurrentTeacherUser();
     }
 }

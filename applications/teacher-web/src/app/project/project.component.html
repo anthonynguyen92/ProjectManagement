@@ -28,6 +28,11 @@
         <!--query end-->
 
         <ft-datatables #project [dtOptions]="dtOptions"></ft-datatables>
+
+        <button mat-mini-fab color="primary" *abpPermission="CreatePermission" class="btn-add-new pull-right"
+          (click)="create()">
+          <mat-icon>add</mat-icon>
+        </button>
       </div>
     </div>
   </div>

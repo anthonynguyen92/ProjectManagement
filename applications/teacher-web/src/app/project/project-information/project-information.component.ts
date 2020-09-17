@@ -6,6 +6,7 @@ import { GetProjectInformationDto, GetProjectInformationForinputDto } from 'src/
 import { ProjectInformationService } from 'src/app/shared/services/project/project-information/services/project-information.service';
 import { ProjectInformationPermission } from 'src/app/shared/services/project/project-permission-name';
 import * as moment from 'moment';
+
 @Component({
   selector: 'ft-project-information',
   templateUrl: './project-information.component.html',
@@ -58,9 +59,11 @@ export class ProjectInformationComponent extends AppBaseComponent implements OnI
           width: '150px',
           data: 'id',
           orderable: false,
-          visible: this.getGrantedPolicy(ProjectInformationPermission.Default),
-          render: () => {
-            return this.renderButtonView(this.getGrantedPolicy(ProjectInformationPermission.Default))
+          visible: this.getGrantedPolicy(ProjectInformationPermission.Update) ||
+            (this.getGrantedPolicy(ProjectInformationPermission.Delete)),
+          render: (data, type, row) => {
+            return this.renderButtonEditAndDelete(this.getGrantedPolicy(ProjectInformationPermission.Update),
+              this.getGrantedPolicy(ProjectInformationPermission.Delete))
           }
         },
         {
@@ -98,16 +101,30 @@ export class ProjectInformationComponent extends AppBaseComponent implements OnI
       rowCallback: (row: Node, data: GetProjectInformationDto, index: number) => {
         if (data) {
 
-          $('.btn-view', row).unbind('click');
-          $('.btn-view', row).bind('click', () => {
-            this.view(data.id);
+          $('.btn-edit', row).unbind('click');
+          $('.btn-edit', row).bind('click', () => {
+            this.edit(data.id);
+          });
+
+          $('.btn-delete', row).unbind('click');
+          $('.btn-delete', row).bind('click', () => {
+            this.delete(data);
+          });
+
+          $('.switch-status', row).unbind('click');
+          $('.switch-status', row).bind('click', () => {
+            this.toggleStatus(data.id);
           });
         }
       }
     }
   }
 
-  view(idInfor: string) {
+  create() {
+    this.redirect(`project/list/information/create/${this.id}`);
+  }
+
+  edit(idInfor: string) {
     this.redirect(`project/list/information/edit/${this.id}/${idInfor}`);
   }
 
@@ -116,6 +133,16 @@ export class ProjectInformationComponent extends AppBaseComponent implements OnI
       this.notifySuccess('ProjectManagement::UpdateSuccessfully');
       this.refresh();
     })
+  }
+
+  delete(input: GetProjectInformationDto) {
+    this.confirmationPopup(this.l('::WillBeDelete') + ' ' + input.studentGroupName,
+      this.l('::AreYouSure'), () => {
+        this._projectInformationService.deleteById(input.id).subscribe(() => {
+          this.notifySuccess('ProjectManagement::DeleteSuccessfully');
+          this.refresh();
+        })
+      })
   }
 
   goBack() {

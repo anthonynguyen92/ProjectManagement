@@ -76,5 +76,11 @@ namespace doan.ProjectManagement.Teachers
 
             return ObjectMapper.Map<List<Teacher>, List<GetTeacherDto>>(getListTeacher);
         }
+
+        public async Task<TeacherDto> GetCurrentTeacherUser()
+        {
+            var user = Repository.Where(x => x.Email == CurrentUser.Email).FirstOrDefault();
+            return ObjectMapper.Map<Teacher, TeacherDto>(user);
+        }
     }
 }

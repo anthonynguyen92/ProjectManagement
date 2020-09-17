@@ -10,6 +10,10 @@
             <mat-icon>arrow_back_ios</mat-icon>
             {{ 'ProjectManagement::Back' | abpLocalization }}
           </button>
+          <button mat-flat-button color="primary" [disabled]="editForm.form.invalid" (click)="save()" class="ml-3">
+            <mat-icon>save</mat-icon>
+            {{ 'ProjectManagement::Save' | abpLocalization }}
+          </button>
         </div>
       </div>
     </div>
@@ -38,7 +42,7 @@
                           <mat-label>
                             {{ 'ProjectManagement::GroupName' | abpLocalization }}
                           </mat-label>
-                          <input matInput [(ngModel)]="vm.groupName" name="name" maxlength="200" [disabled]="id">
+                          <input matInput [(ngModel)]="vm.groupName" name="name" maxlength="200" autofocus required>
                         </mat-form-field>
                       </div>
 
@@ -47,7 +51,7 @@
                           <mat-label>
                             {{ 'ProjectManagement::NumberOfMember' | abpLocalization }}
                           </mat-label>
-                          <input matInput [(ngModel)]="vm.numberOfMenber" name="numberOfMenber" type="number" [disabled]="id">
+                          <input matInput [(ngModel)]="vm.numberOfMenber" name="numberOfMenber" type="number" required>
                         </mat-form-field>
                       </div>
                     </div>

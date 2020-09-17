@@ -1,11 +1,10 @@
-
 import { StudentGroupPermission, StudentGroupInformationPermission } from '../shared/services/student/student-permission-name';
 import { ABP } from '@abp/ng.core';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { StudentGroupComponent } from './student-group,component';
-import { ViewStudentGroupComponent } from './view/view-student-group.component';
-import { ViewStudentGroupInformationComponent } from './student-group-information/view/view-student-group-information.component';
+import { StudentGroupComponent } from './student-group.component';
+import { CreateUpadteStudentGroupInformationComponent } from './student-group-information/create-edit/create-edit-student-group-information.component';
+import { CreateOrUpdateStudentGroupComponent } from './create-update/create-update-student-group.component';
 
 const routes = [
   {
@@ -22,24 +21,22 @@ const routes = [
         },
       },
       {
+        path: 'create',
+        component: CreateOrUpdateStudentGroupComponent,
+      },
+      {
         path: 'edit/:id',
-        component: ViewStudentGroupComponent,
-        data: {
-          routes: {
-            name: ':Information',
-            requiredPolicy: StudentGroupPermission.Default
-          } as ABP.Route
-        },
+        component: CreateOrUpdateStudentGroupComponent,
+      },
+
+      // student group information
+      {
+        path: 'information/create/:studentGroupId',
+        component: CreateUpadteStudentGroupInformationComponent,
       },
       {
         path: 'information/edit/:studentGroupId/:id',
-        component: ViewStudentGroupInformationComponent,
-        data: {
-          routes: {
-            name: ':Information',
-            requiredPolicy: StudentGroupInformationPermission.Default
-          } as ABP.Route
-        },
+        component: CreateUpadteStudentGroupInformationComponent,
       },
     ]
   }

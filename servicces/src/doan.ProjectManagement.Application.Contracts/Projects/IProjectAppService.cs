@@ -10,5 +10,7 @@ namespace doan.ProjectManagement.Projects
     {
         Task ToggleStatus(Guid id);
         Task<List<ProjectDto>> getAllByStudentId(Guid studentId);
+
+        Task<List<ProjectDto>> getAllByTeacher(Guid teacherId);
     }
 }

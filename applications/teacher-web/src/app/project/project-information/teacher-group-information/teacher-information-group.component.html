@@ -36,6 +36,10 @@
 
             <ft-datatables #teacherInformationGroup [dtOptions]="dtOptions"></ft-datatables>
             <!-- *abpPermission="creatingPermission" -->
+            <button mat-mini-fab color="primary" class="btn-add-new pull-right"
+              (click)="create()">
+              <mat-icon>add</mat-icon>
+            </button>
           </div>
 
         </mat-expansion-panel>
@@ -44,3 +48,4 @@
     </div>
   </div>
 </div>
+

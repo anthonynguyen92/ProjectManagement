@@ -37,21 +37,19 @@ export class StudentGroupComponent extends AppBaseComponent implements OnInit {
       ajaxFunction: (sorting, skipCount, maxResutlCout, callBack) => {
 
         this._studentService.getCurrentUser().subscribe(data => {
-          const inputFilter = new GetStudentGroupForUx();
+
+          const inputFilter = new GetStudentGroupForInputDto();
           inputFilter.filter = this.filter;
           inputFilter.maxResultCount = maxResutlCout;
           inputFilter.skipCount = skipCount;
           inputFilter.sorting = sorting;
-          inputFilter.studentId = data.id;
-          this._studentGroupService.getGroupOfStudent(inputFilter).subscribe(result => {
-            let count = 0;
-            result.forEach(x => count++);
 
+          this._studentGroupService.getAllByList(inputFilter).subscribe(result => {
             callBack({
-              data: result,
-              recordsFiltered: count,
-              recordsTotal: count
-            });
+              data: result.items,
+              recordsFiltered: result.totalCount,
+              recordsTotal: result.totalCount,
+            })
           }, () => this.clearBusy(), () => this.clearBusy())
         })
       },
@@ -61,9 +59,11 @@ export class StudentGroupComponent extends AppBaseComponent implements OnInit {
           width: '100px',
           data: 'id',
           orderable: false,
-          visible: this.getGrantedPolicy(StudentGroupPermission.Default),
+          visible: this.getGrantedPolicy(StudentGroupPermission.Update)
+            || this.getGrantedPolicy(StudentGroupPermission.Delete),
           render: () => {
-            return this.renderButtonView(this.getGrantedPolicy(StudentGroupPermission.Default));
+            return this.renderButtonEditAndDelete(this.getGrantedPolicy(StudentGroupPermission.Update),
+              this.getGrantedPolicy(StudentGroupPermission.Create));
           }
         },
         {
@@ -78,16 +78,21 @@ export class StudentGroupComponent extends AppBaseComponent implements OnInit {
       rowCallback: (row: Node, data: GetStudentGroupDto, index: number) => {
         if (data) {
 
-          $('.btn-view', row).unbind('click');
-          $('.btn-view', row).bind('click', () => {
-            this.view(data.id);
+          $('.btn-edit', row).unbind('click');
+          $('.btn-edit', row).bind('click', () => {
+            this.edit(data.id);
+          });
+
+          $('.btn-delete', row).unbind('click');
+          $('.btn-delete', row).bind('click', () => {
+            this.delete(data);
           });
         }
       }
     }
   }
 
-  view(id: string) {
+  edit(id: string) {
     this.redirect(`student/group-student/edit/${id}`);
   }
 
@@ -95,10 +100,18 @@ export class StudentGroupComponent extends AppBaseComponent implements OnInit {
     this.studentGroup.reload();
   }
 
+  delete(input: GetStudentGroupDto) {
+
+  }
+
   keyPressFilter(event: KeyboardEvent) {
     if (event.keyCode === 13) {
       this.refresh();
     }
+  }
+
+  create() {
+    this.redirect('student/group-student/create');
   }
 
 }

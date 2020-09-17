@@ -5,11 +5,11 @@ import { CreateOrUpdateProjectDto, Level, ProjectType } from 'src/app/shared/ser
 import { ProjectService } from 'src/app/shared/services/project/project/services';
 
 @Component({
-  templateUrl: './view-project.component.html',
+  templateUrl: './create-update-project.component.html',
   animations: [appModuleAnimation()]
 })
 
-export class ViewProjectComponent extends AppBaseComponent implements OnInit {
+export class CreateUpdateProjectComponent extends AppBaseComponent implements OnInit {
 
   get id(): string {
     return this.getParamId('id');
@@ -36,11 +36,35 @@ export class ViewProjectComponent extends AppBaseComponent implements OnInit {
         this.listLevel.push(parseInt(item));
       }
     }
-    this.title = "ProjectTypeInfor"
-    this._projectService.getbyId(this.id).subscribe(data => {
-      this.vm = data;
-    })
 
+    if (this.id) {
+      this.title = "ProjectTypeInfor"
+      this._projectService.getbyId(this.id).subscribe(data => {
+        this.vm = data;
+      })
+    }
+    else {
+      this.title = "CreateProject";
+    }
+  }
+
+  save() {
+    if (this.vm) {
+      this.setBusy();
+      this._projectService.saveById(this.vm).subscribe(() => {
+        if (this.id) {
+          this.notifySuccess("ProjectManagement::UpdateSuccessfully")
+        }
+        else {
+          this.notifySuccess(this.l('ProjectManagement::CreateSuccessfully'));
+        }
+        this.goBack();
+      }, () => {
+        this.clearBusy();
+      }, () => {
+        this.clearBusy();
+      })
+    }
   }
 
   goBack() {

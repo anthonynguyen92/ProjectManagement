@@ -22,6 +22,10 @@ const routes: Routes = [
         loadChildren: () => import('./project/project.module').then(m => m.ProjectModule),
       },
       {
+        path: 'teacher',
+        loadChildren: () => import('./teacher/teacher.module').then(m => m.TeacherModule),
+      },
+      {
         path: '',
         redirectTo: '/home',
         pathMatch: 'full'

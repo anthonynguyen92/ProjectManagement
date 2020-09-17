@@ -30,6 +30,10 @@
               </div>
             </div>
             <ft-datatables #studentGroupInformation [dtOptions]="dtOptions"></ft-datatables>
+            <button mat-mini-fab color="primary" class="btn-add-new pull-right" *abpPermission="creatingPermission"
+              (click)="create()">
+              <mat-icon>add</mat-icon>
+            </button>
           </div>
         </mat-expansion-panel>
       </mat-accordion>

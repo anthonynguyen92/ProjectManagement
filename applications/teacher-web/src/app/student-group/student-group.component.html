@@ -28,6 +28,10 @@
         <!--query end-->
 
         <ft-datatables #studentGroup [dtOptions]="dtOptions"></ft-datatables>
+
+        <button mat-mini-fab color="primary" class="btn-add-new pull-right" (click)="create()">
+          <mat-icon>add</mat-icon>
+        </button>
       </div>
     </div>
   </div>

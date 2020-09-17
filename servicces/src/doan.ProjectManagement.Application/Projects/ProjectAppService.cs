@@ -12,7 +12,8 @@ using Volo.Abp.Domain.Repositories;
 namespace doan.ProjectManagement.Projects
 {
     public class ProjectAppService : BaseAppService<
-        Project, Guid, CreateUpdateProjectDto, GetProjectDto, GetProjectForEditDto, GetProjectForInputDto>,
+        Project, Guid, CreateUpdateProjectDto, GetProjectDto, 
+        GetProjectForEditDto, GetProjectForInputDto>,
         IProjectAppService
     {
 
@@ -24,12 +25,15 @@ namespace doan.ProjectManagement.Projects
 
         private readonly IRepository<StudentGroupInformation, Guid> _studentGroupRepository;
         private readonly IRepository<ProjectInformation, Guid> _projectInformation;
+        private readonly IRepository<Teacher, Guid> _teacher;
         public ProjectAppService(IRepository<Project, Guid> repository,
             IRepository<StudentGroupInformation, Guid> studentGroupRepository,
-            IRepository<ProjectInformation, Guid> projectInformation) : base(repository)
+            IRepository<ProjectInformation, Guid> projectInformation,
+            IRepository<Teacher, Guid> teacher) : base(repository)
         {
             _studentGroupRepository = studentGroupRepository;
             _projectInformation = projectInformation;
+            _teacher = teacher;
         }
 
         protected override IQueryable<Project> CreateFilteredQuery(GetProjectForInputDto input)
@@ -71,6 +75,11 @@ namespace doan.ProjectManagement.Projects
 
             return ObjectMapper.Map<List<Project>, List<ProjectDto>>(currentProjectOfStudent);
             ;
+        }
+
+        public async Task<List<ProjectDto>> getAllByTeacher(Guid teacherId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

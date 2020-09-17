@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { RestService, PagedResultDto } from '@abp/ng.core';
 import { Observable } from 'rxjs';
-import { GetTeacherForEditDto, CreateOrEditTeacherDto, GetTeacherInputDto, GetTeacherDto } from '../models';
+import { GetTeacherForEditDto, CreateOrEditTeacherDto, GetTeacherInputDto, GetTeacherDto, TeacherDto } from '../models';
 
 @Injectable({ providedIn: 'root' })
 export class TeacherService {
@@ -37,4 +37,8 @@ export class TeacherService {
       { apiName: this.apiName });
   }
 
+  getCurretnTeacherUser(): Observable<TeacherDto> {
+    return this.restService.request({ url: "/api/projectmanagement/teacher/currentTeacherUser", method: 'GET' },
+      { apiName: this.apiName });
+  }
 }

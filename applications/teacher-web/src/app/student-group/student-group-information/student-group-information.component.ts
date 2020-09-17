@@ -58,7 +58,8 @@ export class StudentGroupInformationComponent extends AppBaseComponent implement
           data: 'id',
           orderable: false,
           render: () => {
-            return this.renderButtonView(this.getGrantedPolicy(StudentGroupInformationPermission.Default))
+            return this.renderButtonEditAndDelete(this.getGrantedPolicy(StudentGroupInformationPermission.Delete),
+              this.getGrantedPolicy(StudentGroupInformationPermission.Update))
           }
         },
         {
@@ -80,22 +81,40 @@ export class StudentGroupInformationComponent extends AppBaseComponent implement
       ],
       rowCallback: (row: Node, data: GetStudentGroupInformationDto, index: number) => {
         if (data) {
-          $('.btn-view', row).unbind('click');
-          $('.btn-view', row).bind('click', () => {
-            this.view(data.id);
+          $('.btn-edit', row).unbind('click');
+          $('.btn-edit', row).bind('click', () => {
+            this.edit(data.id);
+          });
+
+          $('.btn-delete', row).unbind('click');
+          $('.btn-delete', row).bind('click', () => {
+            this.delete(data);
           });
         }
       }
     }
   }
 
-  view(idInfor: string) {
+  edit(idInfor: string) {
     this.redirect(`student/group-student/information/edit/${this.id}/${idInfor}`);
+
+  }
+
+  delete(input: GetStudentGroupInformationDto) {
+    this.setBusy();
+    this._groupInformationService.delete(input.id).subscribe(data => {
+
+      this.clearBusy();
+    }, () => this.clearBusy(), () => this.clearBusy())
 
   }
 
   goBack() {
     this.redirect(`student/group-student/edit/${this.id}`);
+  }
+
+  create() {
+    this.redirect(`student/group-student/information/create/${this.id}`);
   }
 
   refresh() {
