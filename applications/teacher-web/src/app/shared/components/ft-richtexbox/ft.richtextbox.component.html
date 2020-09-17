@@ -1,5 +1,0 @@
-<span>{{fieldname}} <span *ngIf="required !== undefined && required !== false" class="k-required">*</span></span>
-<span class="data-field" *ngIf="disabled">
-    <p [innerHTML]="value"></p>
-</span>
-<quill-editor class="data-field" *ngIf="!disabled" [(ngModel)]="value" name="editor" [readOnly]="readonly" [styles]="{height: heightValue}"></quill-editor>
