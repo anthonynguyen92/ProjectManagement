@@ -82,6 +82,18 @@ namespace doan.ProjectManagement.Permissions
             teacherInformationGroup.AddChild(ProjectManagementPermissions.TeacherInformationGroup.Delete,
                 L("Permission:Delete"));
             #endregion
+
+            #region Project Task
+            var projectTask = myGroup.AddPermission(ProjectManagementPermissions.ProjectTask.Default,
+                L("Permission:ProjectTask"));
+            teacherInformationGroup.AddChild(ProjectManagementPermissions.ProjectTask.Create,
+                L("Permission:Create"));
+            teacherInformationGroup.AddChild(ProjectManagementPermissions.ProjectTask.Update,
+                L("Permission:Update"));
+            teacherInformationGroup.AddChild(ProjectManagementPermissions.ProjectTask.Delete,
+                L("Permission:Delete"));
+            #endregion
+
         }
 
         private static LocalizableString L(string name)

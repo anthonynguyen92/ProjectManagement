@@ -57,6 +57,11 @@ namespace doan.ProjectManagement.EntityFrameworkCore
                 b.ToTable("TeacherInformationGroup");
                 b.ConfigureByConvention();
             });
+            builder.Entity<ProjectTask>(b =>
+            {
+                b.ToTable("ProjectTask");
+                b.ConfigureByConvention();
+            });
         }
     }
 }

@@ -14,3 +14,10 @@ export class ProjectInformationPermission {
   public static Delete = ProjectInformationPermission.Default + '.Delete';
 }
 
+export class ProjectTaskPermission {
+  public static Default = GroupName + '.ProjectTask';
+  public static Create = ProjectTaskPermission.Default + '.Create';
+  public static Update = ProjectTaskPermission.Default + '.Update';
+  public static Delete = ProjectTaskPermission.Default + '.Delete';
+}
+
