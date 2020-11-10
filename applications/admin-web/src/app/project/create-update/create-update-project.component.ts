@@ -17,6 +17,7 @@ export class CreateUpdateProjectComponent extends AppBaseComponent implements On
 
   public vm: CreateOrUpdateProjectDto = new CreateOrUpdateProjectDto();
 
+  public isHident: boolean = true;
   public listLevel: number[] = [];
   public listType: number[] = [];
   constructor(injector: Injector,
@@ -41,9 +42,11 @@ export class CreateUpdateProjectComponent extends AppBaseComponent implements On
       this.title = "ProjectTypeInfor"
       this._projectService.getbyId(this.id).subscribe(data => {
         this.vm = data;
+        this.isHident = false;
       })
     }
     else {
+      this.isHident = true;
       this.title = "CreateProject";
     }
   }

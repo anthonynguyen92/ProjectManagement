@@ -16,6 +16,7 @@ export class CreateOrUpdateStudentGroupComponent extends AppBaseComponent implem
   }
 
   public vm: CreateOrEditStudentGroupDto = new CreateOrEditStudentGroupDto();
+  public isCreate: boolean = false;
   constructor(injector: Injector,
     private readonly _studentGroupService: StudentGroupService) {
     super(injector)
@@ -31,6 +32,7 @@ export class CreateOrUpdateStudentGroupComponent extends AppBaseComponent implem
       })
     }
     else {
+      this.isCreate = true;
       this.title = "CreateaStudentGroup";
     }
   }

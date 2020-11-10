@@ -64,23 +64,8 @@ export class ManageUserComponent extends AppBaseComponent implements OnInit {
           data: 'userName'
         },
         {
-          title: this.l('AbpIdentity::DisplayName:Surname'),
-          data: 'surname'
-        },
-        {
           title: this.l('AbpIdentity::DisplayName:Email'),
           data: 'email'
-        },
-        {
-          title: this.l('AbpIdentity::DisplayName:PhoneNumber'),
-          data: 'phoneNumber'
-        },
-        {
-          title: this.l('::IsLockedOut'),
-          data: 'isLockedOut',
-          render: (status) => {
-            return this.renderStatusToggle(status, true);
-          }
         },
       ],
       rowCallback: (row: Node, data: Identity.UserItem, index: number) => {

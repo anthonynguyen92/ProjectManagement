@@ -61,10 +61,10 @@ export class StudentGroupComponent extends AppBaseComponent implements OnInit {
           title: this.l('ProjectManagement::GroupName'),
           data: 'groupName'
         },
-        {
-          title: this.l('ProjectManagement::NumberOfMember'),
-          data: 'numberOfMenber'
-        }
+        // {
+        //   title: this.l('ProjectManagement::NumberOfMember'),
+        //   data: 'numberOfMenber'
+        // }
       ],
       rowCallback: (row: Node, data: GetStudentGroupDto, index: number) => {
         if (data) {

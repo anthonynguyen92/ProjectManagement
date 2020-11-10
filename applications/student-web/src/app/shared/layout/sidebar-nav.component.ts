@@ -13,7 +13,7 @@ export class SideBarNavComponent extends AppBaseComponent {
 
   menuItems: MenuItem[] = [
     new MenuItem('ProjectManagement::Home', '', 'home', '/home'),
-    new MenuItem('ProjectManagement::Group', '', 'groups', '/student/group-student'),
+    new MenuItem('ProjectManagement::StudentGroup', '', 'groups', '/student/group-student'),
     new MenuItem('ProjectManagement::Project', '', 'view_list', '/project/list'),
 
   ];
